@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project kpf_version="3" id="7a223e76-ff72-dd42-8206-ad45d18d6d07" name="Test-Timer.kpf">
+<preference-set idref="7a223e76-ff72-dd42-8206-ad45d18d6d07">
+  <string id="import_type">useFolders</string>
+  <string id="import_exclude_matches">*.*~;*.bak;*.tmp;CVS;.#*;*.pyo;*.pyc;.svn;*%*;_build;blib;cover_db;Build;.DS_Store</string>
+  <boolean id="import_recursive">1</boolean>
+  <string id="import_include_matches"></string>
+  <boolean id="import_live">1</boolean>
+</preference-set>
+</project>
