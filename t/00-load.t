@@ -1,8 +1,8 @@
-#!perl -T
 
-use Test::More tests => 1;
+use Test::More tests => 2;
 
 BEGIN {
+	use_ok( 'Test::Timer::TimeoutException' );
 	use_ok( 'Test::Timer' );
 }
 
