@@ -12,6 +12,7 @@ my $builder = Module::Build->new(
         'Test::Builder' => 0, #core
         'Benchmark'     => 0, #core
         'Carp'          => 0, #core
+        'Error'         => 0, #core
     },
     build_requires => {
         'Test::More'          => 0, #core
