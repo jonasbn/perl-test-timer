@@ -1,6 +1,6 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.5 2007-03-05 21:17:44 jonasbn Exp $
+# $Id: Timer.pm,v 1.6 2007-03-05 21:27:26 jonasbn Exp $
 
 use warnings;
 use strict;
@@ -244,7 +244,12 @@ The documentation in this module describes version 0.01 of Test::Timer
     #Will fail after 5 (threshold) + 6 seconds (specified alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
 
+
 =head1 DESCRIPTION
+
+Test::Timer implements a set of test primitives to test and assert test times
+from bodies of code. The code is currently at the alpha stage and might change
+in the future.
 
 =head1 EXPORT
 
@@ -262,23 +267,34 @@ some Perl code, a threshold and a name for the test
 
 =head2 time_nok
 
-The is the inverted variant of timeok, it passes if the
-threshold is exceeded and fails if the benchmark of the
-body of code is within the specified threshold.
+The is the inverted variant of B<time_ok>, it passes if the threshold is
+exceeded and fails if the benchmark of the body of code is within the specified
+threshold.
 
 The API is the same as for L</time_ok>.
 
 =head2 time_atmost
 
+This method is just syntactic sugar for the first call variant of B<time_ok>
+
 =head2 time_atleast
 
+This method is just syntactic sugar for the first call variant of B<time_nok>
+
 =head2 time_between
+
+This method is just syntactic sugar for the secind call variant of B<time_ok>
 
 =head1 PRIVATE FUNCTIONS
 
 =head2 _benchmark
 
+This is the method doing the actual benchmark.
+
 =head2 _timestring2time
+
+This is the method extracts the seconds from benchmarks timestring and returns
+it.
 
 =head2 import
 
@@ -292,6 +308,9 @@ L<Test::Builder> object exposed in the specified way.
 
 =head1 DIAGNOSTICS
 
+All tests either fail or succeed, but a few exceptions are implemented, these
+are listed below.
+
 =over
 
 =item * 
@@ -300,11 +319,21 @@ L<Test::Builder> object exposed in the specified way.
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
+This module requires no special configuration or environment.
+
 =head1 DEPENDENCIES
 
 =over
 
+=item * L<Carp>
+
+=item * L<Benchmark>
+
 =item * L<Error>
+
+=item * L<Exporter>
+
+=item * L<Test::Builder>    
 
 =back
 
@@ -318,7 +347,7 @@ L<Test::Builder> object exposed in the specified way.
 
 =over
 
-=item *
+=item * Implement higher resolution for thresholds
 
 =back
 
