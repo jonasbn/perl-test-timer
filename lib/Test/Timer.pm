@@ -15,7 +15,7 @@ use lib qw(../../lib);
 use Test::Timer::TimeoutException;
 
 @ISA = qw(Exporter);
-@EXPORT = qw(time_ok time_nok);
+@EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
 my $Test = Test::Builder->new;
 
@@ -277,7 +277,7 @@ sub import {
 	$Test->exported_to($pack);
 	$Test->plan(@_);
 	
-	$self->export_to_level(1, $self, 'time_ok', 'time_nok');
+	$self->export_to_level(1, $self, @EXPORT);
 	
 	return;
 }
