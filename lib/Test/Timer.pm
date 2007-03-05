@@ -19,11 +19,11 @@ use Test::Timer::TimeoutException;
 
 my $Test = Test::Builder->new;
 
-my $alarm = 2;
+my $alarm = 2; #default alarm
 
 =head1 NAME
 
-Test::Timer - a module to test/assert reponsetimes
+Test::Timer - a module to test/assert reponse times
 
 =head1 VERSION
 
@@ -35,9 +35,34 @@ $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
+    use Test::Timer;
+    
+    time_ok( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
+
+    time_ok( sub { doYourStuffYouHave10Seconds(); }, 10, 'threshold of 10 seconds');
+
+    time_ok( sub { doYourStuffYouHave5-10Seconds(); }, [5, 10],
+        'lower threshold of 5 seconds and upper threshold of 10 seconds');
+
+
+    time_nok( sub { sleep(2); }, 1, 'threshold of one second');
+
+    time_nok( sub { sleep(2); }, [5, 10],
+        'lower threshold of 5 seconds and upper threshold of 10 seconds');
+
+    
+    #Will fail after 5 (threshold) + 2 seconds (default alarm)
+    time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
+
+    $Test::Timer::alarm = 6
+
+    #Will fail after 5 (threshold) + 6 seconds (specified alarm)
+    time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
+
+
 =head1 EXPORT
 
-time_ok
+L</time_ok> andn L</time_nok>
 
 =head1 FUNCTIONS
 
@@ -106,9 +131,11 @@ sub time_ok {
 
 =head2 time_nok
 
-The is the inverted variant of timeok, it passed if the
+The is the inverted variant of timeok, it passes if the
 threshold is exceeded and fails if the benchmark of the
-body of code is within the specified threshold
+body of code is within the specified threshold.
+
+The API is the same as for L</time_ok>.
 
 =cut
 
@@ -167,6 +194,37 @@ sub time_nok {
 	return $ok;    
 }
 
+=head2 time_atmost
+
+=cut
+
+sub time_atmost {
+    return time_ok(@_);
+}
+
+=head2 time_atleast
+
+=cut
+
+sub time_atleast {
+    return time_nok(@_);
+}
+
+=head2 time_between
+
+=cut
+
+sub time_between {
+    my ($code, $lowerthreshold, $upperthreshold, $name) = @_;
+    return time_ok($code, [$lowerthreshold, $upperthreshold], $name);
+}
+
+=head1 PRIVATE FUNCTIONS
+
+=head2 _benchmark
+
+=cut
+
 sub _benchmark {
     my ($code, $threshold, $name) = @_;
 	
@@ -193,6 +251,10 @@ sub _benchmark {
 	return $timestring;
 }
 
+=head2 _timestring2time
+
+=cut
+
 sub _timestring2time {
     my $timestring = shift;
     
@@ -200,6 +262,13 @@ sub _timestring2time {
 
     return $time;  
 }
+
+=head2 import
+
+Test::Builder required import to do some import hokus-pokus for the test methods
+exported from Test::Timer.
+
+=cut
 
 sub import {
 	my($self) = shift;
@@ -214,6 +283,9 @@ sub import {
 }
 
 =head2 builder
+
+Test::Builder required B<builder> to do some other hokus-pokus to get the
+L<Test::Builder> object exposed in the specified way.
 
 =cut
 
