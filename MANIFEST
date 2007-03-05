@@ -1,10 +1,21 @@
 Build.PL
 Changes
-MANIFEST
-META.yml # Will be created by "make dist"
-README
 lib/Test/Timer.pm
+lib/Test/Timer/TimeoutException.pm
+MANIFEST			This list of files
+META.yml
+README
 t/00-load.t
+t/_benchmark.t
 t/boilerplate.t
+t/critic.t
+t/kwalitee.t
 t/pod-coverage.t
 t/pod.t
+t/test-tester.t
+t/time_atleast.t
+t/time_atmost.t
+t/time_between.t
+t/time_nok.t
+t/time_ok.t
+Test-Timer.kpf
