@@ -1,6 +1,6 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.6 2007-03-05 21:27:26 jonasbn Exp $
+# $Id: Timer.pm,v 1.7 2007-03-07 08:13:09 jonasbn Exp $
 
 use warnings;
 use strict;
@@ -212,7 +212,7 @@ __END__
 
 =head1 NAME
 
-Test::Timer - a module to test/assert reponse times
+Test::Timer - a test module to test/assert response times
 
 =head1 VERSION
 
@@ -263,7 +263,17 @@ L<time_ok>, L<time_nok>, L<time_atleast>, L<time_atmost> and L<time_between>
 
 Takes the following parameters:
 
-some Perl code, a threshold and a name for the test
+Some Perl code, a threshold and a name for the test
+
+    time_ok( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
+
+If the execution of the code exceeds the threshold the test fails
+
+Alternatively you can specify an interval using a reference to an Array as the second
+parameter:
+
+    time_ok( sub { doYourStuffYouHave5-10Seconds(); }, [5, 10],
+        'lower threshold of 5 seconds and upper threshold of 10 seconds');
 
 =head2 time_nok
 
@@ -273,23 +283,48 @@ threshold.
 
 The API is the same as for L</time_ok>.
 
+    time_nok( sub { sleep(2); }, 1, 'threshold of one second');
+
+    time_nok( sub { sleep(2); }, [5, 10],
+        'lower threshold of 5 seconds and upper threshold of 10 seconds');
+
 =head2 time_atmost
 
 This method is just syntactic sugar for the first call variant of B<time_ok>
+
+    time_atmost( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
 =head2 time_atleast
 
 This method is just syntactic sugar for the first call variant of B<time_nok>
 
+    time_atleast( sub { sleep(2); }, 1, 'threshold of one second');
+
+The test succeeds if the code takes at least the number of seconds specified by
+the threshold.
+
+Please be aware that Test::Timer, breaks the execution with an alarm specified
+to trigger after the specified threshold + 2 seconds, so if you expect your
+execution to run longer, set the alarm accordingly.
+
+    $Test::Timer::alarm = $my_alarm_in_seconds;
+
 =head2 time_between
 
-This method is just syntactic sugar for the secind call variant of B<time_ok>
+This method is just syntactic sugar for the second call variant of B<time_ok>
+
+    time_between( sub { sleep(2); }, 5, 10,
+        'lower threshold of 5 seconds and upper threshold of 10 seconds');
 
 =head1 PRIVATE FUNCTIONS
 
 =head2 _benchmark
 
-This is the method doing the actual benchmark.
+This is the method doing the actual benchmark, if a better method is located
+this is the place to do the handy work.
+
+Currently L<Benchmark> is used. An alternative could be L<Devel::Timer>, but I
+do not know this module very well and L<Benchmark> is core.
 
 =head2 _timestring2time
 
@@ -349,6 +384,11 @@ This module requires no special configuration or environment.
 
 =item * Implement higher resolution for thresholds
 
+=item * Implement accessors to the alarm
+
+=item * Add more tests to get a better feeling for the use and border cases
+requiring alarm etc.
+
 =back
 
 =head1 SEE ALSO
@@ -405,6 +445,13 @@ L<http://search.cpan.org/dist/Test-Timer>
 and the handling of $SIG{ALRM}.
 
 =back
+
+=head1 DEVELOPMENT
+
+This module is very much alpha stage, so pacthes and suggestions are more that
+welcome, I also think there are some pitfalls and caveats I have not yet seen.
+
+So feedback/patches is more than welcome.
 
 =head1 AUTHOR
 
