@@ -1,8 +1,12 @@
 Revision history for Test-Timer
 
-# $Id: Changes,v 1.2 2007-03-08 19:40:24 jonasbn Exp $
+# $Id: Changes,v 1.3 2007-03-08 21:40:40 jonasbn Exp $
 
 0.02
+
+- Added some more tests, to get better coverage
+
+- Updated some POD
 
 - Fixed bug in Test::Timer, with alarm being scoped using my, should
   be our, pointed out by Paul Evans

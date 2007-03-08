@@ -1,6 +1,6 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.9 2007-03-08 20:52:10 jonasbn Exp $
+# $Id: Timer.pm,v 1.10 2007-03-08 21:40:40 jonasbn Exp $
 
 use warnings;
 use strict;
@@ -160,9 +160,7 @@ sub _benchmark {
                 'Execution exceeded threshold and timed out');
         };
 
-        if ($alarm) {
-            alarm( $threshold + $alarm );
-        }
+        alarm( $threshold + $alarm );
 
         my $t0 = new Benchmark;
         &{$code};
@@ -199,10 +197,7 @@ sub import {
 }
 
 sub builder {
-
-    if (@_) {
-        $test = shift;
-    }
+    $test = shift;
 
     return $test;
 }
@@ -386,14 +381,14 @@ resolutions should be higher.
 
 =head1 TEST AND QUALITY
 
-The test suite currently covers 77% (release 0.02)
+The test suite currently covers 85.6% (release 0.02)
 
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    blib/lib/Test/Timer.pm         78.6   57.1   44.4   84.0  100.0  100.0   73.7
+    blib/lib/Test/Timer.pm         87.0   83.3   44.4   92.0  100.0  100.0   83.5
     ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
-    Total                          81.9   57.1   44.4   87.1  100.0  100.0   77.0
+    Total                          89.0   83.3   44.4   93.5  100.0  100.0   85.6
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 The L<Perl::Critic> test runs with severity 5 for now.

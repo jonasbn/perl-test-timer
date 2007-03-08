@@ -21,6 +21,7 @@ my $builder = Module::Build->new(
         'Test::Pod'           => 0,
         'Test::Kwalitee'      => 0,
         'Test::Perl::Critic'  => 0,
+        'Test::Exception'     => 0,
     },
     add_to_cleanup      => [ 'Test-Timer-*' ],
 );
