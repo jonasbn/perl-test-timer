@@ -1,6 +1,6 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.7 2007-03-07 08:13:09 jonasbn Exp $
+# $Id: Timer.pm,v 1.8 2007-03-08 19:34:38 jonasbn Exp $
 
 use warnings;
 use strict;
@@ -13,125 +13,126 @@ use Error qw(:try);
 use Test::Builder;
 require Exporter;
 
-use lib qw(../../lib);
 use Test::Timer::TimeoutException;
 
-@ISA = qw(Exporter);
+@ISA    = qw(Exporter);
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
-my $test = Test::Builder->new;
-my $alarm = 2; #default alarm
+my $test  = Test::Builder->new;
+our $alarm = 2; #default alarm
 
 sub time_ok {
-    my ($code, $upperthreshold, $name) = @_;
-    
+    my ( $code, $upperthreshold, $name ) = @_;
+
     my $ok = 0;
-    
+
     try {
-        my $timestring = _benchmark($code, $upperthreshold);
+        my $timestring = _benchmark( $code, $upperthreshold );
         my $time = _timestring2time($timestring);
-        
+
         my ($lowerthreshold);
-        
-        if (ref $upperthreshold eq 'ARRAY') {
-            if (scalar @{$upperthreshold} == 2) {
+
+        if ( ref $upperthreshold eq 'ARRAY' ) {
+            if ( scalar @{$upperthreshold} == 2 ) {
                 $lowerthreshold = $upperthreshold->[0];
                 $upperthreshold = $upperthreshold->[1];
-            } elsif (scalar@{$upperthreshold} == 1) {
+            } elsif ( scalar @{$upperthreshold} == 1 ) {
                 $upperthreshold = $upperthreshold->[0];
             } else {
-                croak ('Unsupported number of thresholds');
+                croak('Unsupported number of thresholds');
             }
         }
 
-        if ($lowerthreshold && $upperthreshold) {
-    
-            if ($time > $lowerthreshold && $time < $upperthreshold) {
+        if ( $lowerthreshold && $upperthreshold ) {
+
+            if ( $time > $lowerthreshold && $time < $upperthreshold ) {
                 $ok = 1;
-                $test->ok($ok, $name);
+                $test->ok( $ok, $name );
             } else {
-                $test->ok($ok, $name);
-                $test->diag("$name not witin specified thresholds $timestring");
+                $test->ok( $ok, $name );
+                $test->diag(
+                    "$name not witin specified thresholds $timestring");
             }
-            
-        } elsif ($upperthreshold && $time < $upperthreshold) {
+
+        } elsif ( $upperthreshold && $time < $upperthreshold ) {
             $ok = 1;
-            $test->ok($ok, $name);
+            $test->ok( $ok, $name );
         } else {
-            $test->ok($ok, $name);
+            $test->ok( $ok, $name );
             $test->diag("$name exceeded threshold $timestring");
         }
     }
     catch Test::Timer::TimeoutException with {
         my $E = shift;
-        
+
         $ok = 0;
-		$test->ok($ok, $name);
-		$test->diag($E->{-text});
+        $test->ok( $ok, $name );
+        $test->diag( $E->{-text} );
     }
     otherwise {
         my $E = shift;
-        croak($E->{-text});
+        croak( $E->{-text} );
     };
-    	
-	return $ok;
+
+    return $ok;
 }
 
 sub time_nok {
-    my ($code, $upperthreshold, $name) = @_;
+    my ( $code, $upperthreshold, $name ) = @_;
 
     my $ok;
-    
+
     try {
-        my $timestring = _benchmark($code, $upperthreshold);
+        my $timestring = _benchmark( $code, $upperthreshold );
         my $time = _timestring2time($timestring);
 
         my ($lowerthreshold);
-    
-        if (ref $upperthreshold eq 'ARRAY') {
-            if (scalar @{$upperthreshold} == 2) {
+
+        if ( ref $upperthreshold eq 'ARRAY' ) {
+            if ( scalar @{$upperthreshold} == 2 ) {
                 $lowerthreshold = $upperthreshold->[0];
                 $upperthreshold = $upperthreshold->[1];
-            } elsif (scalar@{$upperthreshold} == 1) {
+            } elsif ( scalar @{$upperthreshold} == 1 ) {
                 $upperthreshold = $upperthreshold->[0];
             } else {
-                croak ('Unsupported number of thresholds');
+                croak('Unsupported number of thresholds');
             }
         }
-    
-        if ($lowerthreshold && $upperthreshold) {
-    
-            if ($time < $lowerthreshold && $time > $lowerthreshold) {
+
+        if ( $lowerthreshold && $upperthreshold ) {
+
+            if ( $time < $lowerthreshold && $time > $lowerthreshold ) {
                 $ok = 1;
-                $test->ok($ok, $name);
+                $test->ok( $ok, $name );
             } else {
-                $test->ok($ok, $name);
-                $test->diag("$name does not exceed specified thresholds $timestring");
+                $test->ok( $ok, $name );
+                $test->diag(
+                    "$name does not exceed specified thresholds $timestring");
             }
-            
-        } elsif ($upperthreshold && $time > $upperthreshold) {
+
+        } elsif ( $upperthreshold && $time > $upperthreshold ) {
             $ok = 1;
-            $test->ok($ok, $name);
+            $test->ok( $ok, $name );
         } else {
-            $test->ok($ok, $name);
+            $test->ok( $ok, $name );
             $test->diag("$name did not exceed threshold $timestring");
         }
     }
     catch Test::Timer::TimeoutException with {
         my $E = shift;
-        
+
         $ok = 0;
-		$test->ok($ok, $name);
-		$test->diag($E->{-text});
+        $test->ok( $ok, $name );
+        $test->diag( $E->{-text} );
     }
     otherwise {
         my $E = shift;
-        croak($E->{-text});
+        croak( $E->{-text} );
     };
-    
-	return $ok;    
+
+    return $ok;
 }
 
 sub time_atmost {
@@ -143,67 +144,67 @@ sub time_atleast {
 }
 
 sub time_between {
-    my ($code, $lowerthreshold, $upperthreshold, $name) = @_;
-    return time_ok($code, [$lowerthreshold, $upperthreshold], $name);
+    my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
+    return time_ok( $code, [ $lowerthreshold, $upperthreshold ], $name );
 }
 
 sub _benchmark {
-    my ($code, $threshold, $name) = @_;
-	
-	my $timestring;
-    
+    my ( $code, $threshold, $name ) = @_;
+
+    my $timestring;
+
     try {
-        
+
         local $SIG{ALRM} = sub {
-            throw Test::Timer::TimeoutException('Execution exceeded threshold and timed out');
+            throw Test::Timer::TimeoutException(
+                'Execution exceeded threshold and timed out');
         };
-        
+
         if ($alarm) {
-            alarm($threshold + $alarm);
+            alarm( $threshold + $alarm );
         }
-        
+
         my $t0 = new Benchmark;
         &{$code};
         my $t1 = new Benchmark;
-        
-        $timestring = timestr(timediff($t1, $t0));
+
+        $timestring = timestr( timediff( $t1, $t0 ) );
     }
     otherwise {
         my $E = shift;
-        croak($E->{-text});
+        croak( $E->{-text} );
     };
-	    
-	return $timestring;
+
+    return $timestring;
 }
 
 sub _timestring2time {
     my $timestring = shift;
-    
+
     my ($time) = $timestring =~ m/(\d+) /;
 
-    return $time;  
+    return $time;
 }
 
 sub import {
-	my($self) = shift;
-	my $pack = caller;
-	
-	$test->exported_to($pack);
-	$test->plan(@_);
-	
-	$self->export_to_level(1, $self, @EXPORT);
-	
-	return;
+    my ($self) = shift;
+    my $pack = caller;
+
+    $test->exported_to($pack);
+    $test->plan(@_);
+
+    $self->export_to_level( 1, $self, @EXPORT );
+
+    return;
 }
 
 sub builder {
-    
-    if (@_)
-	{
-		$test = shift;
-	}
-	
-	return $test;
+
+    if (@_) {
+        $test = shift;
+    }
+
+    return $test;
 }
 
 1;
@@ -216,7 +217,7 @@ Test::Timer - a test module to test/assert response times
 
 =head1 VERSION
 
-The documentation in this module describes version 0.01 of Test::Timer
+The documentation in this module describes version 0.02 of Test::Timer
 
 =head1 SYNOPSIS
 
