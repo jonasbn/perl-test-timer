@@ -1,6 +1,6 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.8 2007-03-08 19:34:38 jonasbn Exp $
+# $Id: Timer.pm,v 1.9 2007-03-08 20:52:10 jonasbn Exp $
 
 use warnings;
 use strict;
@@ -375,9 +375,28 @@ This module requires no special configuration or environment.
 
 =head1 INCOMPATIBILITIES
 
+This class holds no known incompatibilities.
+
 =head1 BUGS AND LIMITATIONS
 
+This class holds no known bugs.
+
+As listed on the TODO, the current implementations only use seconds and
+resolutions should be higher.
+
 =head1 TEST AND QUALITY
+
+The test suite currently covers 77% (release 0.02)
+
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    File                           stmt   bran   cond    sub    pod   time  total
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    blib/lib/Test/Timer.pm         78.6   57.1   44.4   84.0  100.0  100.0   73.7
+    ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
+    Total                          81.9   57.1   44.4   87.1  100.0  100.0   77.0
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+
+The L<Perl::Critic> test runs with severity 5 for now.
 
 =head1 TODO
 
