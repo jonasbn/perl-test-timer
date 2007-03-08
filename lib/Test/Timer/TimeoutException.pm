@@ -1,26 +1,25 @@
 package Test::Timer::TimeoutException;
 
-# $Id: TimeoutException.pm,v 1.2 2007-03-05 21:17:44 jonasbn Exp $
+# $Id: TimeoutException.pm,v 1.3 2007-03-08 19:40:24 jonasbn Exp $
 
 use strict;
 use warnings;
 use vars qw($VERSION);
 
 use base 'Error';
-use overload ('""' => 'stringify');
+use overload ( '""' => 'stringify' );
 
 $VERSION = '0.01';
 
-sub new
-{
+sub new {
     my $self = shift;
     my $text = '' . shift;
     my @args = ();
 
     local $Error::Depth = $Error::Depth + 1;
 
-    $self = $self->SUPER::new(-text => $text, @args);
-    
+    $self = $self->SUPER::new( -text => $text, @args );
+
     return $self;
 }
 

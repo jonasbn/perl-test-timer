@@ -1,5 +1,15 @@
 Revision history for Test-Timer
 
+# $Id: Changes,v 1.2 2007-03-08 19:40:24 jonasbn Exp $
+
+0.02
+
+- Fixed bug in Test::Timer, with alarm being scoped using my, should
+  be our, pointed out by Paul Evans
+
+- Ran all code through perltidy
+
+
 0.01    Thu Mar  1 13:02:04 CET 2007
         First version, released on an unsuspecting world.
 
