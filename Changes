@@ -1,12 +1,20 @@
 Revision history for Test-Timer
 
-# $Id: Changes,v 1.3 2007-03-08 21:40:40 jonasbn Exp $
+# $Id: Changes,v 1.4 2007-03-10 19:29:39 jonasbn Exp $
 
 0.02
 
-- Added some more tests, to get better coverage
+- Removed support for reference to arrays as second parameter to time_nok,
+  time_ok, time_almost and time_atleast - time_between is recommended
 
-- Updated some POD
+- Read up on the Test::Builder does and eliminated the builder sub, this has
+  also been removed from the test-suite (t/test-tester.t)
+
+- Added some more tests, to get better coverage, thanks to PJCJ for Devel::Cover
+  this module really helps, since aiming at better coverage, makes you think
+  about your tests and code and you can eliminate stuff you do not need 
+
+- Updated POD added DIAGNOSTICS among other things
 
 - Fixed bug in Test::Timer, with alarm being scoped using my, should
   be our, pointed out by Paul Evans

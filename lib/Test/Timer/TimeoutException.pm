@@ -1,6 +1,6 @@
 package Test::Timer::TimeoutException;
 
-# $Id: TimeoutException.pm,v 1.3 2007-03-08 19:40:24 jonasbn Exp $
+# $Id: TimeoutException.pm,v 1.4 2007-03-10 19:29:39 jonasbn Exp $
 
 use strict;
 use warnings;
@@ -102,7 +102,7 @@ This class is tested as part of L<Test::Timer>
 
 =head1 LICENSE AND COPYRIGHT
 
-Date-Holidays and related modules are (C) by Jonas B. Nielsen,
+Test::Timer and related modules are (C) by Jonas B. Nielsen,
 (jonasbn) 2007
 
 Test::Timer and related modules are released under the artistic

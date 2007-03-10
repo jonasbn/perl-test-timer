@@ -1,7 +1,7 @@
-# $Id: time_nok.t,v 1.3 2007-03-08 21:40:40 jonasbn Exp $
+# $Id: time_nok.t,v 1.4 2007-03-10 19:29:39 jonasbn Exp $
 
 use strict;
-use Test::More tests => 5;
+use Test::More tests => 3;
 
 use Test::Exception;
 
@@ -11,8 +11,4 @@ time_nok( sub { sleep(2); }, 1, 'Failing test' );
 
 $Test::Timer::alert = 6;
 
-time_nok( sub { sleep(4); }, [ 0, 2 ], 'Failing test' );
-
-time_nok( sub { sleep(4); }, [ 2 ], 'Failing test' );
-
-dies_ok { time_nok(sub { sleep(1); }, [], ); } 'Dying test';
+dies_ok { time_nok(sub { sleep(1); } ); } 'Dying test';

@@ -1,18 +1,19 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.10 2007-03-08 21:40:40 jonasbn Exp $
+# $Id: Timer.pm,v 1.11 2007-03-10 19:29:39 jonasbn Exp $
 
 use warnings;
 use strict;
+
+require Exporter;
 
 use vars qw($VERSION @ISA @EXPORT);
 use Benchmark;
 use Carp qw(croak);
 use Error qw(:try);
-
 use Test::Builder;
-require Exporter;
 
+#own
 use Test::Timer::TimeoutException;
 
 @ISA    = qw(Exporter);
@@ -21,110 +22,101 @@ use Test::Timer::TimeoutException;
 $VERSION = '0.02';
 
 my $test  = Test::Builder->new;
-our $alarm = 2; #default alarm
+our $alarm = 2;
 
 sub time_ok {
-    my ( $code, $upperthreshold, $name ) = @_;
-
-    my $ok = 0;
-
-    try {
-        my $timestring = _benchmark( $code, $upperthreshold );
-        my $time = _timestring2time($timestring);
-
-        my ($lowerthreshold);
-
-        if ( ref $upperthreshold eq 'ARRAY' ) {
-            if ( scalar @{$upperthreshold} == 2 ) {
-                $lowerthreshold = $upperthreshold->[0];
-                $upperthreshold = $upperthreshold->[1];
-            } elsif ( scalar @{$upperthreshold} == 1 ) {
-                $upperthreshold = $upperthreshold->[0];
-            } else {
-                croak('Unsupported number of thresholds');
-            }
-        }
-
-        if ( $lowerthreshold && $upperthreshold ) {
-
-            if ( $time > $lowerthreshold && $time < $upperthreshold ) {
-                $ok = 1;
-                $test->ok( $ok, $name );
-            } else {
-                $test->ok( $ok, $name );
-                $test->diag(
-                    "$name not witin specified thresholds $timestring");
-            }
-
-        } elsif ( $upperthreshold && $time < $upperthreshold ) {
-            $ok = 1;
-            $test->ok( $ok, $name );
-        } else {
-            $test->ok( $ok, $name );
-            $test->diag("$name exceeded threshold $timestring");
-        }
-    }
-    catch Test::Timer::TimeoutException with {
-        my $E = shift;
-
-        $ok = 0;
-        $test->ok( $ok, $name );
-        $test->diag( $E->{-text} );
-    }
-    otherwise {
-        my $E = shift;
-        croak( $E->{-text} );
-    };
-
-    return $ok;
+    return time_atmost(@_);
 }
 
 sub time_nok {
     my ( $code, $upperthreshold, $name ) = @_;
 
-    my $ok;
+    my $ok = _runtest( $code, 0, $upperthreshold, $name );
 
+    if ($ok == 1) {
+        $ok = 0;
+        $test->ok( $ok, $name );
+        $test->diag( 'Test did not exceed specified threshold' );        
+    } else {
+        $ok = 1;
+        $test->ok( $ok, $name );
+    }
+    
+    return $ok;
+}
+
+sub time_atmost {
+    my ( $code, $upperthreshold, $name ) = @_;
+
+    my $ok = _runtest( $code, 0, $upperthreshold, $name );
+    
+    if ($ok == 1) {
+        $test->ok( $ok, $name );
+    } else {
+        $test->ok( $ok, $name );
+        $test->diag( 'Test exceeded specified threshold' );        
+    }
+    
+    return $ok;
+}
+
+sub time_atleast {
+    my ( $code, $lowerthreshold, $name ) = @_;
+
+    my $ok = _runtest_atleast( $code, $lowerthreshold, undef, $name );
+        
+    if ($ok == 0) {
+        $test->ok( $ok, $name );
+        $test->diag( 'Test did not exceed specified threshold' );        
+    } else {
+        $test->ok( $ok, $name );
+    }
+    
+    return $ok;
+}
+
+sub time_between {
+    my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
+
+    my $ok = _runtest( $code, $lowerthreshold, $upperthreshold, $name );
+
+    if ($ok == 1) {
+        $test->ok( $ok, $name );
+    } else {
+        $ok = 0;
+        $test->ok( $ok, $name );
+        $test->diag( 'Test did not execute within specified interval' );        
+    }
+    
+    return $ok;
+}
+
+sub _runtest {
+    my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
+
+    my $within = 0;
+    
     try {
-        my $timestring = _benchmark( $code, $upperthreshold );
-        my $time = _timestring2time($timestring);
+        
+        if ( defined $lowerthreshold && defined $upperthreshold ) {
 
-        my ($lowerthreshold);
+            my $timestring = _benchmark( $code, $upperthreshold );
+            my $time = _timestring2time($timestring);
 
-        if ( ref $upperthreshold eq 'ARRAY' ) {
-            if ( scalar @{$upperthreshold} == 2 ) {
-                $lowerthreshold = $upperthreshold->[0];
-                $upperthreshold = $upperthreshold->[1];
-            } elsif ( scalar @{$upperthreshold} == 1 ) {
-                $upperthreshold = $upperthreshold->[0];
+            if ( $time > $lowerthreshold && $time < $upperthreshold ) {
+                $within = 1;
             } else {
-                croak('Unsupported number of thresholds');
-            }
-        }
-
-        if ( $lowerthreshold && $upperthreshold ) {
-
-            if ( $time < $lowerthreshold && $time > $lowerthreshold ) {
-                $ok = 1;
-                $test->ok( $ok, $name );
-            } else {
-                $test->ok( $ok, $name );
-                $test->diag(
-                    "$name does not exceed specified thresholds $timestring");
+                $within = 0;
             }
 
-        } elsif ( $upperthreshold && $time > $upperthreshold ) {
-            $ok = 1;
-            $test->ok( $ok, $name );
         } else {
-            $test->ok( $ok, $name );
-            $test->diag("$name did not exceed threshold $timestring");
+            croak 'Insufficient number of parameters';
         }
     }
     catch Test::Timer::TimeoutException with {
         my $E = shift;
 
-        $ok = 0;
-        $test->ok( $ok, $name );
+        $test->ok( 0, $name );
         $test->diag( $E->{-text} );
     }
     otherwise {
@@ -132,35 +124,59 @@ sub time_nok {
         croak( $E->{-text} );
     };
 
-    return $ok;
+    return $within; 
 }
 
-sub time_atmost {
-    return time_ok(@_);
-}
-
-sub time_atleast {
-    return time_nok(@_);
-}
-
-sub time_between {
+sub _runtest_atleast {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
-    return time_ok( $code, [ $lowerthreshold, $upperthreshold ], $name );
+
+    my $exceed = 0;
+    
+    try {
+        
+        if ( defined $lowerthreshold ) {
+
+            my $timestring = _benchmark( $code, $lowerthreshold );
+            my $time = _timestring2time($timestring);
+
+            if ( $time > $lowerthreshold ) {
+                $exceed = 1;
+            } else {
+                $exceed = 0;
+            }
+
+        } else {
+            croak 'Insufficient number of parameters';
+        }
+    }
+    catch Test::Timer::TimeoutException with {
+        my $E = shift;
+
+        $test->ok( 0, $name );
+        $test->diag( $E->{-text} );
+    }
+    otherwise {
+        my $E = shift;
+        croak( $E->{-text} );
+    };
+
+    return $exceed; 
 }
+
 
 sub _benchmark {
-    my ( $code, $threshold, $name ) = @_;
+    my ( $code, $threshold ) = @_;
 
     my $timestring;
-
+    my $alarm = $alarm + $threshold;
+    
     try {
-
         local $SIG{ALRM} = sub {
             throw Test::Timer::TimeoutException(
                 'Execution exceeded threshold and timed out');
         };
 
-        alarm( $threshold + $alarm );
+        alarm( $alarm );
 
         my $t0 = new Benchmark;
         &{$code};
@@ -196,12 +212,6 @@ sub import {
     return;
 }
 
-sub builder {
-    $test = shift;
-
-    return $test;
-}
-
 1;
 
 __END__
@@ -220,17 +230,15 @@ The documentation in this module describes version 0.02 of Test::Timer
     
     time_ok( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
-    time_ok( sub { doYourStuffYouHave10Seconds(); }, 10, 'threshold of 10 seconds');
+    time_atmost( sub { doYourStuffYouHave10Seconds(); }, 10, 'threshold of 10 seconds');
 
-    time_ok( sub { doYourStuffYouHave5-10Seconds(); }, [5, 10],
+    time_between( sub { doYourStuffYouHave5-10Seconds(); }, 5, 10,
         'lower threshold of 5 seconds and upper threshold of 10 seconds');
 
-
+    #Will succeed
     time_nok( sub { sleep(2); }, 1, 'threshold of one second');
-
-    time_nok( sub { sleep(2); }, [5, 10],
-        'lower threshold of 5 seconds and upper threshold of 10 seconds');
-
+    
+    time_atleast( sub { sleep(2); }, 2, 'threshold of one second');
     
     #Will fail after 5 (threshold) + 2 seconds (default alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
@@ -259,40 +267,37 @@ L<time_ok>, L<time_nok>, L<time_atleast>, L<time_atmost> and L<time_between>
 
 Takes the following parameters:
 
-Some Perl code, a threshold and a name for the test
+=over
+
+=item * a reference to a block of code (anonymous sub)
+
+=item * a threshold specified as a integer indicating a number of seconds
+
+=item * a string specifying a test name
+
+=back
 
     time_ok( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
 If the execution of the code exceeds the threshold the test fails
 
-Alternatively you can specify an interval using a reference to an Array as the second
-parameter:
-
-    time_ok( sub { doYourStuffYouHave5-10Seconds(); }, [5, 10],
-        'lower threshold of 5 seconds and upper threshold of 10 seconds');
-
 =head2 time_nok
 
 The is the inverted variant of B<time_ok>, it passes if the threshold is
-exceeded and fails if the benchmark of the body of code is within the specified
+exceeded and fails if the benchmark of the code is within the specified
 threshold.
 
 The API is the same as for L</time_ok>.
 
     time_nok( sub { sleep(2); }, 1, 'threshold of one second');
 
-    time_nok( sub { sleep(2); }, [5, 10],
-        'lower threshold of 5 seconds and upper threshold of 10 seconds');
-
 =head2 time_atmost
 
-This method is just syntactic sugar for the first call variant of B<time_ok>
+This is syntactic sugar for L</time_ok>
 
     time_atmost( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
 =head2 time_atleast
-
-This method is just syntactic sugar for the first call variant of B<time_nok>
 
     time_atleast( sub { sleep(2); }, 1, 'threshold of one second');
 
@@ -305,14 +310,29 @@ execution to run longer, set the alarm accordingly.
 
     $Test::Timer::alarm = $my_alarm_in_seconds;
 
+See also diagnostics.
+
 =head2 time_between
 
-This method is just syntactic sugar for the second call variant of B<time_ok>
+This method is a more extensive variant of L</time_atmost> and L</time_ok>, you
+can specify a lower and upper threshold, the code has to execute within this
+interval in order for the test to succeed
 
     time_between( sub { sleep(2); }, 5, 10,
         'lower threshold of 5 seconds and upper threshold of 10 seconds');
 
 =head1 PRIVATE FUNCTIONS
+
+=head2 _runtest
+
+This is a method to handle the result from L</_benchmark> is initiates the
+benchmark calling benchmark and based on whether it is within the provided
+interval true (1) is returned and if not false (0).
+
+=head2 _runtest_atleast
+
+This is a simpler variant of the sub above, it is the authors hope that is
+can be refactored out at some point, since the similarity with L</_runtest>.
 
 =head2 _benchmark
 
@@ -320,22 +340,32 @@ This is the method doing the actual benchmark, if a better method is located
 this is the place to do the handy work.
 
 Currently L<Benchmark> is used. An alternative could be L<Devel::Timer>, but I
-do not know this module very well and L<Benchmark> is core.
+do not know this module very well and L<Benchmark> is core, so this is used for
+know.
+
+The method takes two parameters:
+
+=over
+
+=item * a code block via a code reference
+
+=item * a threshold (the upper threshold, since this is added to the default
+alarm.
+
+=back
 
 =head2 _timestring2time
 
 This is the method extracts the seconds from benchmarks timestring and returns
-it.
+it and an integer.
+
+It takes the timestring from L</_benchmark>/L<Benchmark> and returns the seconds
+part.
 
 =head2 import
 
 Test::Builder required import to do some import hokus-pokus for the test methods
-exported from Test::Timer.
-
-=head2 builder
-
-Test::Builder required B<builder> to do some other hokus-pokus to get the
-L<Test::Builder> object exposed in the specified way.
+exported from Test::Timer. Please refer to the documentation in L<Test::Builder>
 
 =head1 DIAGNOSTICS
 
@@ -344,7 +374,33 @@ are listed below.
 
 =over
 
-=item * 
+=item * Test did not exceed specified threshold, this message is diagnosis for
+L</time_atleast> and L</time_nok> tests, which do not exceed their specified
+threshold.
+
+=item * Test exceeded specified threshold, this message is a diagnostic for
+L</time_atmost> and L</time_ok>, if the specified threshold is surpassed.
+
+This is the key point of the module, either your code is too slow and you should
+address this or your threshold is too low, in which case you can set it a bit
+higher and run the test again.
+
+=item * Test did not execute within specified interval, this is the diagnostic
+from L</time_between>, it is the diagnosis if the execution of the code is
+not between the specified lower and upper thresholds.
+
+=item * Insufficient parameters, this is the message if a specified test is not
+provided with the sufficent number of parameters, consult this documentation
+and correct accordingly.
+
+=item * Execution exceeded threshold and timed out, the exception is thrown if
+the execution of tested code exceeds even the alarm, which is default 2 seconds,
+but can be set by the user or is equal to the uppertreshold + 2 seconds.
+
+The exception results in a diagnostic for the failing test. This is a failsafe
+to avoid that code runs forever. If you get this diagnose either your code is
+too slow and you should address this or it might be error prone. If this is not
+the case adjust the alarm setting to suit your situation.
 
 =back
 
@@ -381,14 +437,14 @@ resolutions should be higher.
 
 =head1 TEST AND QUALITY
 
-The test suite currently covers 85.6% (release 0.02)
+The test suite currently covers 94.2% (release 0.02)
 
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    blib/lib/Test/Timer.pm         87.0   83.3   44.4   92.0  100.0  100.0   83.5
+    blib/lib/Test/Timer.pm         94.2  100.0   66.7   92.3  100.0  100.0   93.5
     ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
-    Total                          89.0   83.3   44.4   93.5  100.0  100.0   85.6
+    Total                          95.2  100.0   66.7   93.8  100.0  100.0   94.5
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 The L<Perl::Critic> test runs with severity 5 for now.
@@ -399,7 +455,7 @@ The L<Perl::Critic> test runs with severity 5 for now.
 
 =item * Implement higher resolution for thresholds
 
-=item * Implement accessors to the alarm
+=item * Factor out L</_runtest_atleast>
 
 =item * Add more tests to get a better feeling for the use and border cases
 requiring alarm etc.
@@ -416,8 +472,8 @@ requiring alarm etc.
 
 =head1 BUGS
 
-Please report any bugs or feature requests to
-C<bug-test-timer at rt.cpan.org>, or through the web interface at
+Please report any bugs or feature requests to C<bug-test-timer at rt.cpan.org>,
+or through the web interface at
 L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer>.
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
@@ -455,6 +511,7 @@ L<http://search.cpan.org/dist/Test-Timer>
 =over
 
 =item Gabor Szabo (GZABO), suggestion for specification of interval thresholds
+even though this was obsoleted by the later introduced time_between
 
 =item Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost
 and the handling of $SIG{ALRM}.
@@ -478,7 +535,7 @@ So feedback/patches is more than welcome.
 
 =head1 LICENSE AND COPYRIGHT
 
-Date-Holidays and related modules are (C) by Jonas B. Nielsen,
+Test::Timer and related modules are (C) by Jonas B. Nielsen,
 (jonasbn) 2007
 
 Test::Timer and related modules are released under the artistic
@@ -489,5 +546,3 @@ by the Artistic file in the standard perl distribution
 (http://www.perl.com/language/misc/Artistic.html).
 
 =cut
-
-1;
