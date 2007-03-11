@@ -13,15 +13,17 @@ my $builder = Module::Build->new(
         'Benchmark'     => 0, #core
         'Carp'          => 0, #core
         'Error'         => 0, #core
+        'Test::Tester'  => 0, 
     },
     build_requires => {
         'Test::More'          => 0, #core
-        'Test::Tester'        => 0, 
         'Test::Pod::Coverage' => 0,
         'Test::Pod'           => 0,
         'Test::Kwalitee'      => 0,
         'Test::Perl::Critic'  => 0,
         'Test::Exception'     => 0,
+        'File::Spec'          => 0,
+        'English'             => 0,
     },
     add_to_cleanup      => [ 'Test-Timer-*' ],
 );

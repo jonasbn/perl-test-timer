@@ -1,6 +1,19 @@
 Revision history for Test-Timer
 
-# $Id: Changes,v 1.4 2007-03-10 19:29:39 jonasbn Exp $
+# $Id: Changes,v 1.5 2007-03-11 07:23:56 jonasbn Exp $
+
+HEAD
+
+- Removed version number from README
+
+- Read up on the Test::Perl::Critic documentation and updated my Perl::Critic
+  test (t/critic.t), introducing t/perlcriticrc and added a few of the
+  requirements needed by this test to build requirements
+
+- Moved Test::Tester to general requirements from build requirements
+
+- Minor changes to POD
+
 
 0.02
 

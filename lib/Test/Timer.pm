@@ -1,6 +1,6 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.11 2007-03-10 19:29:39 jonasbn Exp $
+# $Id: Timer.pm,v 1.12 2007-03-11 07:23:56 jonasbn Exp $
 
 use warnings;
 use strict;
@@ -283,7 +283,7 @@ If the execution of the code exceeds the threshold the test fails
 
 =head2 time_nok
 
-The is the inverted variant of B<time_ok>, it passes if the threshold is
+The is the inverted variant of L</time_ok>, it passes if the threshold is
 exceeded and fails if the benchmark of the code is within the specified
 threshold.
 
@@ -331,8 +331,8 @@ interval true (1) is returned and if not false (0).
 
 =head2 _runtest_atleast
 
-This is a simpler variant of the sub above, it is the authors hope that is
-can be refactored out at some point, since the similarity with L</_runtest>.
+This is a simpler variant of the method above, it is the author's hope that is
+can be refactored out at some point, due to the similarity with L</_runtest>.
 
 =head2 _benchmark
 
@@ -437,7 +437,7 @@ resolutions should be higher.
 
 =head1 TEST AND QUALITY
 
-The test suite currently covers 94.2% (release 0.02)
+The test suite currently covers 94.5% (release 0.02)
 
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
@@ -447,7 +447,13 @@ The test suite currently covers 94.2% (release 0.02)
     Total                          95.2  100.0   66.7   93.8  100.0  100.0   94.5
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
-The L<Perl::Critic> test runs with severity 5 for now.
+The L<Test::Perl::Critic> test runs with severity 5 (gentle) for now, please
+refer to t/critic.t and t/perlcriticrc
+
+Set TEST_POD to enable L<Test::Pod> test in t/pod.t and L<Test::Pod::Coverage>
+test in t/pod-coverage.t
+
+Set TEST_AUTHOR to enable L<Test::Perl::Critic> test in t/critic.t
 
 =head1 TODO
 
@@ -459,6 +465,8 @@ The L<Perl::Critic> test runs with severity 5 for now.
 
 =item * Add more tests to get a better feeling for the use and border cases
 requiring alarm etc.
+
+=item * Rewrite POD to emphasize L</time_atleast> over L</time_ok>
 
 =back
 
