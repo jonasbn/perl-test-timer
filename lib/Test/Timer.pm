@@ -1,6 +1,6 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.12 2007-03-11 07:23:56 jonasbn Exp $
+# $Id: Timer.pm,v 1.13 2007-03-11 09:21:16 jonasbn Exp $
 
 use warnings;
 use strict;
@@ -19,7 +19,7 @@ use Test::Timer::TimeoutException;
 @ISA    = qw(Exporter);
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 my $test  = Test::Builder->new;
 our $alarm = 2;
@@ -222,7 +222,7 @@ Test::Timer - a test module to test/assert response times
 
 =head1 VERSION
 
-The documentation in this module describes version 0.02 of Test::Timer
+The documentation in this module describes version 0.03 of Test::Timer
 
 =head1 SYNOPSIS
 

@@ -10,6 +10,7 @@ t/_benchmark.t
 t/boilerplate.t
 t/critic.t
 t/kwalitee.t
+t/perlcriticrc
 t/pod-coverage.t
 t/pod.t
 t/test-tester.t
