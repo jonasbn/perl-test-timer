@@ -26,6 +26,7 @@ my $builder = Module::Build->new(
         'English'             => 0,
     },
     add_to_cleanup      => [ 'Test-Timer-*' ],
+	create_makefile_pl => 'traditional',
 );
 
 $builder->create_build_script();

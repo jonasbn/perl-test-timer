@@ -1,0 +1,11 @@
+
+# $Id: perlcriticrc,v 1.1 2007-03-14 19:51:04 jonasbn Exp $
+
+severity = 5
+
+#------------------------------------------------------------------------------
+
+[CodeLayout::RequireTidyCode]
+
+[CodeLayout::ProhibitHardTabs]
+allow_leading_tabs = 0
