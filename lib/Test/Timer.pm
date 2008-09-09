@@ -1,6 +1,6 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.14 2007-03-18 10:06:38 jonasbn Exp $
+# $Id: Timer.pm,v 1.15 2008-09-09 19:19:03 jonasbn Exp $
 
 use warnings;
 use strict;
@@ -22,7 +22,7 @@ use Test::Timer::TimeoutException;
 $VERSION = '0.04';
 
 my $test  = Test::Builder->new;
-our $alarm = 2;
+our $alarm = 2; #default alarm
 
 sub time_ok {
     return time_atmost(@_);
@@ -243,7 +243,7 @@ The documentation in this module describes version 0.04 of Test::Timer
     #Will fail after 5 (threshold) + 2 seconds (default alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
 
-    $test::Timer::alarm = 6
+    $test::Timer::alarm = 6 #default 2 seconds
 
     #Will fail after 5 (threshold) + 6 seconds (specified alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
