@@ -97,8 +97,8 @@ sub _runtest {
     my $within = 0;
     
     try {
-        
-        if ( defined $lowerthreshold && defined $upperthreshold ) {
+
+        if ( $time >= $lowerthreshold && $time <= $upperthreshold ) {
 
             my $timestring = _benchmark( $code, $upperthreshold );
             my $time = _timestring2time($timestring);
