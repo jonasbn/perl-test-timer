@@ -207,7 +207,7 @@ Test::Timer - a test module to test/assert response times
 
 =head1 VERSION
 
-The documentation in this module describes version 0.04 of Test::Timer
+The documentation in this module describes version 0.05 of Test::Timer
 
 =head1 SYNOPSIS
 
@@ -403,9 +403,9 @@ This module requires no special configuration or environment.
 
 =item * L<Error>
 
-=item * L<Exporter>
+=item * L<Test::Builder>
 
-=item * L<Test::Builder>    
+=item * L<Test::Builder::Module>    
 
 =back
 
