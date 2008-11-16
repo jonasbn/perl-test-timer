@@ -5,21 +5,19 @@ package Test::Timer;
 use warnings;
 use strict;
 
-require Exporter;
-
 use vars qw($VERSION @ISA @EXPORT);
 use Benchmark;
 use Carp qw(croak);
 use Error qw(:try);
 use Test::Builder;
+use base 'Test::Builder::Module';
 
 #own
 use Test::Timer::TimeoutException;
 
-@ISA    = qw(Exporter);
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 my $test  = Test::Builder->new;
 our $alarm = 2; #default alarm
@@ -98,12 +96,12 @@ sub _runtest {
     
     try {
 
-        if ( $time >= $lowerthreshold && $time <= $upperthreshold ) {
+        my $timestring = _benchmark( $code, $upperthreshold );
+        my $time = _timestring2time($timestring);
 
-            my $timestring = _benchmark( $code, $upperthreshold );
-            my $time = _timestring2time($timestring);
+        if ( defined $lowerthreshold && defined $upperthreshold ) {
 
-            if ( $time > $lowerthreshold && $time < $upperthreshold ) {
+            if ( $time >= $lowerthreshold && $time <= $upperthreshold ) {
                 $within = 1;
             } else {
                 $within = 0;
@@ -163,7 +161,6 @@ sub _runtest_atleast {
     return $exceed; 
 }
 
-
 sub _benchmark {
     my ( $code, $threshold ) = @_;
 
@@ -198,18 +195,6 @@ sub _timestring2time {
     my ($time) = $timestring =~ m/(\d+) /;
 
     return $time;
-}
-
-sub import {
-    my ($self) = shift;
-    my $pack = caller;
-
-    $test->exported_to($pack);
-    $test->plan(@_);
-
-    $self->export_to_level( 1, $self, @EXPORT );
-
-    return;
 }
 
 1;
@@ -521,8 +506,9 @@ L<http://search.cpan.org/dist/Test-Timer>
 =item Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time_between
 
-=item Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost
-and the handling of $SIG{ALRM}.
+=item Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost and the handling of $SIG{ALRM}.
+
+= brian d foy (BDFOY), for patch to L</_run_test>
 
 =back
 

@@ -2,7 +2,9 @@ Revision history for Test-Timer
 
 # $Id: Changes,v 1.8 2007-03-18 10:06:38 jonasbn Exp $
 
-HEAD
+0.05 released Sun Nov 16 15:30:40 CET 2008 CET 2008, update not necessary
+
+- Added use of Test::Builder::Module
 
 - Added patch from brian d foy, bug in _run_test
 
