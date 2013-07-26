@@ -39,4 +39,10 @@
 \bTest-Timer-[\d\.\_]+
 
 #Misc project files
-Test-Timer.kpf
+Test-Timer.kpf^MYMETA\.yml$
+^MYMETA\.json$
+^MYMETA\.yml$
+
+#Komodo files
+\.komodoproject
+\.kpf
