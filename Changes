@@ -2,7 +2,23 @@ Revision history for Test-Timer
 
 # $Id: Changes,v 1.8 2007-03-18 10:06:38 jonasbn Exp $
 
-0.05 released Sun Nov 16 15:30:40 CET 2008 CET 2008, update not necessary
+Project change log:
+http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
+
+0.06 2013.07.26
+
+- Fixed up Changes file as part of my Questhub quest adhering to the standard
+  described in: CPAN::Changes::Spec [TESTT-3]
+
+  Quest: http://questhub.io/realm/perl/quest/51f0fd8e18ba7dcf4b000040
+  Spec: https://metacpan.org/module/CPAN::Changes::Spec
+  
+  https://logiclab.jira.com/browse/TESTT-3
+
+
+0.05 2008.11.16
+
+- Update not necessary
 
 - Added use of Test::Builder::Module
 
@@ -16,7 +32,9 @@ Revision history for Test-Timer
 - Added Makefile.PL to MANIFEST
 
 
-0.03 released 11. March 2007, update not necessary
+0.03 2007.03.11
+
+- Update not necessary
 
 - Removed version number from README
 
@@ -29,7 +47,9 @@ Revision history for Test-Timer
 - Minor changes to POD
 
 
-0.02 released 10. March 2007, update necessary
+0.02 2007.03.10
+
+- Update necessary
 
 - Removed support for reference to arrays as second parameter to time_nok,
   time_ok, time_almost and time_atleast - time_between is recommended
@@ -49,6 +69,6 @@ Revision history for Test-Timer
 - Ran all code through perltidy
 
 
-0.01 Initial release 1. March 2007
+0.01 2007.03.01
 
 - First version, released on an unsuspecting world.
