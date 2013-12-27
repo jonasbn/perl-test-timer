@@ -21,8 +21,19 @@ my $builder = Module::Build->new(
         'File::Spec'          => 0,
         'English'             => 0,
     },
-    add_to_cleanup      => [ 'Test-Timer-*' ],
+    add_to_cleanup     => [ 'Test-Timer-*' ],
 	create_makefile_pl => 'traditional',
+    meta_merge => {
+        resources => {
+            homepage => 'http://logiclab.jira.com/wiki/display/TESTT/Home',
+            bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-Timer',
+            repository => 'https://github.com/jonasbn/testt',
+            ProjectChangelog =>
+                'http://logiclab.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel',
+            ProjectSite => 'http://logicLAB.jira.com/browse/TESTT',
+            ProjectWiki => 'http://logiclab.jira.com/wiki/display/TESTT/Home',
+        }
+    },
 );
 
 $builder->create_build_script();
