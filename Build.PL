@@ -23,6 +23,7 @@ my $builder = Module::Build->new(
     },
     add_to_cleanup     => [ 'Test-Timer-*' ],
 	create_makefile_pl => 'traditional',
+    create_readme      => 1,
     meta_merge => {
         resources => {
             homepage => 'http://logiclab.jira.com/wiki/display/TESTT/Home',
