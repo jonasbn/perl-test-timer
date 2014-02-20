@@ -39,11 +39,13 @@
 # Avoid archives of this distribution
 \bTest-Timer-[\d\.\_]+
 
-#Misc project files
-Test-Timer.kpf^MYMETA\.yml$
+# Misc project files
 ^MYMETA\.json$
 ^MYMETA\.yml$
 
-#Komodo files
+# Komodo files
 \.komodoproject
 \.kpf
+
+# Travis github integration file
+\.travis\.yml
