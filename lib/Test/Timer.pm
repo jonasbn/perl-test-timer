@@ -239,6 +239,17 @@ The documentation in this module describes version 0.07 of Test::Timer
 Test::Timer implements a set of test primitives to test and assert test times
 from bodies of code.
 
+The key features are subroutines to assert or test the following:
+
+=over
+
+=item * that a given piece of code does not exceed a specified time limit
+
+=item * that a given piece of code takes longer than a specifed time limit 
+and does not exceed another
+
+=back
+
 =head1 EXPORT
 
 Test::Timer exports:
@@ -279,17 +290,17 @@ If the execution of the code exceeds the threshold the test fails
 
 =head2 time_nok
 
-The is the inverted variant of L</time_ok>, it passes if the threshold is
+The is the inverted variant of L<time_ok|/time_ok>, it passes if the threshold is
 exceeded and fails if the benchmark of the code is within the specified
 timing threshold.
 
-The API is the same as for L</time_ok>.
+The API is the same as for L<time_ok|/time_ok>.
 
     time_nok( sub { sleep(2); }, 1, 'threshold of one second');
 
 =head2 time_atmost
 
-This is I<syntactic sugar> for L</time_ok>
+This is I<syntactic sugar> for L<time_ok|/time_ok>
 
     time_atmost( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
@@ -310,7 +321,7 @@ See also L<diagnostics|/DIAGNOSTICS>.
 
 =head2 time_between
 
-This method is a more extensive variant of L</time_atmost> and L</time_ok>, you
+This method is a more extensive variant of L<time_atmost|/time_atmost> and L<time_ok|/time_ok>, you
 can specify a lower and upper threshold, the code has to execute within this
 interval in order for the test to succeed
 
@@ -355,7 +366,7 @@ alarm.
 This is the method extracts the seconds from benchmarks timestring and returns
 it and an integer.
 
-It takes the timestring from L<_benchmark|/_benchmark>/L<Benchmark> and returns the seconds
+It takes the timestring from L<_benchmark|/_benchmark> (L<Benchmark>) and returns the seconds
 part.
 
 =head2 import
@@ -553,7 +564,7 @@ even though this was obsoleted by the later introduced time_between
 
 =item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost and the handling of $SIG{ALRM}.
 
-=item * brian d foy (BDFOY), for patch to L</_run_test>
+=item * brian d foy (BDFOY), for patch to L<_run_test|/_run_test>
 
 =back
 
