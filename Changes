@@ -5,7 +5,9 @@ Revision history for Test-Timer
 Project change log:
 http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-HEAD
+0.08 2014.02.22
+
+- Update not required
 
 - Added changes.t automatic assertion of the integrity of the Changes file, 
   see also TESTT-4 [TESTT-6]
@@ -15,37 +17,39 @@ HEAD
 
 0.07 2013.07.31
 
+- Update not requires
+
 - Corrected minor issue in this file, had forgotten to run in through the
   validator http://changes.cpanhq.org/validate [TESTT-4]
-  
+
   https://logiclab.jira.com/browse/TESTT-4
 
 
 0.06 2013.07.26
 
-- Update not necessary
+- Update not required
 
 - Fixed up Changes file as part of my Questhub quest adhering to the standard
   described in: CPAN::Changes::Spec [TESTT-3]
 
   Quest: http://questhub.io/realm/perl/quest/51f0fd8e18ba7dcf4b000040
   Spec: https://metacpan.org/module/CPAN::Changes::Spec
-  
+
   https://logiclab.jira.com/browse/TESTT-3
 
 
 0.05 2008.11.16
 
-- Update not necessary
+- Update not required
 
 - Added use of Test::Builder::Module
 
 - Added patch from brian d foy, bug in _run_test
 
 
-0.04 released Sun Mar 18 2007
+0.04 2007.03.18
 
-- Update not necessary
+- Update not required
 
 - Added creation of traditional Makefile.PL to Build.PL
 
@@ -54,7 +58,7 @@ HEAD
 
 0.03 2007.03.11
 
-- Update not necessary
+- Update not required
 
 - Removed version number from README
 
@@ -69,7 +73,7 @@ HEAD
 
 0.02 2007.03.10
 
-- Update necessary
+- Update recommended
 
 - Removed support for reference to arrays as second parameter to time_nok,
   time_ok, time_almost and time_atleast - time_between is recommended
