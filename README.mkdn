@@ -4,12 +4,12 @@ Test::Timer - a test module to test/assert response times
 
 # VERSION
 
-The documentation in this module describes version 0.05 of Test::Timer
+The documentation in this module describes version 0.07 of Test::Timer
 
 # SYNOPSIS
 
     use Test::Timer;
-    
+
     time_ok( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
     time_atmost( sub { doYourStuffYouHave10Seconds(); }, 10, 'threshold of 10 seconds');
@@ -19,9 +19,9 @@ The documentation in this module describes version 0.05 of Test::Timer
 
     #Will succeed
     time_nok( sub { sleep(2); }, 1, 'threshold of one second');
-    
+
     time_atleast( sub { sleep(2); }, 2, 'threshold of one second');
-    
+
     #Will fail after 5 (threshold) + 2 seconds (default alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
 
@@ -177,7 +177,7 @@ This module requires no special configuration or environment.
 - [Benchmark](https://metacpan.org/pod/Benchmark)
 - [Error](https://metacpan.org/pod/Error)
 - [Test::Builder](https://metacpan.org/pod/Test::Builder)
-- [Test::Builder::Module](https://metacpan.org/pod/Test::Builder::Module)    
+- [Test::Builder::Module](https://metacpan.org/pod/Test::Builder::Module)
 
 # INCOMPATIBILITIES
 
@@ -188,7 +188,8 @@ This class holds no known incompatibilities.
 This class holds no known bugs.
 
 As listed on the TODO, the current implementations only use seconds and
-resolutions should be higher.
+resolutions should be higher, so the current implementation is limited to
+seconds as the highest resolution.
 
 # TEST AND QUALITY
 
@@ -250,6 +251,14 @@ You can also look for information at:
 
     [http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-Timer](http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-Timer)
 
+- Github issues:
+
+    [https://github.com/jonasbn/testt/issues](https://github.com/jonasbn/testt/issues)
+
+- MetaCPAN
+
+    [https://metacpan.org/pod/Test-Timer](https://metacpan.org/pod/Test-Timer)
+
 - Search CPAN
 
     [http://search.cpan.org/dist/Test-Timer](http://search.cpan.org/dist/Test-Timer)
@@ -259,8 +268,7 @@ You can also look for information at:
 - Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time\_between
 - Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost and the handling of $SIG{ALRM}.
-
-    &#x3d; brian d foy (BDFOY), for patch to ["\_run\_test"](#_run_test)
+- brian d foy (BDFOY), for patch to ["\_run\_test"](#_run_test)
 
 # DEVELOPMENT
 
@@ -276,7 +284,7 @@ So feedback/patches is more than welcome.
 # LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007
+(jonasbn) 2007-2014
 
 Test::Timer and related modules are released under the artistic
 license
