@@ -22,7 +22,7 @@ my $builder = Module::Build->new(
         'File::Spec'          => 0,
         'English'             => 0,
     },
-    add_to_cleanup     => [ 'Test-Timer-*' ],
+    add_to_cleanup     => [ 'Test-Timer-*', 'README', 'MANIFEST', 'MANIFEST.bak' ],
 	create_makefile_pl => 'traditional',
     create_readme      => 1,
     meta_merge => {
