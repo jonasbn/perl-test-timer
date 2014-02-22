@@ -9,7 +9,7 @@ use vars qw($VERSION);
 use base 'Error';
 use overload ( '""' => 'stringify' );
 
-$VERSION = '0.01';
+$VERSION = '0.08';
 
 sub new {
     my $self = shift;
@@ -35,7 +35,7 @@ Test::Timer::TimeoutException - exception class for Test::Timer
 
 =head1 VERSION
 
-This documentation describes 0.01 of Test::Timer::TimeoutException
+This documentation describes 0.08 of Test::Timer::TimeoutException
 
 =head1 SYNOPSIS
 
@@ -96,14 +96,14 @@ This class is tested as part of L<Test::Timer>
 
 =over
 
-=item * Jonas B. Nielsen (jonasbn) C<< <jonasbn@cpan.org> >>
+=item * Jonas B. Nielsen (jonasbn) C<< <jonasbn at cpan.org> >>
 
 =back
 
 =head1 LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007
+(jonasbn) 2007-2014
 
 Test::Timer and related modules are released under the artistic
 license
