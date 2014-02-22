@@ -197,23 +197,23 @@ seconds as the highest resolution.
 
 # TEST AND QUALITY
 
-The test suite currently covers 94.5% (release 0.02)
+Coverage report for the release described in this documentation (see [VERSION](#version)).
 
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    blib/lib/Test/Timer.pm         94.2  100.0   66.7   92.3  100.0  100.0   93.5
-    ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
-    Total                          95.2  100.0   66.7   93.8  100.0  100.0   94.5
+    blib/lib/Test/Timer.pm         91.7   93.8   66.7   88.5  100.0   99.9   90.7
+    ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.1  100.0
+    Total                          93.1   93.8   66.7   90.6  100.0  100.0   92.1
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 The [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test runs with severity 5 (gentle) for now, please
-refer to t/critic.t and t/perlcriticrc
+refer to `t/critic.t` and `t/perlcriticrc`.
 
 Set TEST\_POD to enable [Test::Pod](https://metacpan.org/pod/Test::Pod) test in `t/pod.t` and [Test::Pod::Coverage](https://metacpan.org/pod/Test::Pod::Coverage)
 test in `t/pod-coverage.t`.
 
-Set TEST\_AUTHOR to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test in `t/critic.t`
+Set TEST\_CRITIC to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test in `t/critic.t`
 
 # TODO
 

@@ -435,23 +435,23 @@ seconds as the highest resolution.
 
 =head1 TEST AND QUALITY
 
-The test suite currently covers 94.5% (release 0.02)
+Coverage report for the release described in this documentation (see L<VERSION|/VERSION>).
 
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    blib/lib/Test/Timer.pm         94.2  100.0   66.7   92.3  100.0  100.0   93.5
-    ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
-    Total                          95.2  100.0   66.7   93.8  100.0  100.0   94.5
+    blib/lib/Test/Timer.pm         91.7   93.8   66.7   88.5  100.0   99.9   90.7
+    ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.1  100.0
+    Total                          93.1   93.8   66.7   90.6  100.0  100.0   92.1
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 The L<Test::Perl::Critic> test runs with severity 5 (gentle) for now, please
-refer to t/critic.t and t/perlcriticrc
+refer to F<t/critic.t> and F<t/perlcriticrc>.
 
 Set TEST_POD to enable L<Test::Pod> test in F<t/pod.t> and L<Test::Pod::Coverage>
 test in F<t/pod-coverage.t>.
 
-Set TEST_AUTHOR to enable L<Test::Perl::Critic> test in F<t/critic.t>
+Set TEST_CRITIC to enable L<Test::Perl::Critic> test in F<t/critic.t>
 
 =head1 TODO
 
