@@ -526,10 +526,15 @@ You can also look for information at:
 
 =head1 DEVELOPMENT
 
-This module is very much alpha stage, so pacthes and suggestions are more that
-welcome, I also think there are some pitfalls and caveats I have not yet seen.
+=over
 
-So feedback/patches is more than welcome.
+=item * L<Distribution homepage and Wiki (Confluence)|http://logiclab.jira.com/wiki/display/TESTT/Home>
+
+=item * L<Project Site (Jira)|http://logicLAB.jira.com/browse/TESTT>
+
+=item * L<Github Repository|https://github.com/jonasbn/testt>
+
+=back
 
 =head1 AUTHOR
 
