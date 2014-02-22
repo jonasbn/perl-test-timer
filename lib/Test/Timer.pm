@@ -34,12 +34,12 @@ sub time_nok {
     if ($ok == 1) {
         $ok = 0;
         $test->ok( $ok, $name );
-        $test->diag( 'Test did not exceed specified threshold' );        
+        $test->diag( 'Test did not exceed specified threshold' );
     } else {
         $ok = 1;
         $test->ok( $ok, $name );
     }
-    
+
     return $ok;
 }
 
@@ -47,14 +47,14 @@ sub time_atmost {
     my ( $code, $upperthreshold, $name ) = @_;
 
     my $ok = _runtest( $code, 0, $upperthreshold, $name );
-    
+
     if ($ok == 1) {
         $test->ok( $ok, $name );
     } else {
         $test->ok( $ok, $name );
-        $test->diag( 'Test exceeded specified threshold' );        
+        $test->diag( 'Test exceeded specified threshold' );
     }
-    
+
     return $ok;
 }
 
@@ -62,14 +62,14 @@ sub time_atleast {
     my ( $code, $lowerthreshold, $name ) = @_;
 
     my $ok = _runtest_atleast( $code, $lowerthreshold, undef, $name );
-        
+
     if ($ok == 0) {
         $test->ok( $ok, $name );
-        $test->diag( 'Test did not exceed specified threshold' );        
+        $test->diag( 'Test did not exceed specified threshold' );
     } else {
         $test->ok( $ok, $name );
     }
-    
+
     return $ok;
 }
 
@@ -83,9 +83,9 @@ sub time_between {
     } else {
         $ok = 0;
         $test->ok( $ok, $name );
-        $test->diag( 'Test did not execute within specified interval' );        
+        $test->diag( 'Test did not execute within specified interval' );
     }
-    
+
     return $ok;
 }
 
@@ -93,7 +93,7 @@ sub _runtest {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
     my $within = 0;
-    
+
     try {
 
         my $timestring = _benchmark( $code, $upperthreshold );
@@ -122,16 +122,16 @@ sub _runtest {
         croak( $E->{-text} );
     };
 
-    return $within; 
+    return $within;
 }
 
 sub _runtest_atleast {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
     my $exceed = 0;
-    
+
     try {
-        
+
         if ( defined $lowerthreshold ) {
 
             my $timestring = _benchmark( $code, $lowerthreshold );
@@ -158,7 +158,7 @@ sub _runtest_atleast {
         croak( $E->{-text} );
     };
 
-    return $exceed; 
+    return $exceed;
 }
 
 sub _benchmark {
@@ -166,7 +166,7 @@ sub _benchmark {
 
     my $timestring;
     my $alarm = $alarm + $threshold;
-    
+
     try {
         local $SIG{ALRM} = sub {
             throw Test::Timer::TimeoutException(
@@ -207,12 +207,12 @@ Test::Timer - a test module to test/assert response times
 
 =head1 VERSION
 
-The documentation in this module describes version 0.05 of Test::Timer
+The documentation in this module describes version 0.07 of Test::Timer
 
 =head1 SYNOPSIS
 
     use Test::Timer;
-    
+
     time_ok( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
     time_atmost( sub { doYourStuffYouHave10Seconds(); }, 10, 'threshold of 10 seconds');
@@ -222,9 +222,9 @@ The documentation in this module describes version 0.05 of Test::Timer
 
     #Will succeed
     time_nok( sub { sleep(2); }, 1, 'threshold of one second');
-    
+
     time_atleast( sub { sleep(2); }, 2, 'threshold of one second');
-    
+
     #Will fail after 5 (threshold) + 2 seconds (default alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
 
@@ -405,7 +405,7 @@ This module requires no special configuration or environment.
 
 =item * L<Test::Builder>
 
-=item * L<Test::Builder::Module>    
+=item * L<Test::Builder::Module>
 
 =back
 
@@ -418,7 +418,8 @@ This class holds no known incompatibilities.
 This class holds no known bugs.
 
 As listed on the TODO, the current implementations only use seconds and
-resolutions should be higher.
+resolutions should be higher, so the current implementation is limited to
+seconds as the highest resolution.
 
 =head1 TEST AND QUALITY
 
@@ -493,6 +494,14 @@ L<http://cpanratings.perl.org/d/Test-Timer>
 
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-Timer>
 
+=item * Github issues:
+
+L<https://github.com/jonasbn/testt/issues>
+
+=item * MetaCPAN
+
+L<https://metacpan.org/pod/Test-Timer>
+
 =item * Search CPAN
 
 L<http://search.cpan.org/dist/Test-Timer>
@@ -503,12 +512,12 @@ L<http://search.cpan.org/dist/Test-Timer>
 
 =over
 
-=item Gabor Szabo (GZABO), suggestion for specification of interval thresholds
+=item * Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time_between
 
-=item Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost and the handling of $SIG{ALRM}.
+=item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost and the handling of $SIG{ALRM}.
 
-= brian d foy (BDFOY), for patch to L</_run_test>
+=item * brian d foy (BDFOY), for patch to L</_run_test>
 
 =back
 
@@ -530,7 +539,7 @@ So feedback/patches is more than welcome.
 =head1 LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007
+(jonasbn) 2007-2014
 
 Test::Timer and related modules are released under the artistic
 license
