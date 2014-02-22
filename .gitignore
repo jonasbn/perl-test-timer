@@ -20,5 +20,3 @@ MANIFEST
 META.json
 MYMETA.json
 Makefile.PL
-*.kpf
-*.komodoproject
