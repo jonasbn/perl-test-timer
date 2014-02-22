@@ -7,13 +7,14 @@ my $builder = Module::Build->new(
     license             => 'artistic',
     dist_author         => 'jonasbn <jonasbn@cpan.org>',
     dist_version_from   => 'lib/Test/Timer.pm',
+    configure_requires => { 'Module::Build' => 0.40 },
     requires => {
         'Test::Builder' => 0, #core
 		'Test::Builder::Module' => 0, #core
         'Benchmark'     => 0, #core
         'Carp'          => 0, #core
         'Error'         => 0, #core
-        'Test::Tester'  => 0, 
+        'Test::Tester'  => 0,
     },
     build_requires => {
         'Test::More'          => 0, #core
