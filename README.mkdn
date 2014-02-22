@@ -33,8 +33,7 @@ The documentation in this module describes version 0.07 of Test::Timer
 # DESCRIPTION
 
 Test::Timer implements a set of test primitives to test and assert test times
-from bodies of code. The code is currently at the alpha stage and might change
-in the future.
+from bodies of code.
 
 # EXPORT
 
@@ -104,14 +103,14 @@ interval in order for the test to succeed
 
 ## \_runtest
 
-This is a method to handle the result from ["\_benchmark"](#_benchmark) is initiates the
+This is a method to handle the result from [\_benchmark](#_benchmark) is initiates the
 benchmark calling benchmark and based on whether it is within the provided
 interval true (1) is returned and if not false (0).
 
 ## \_runtest\_atleast
 
 This is a simpler variant of the method above, it is the author's hope that is
-can be refactored out at some point, due to the similarity with ["\_runtest"](#_runtest).
+can be refactored out at some point, due to the similarity with [\_runtest](#_runtest).
 
 ## \_benchmark
 
@@ -133,7 +132,7 @@ alarm.
 This is the method extracts the seconds from benchmarks timestring and returns
 it and an integer.
 
-It takes the timestring from ["\_benchmark"](#_benchmark)/[Benchmark](https://metacpan.org/pod/Benchmark) and returns the seconds
+It takes the timestring from [\_benchmark](#_benchmark)/[Benchmark](https://metacpan.org/pod/Benchmark) and returns the seconds
 part.
 
 ## import
@@ -147,17 +146,17 @@ All tests either fail or succeed, but a few exceptions are implemented, these
 are listed below.
 
 - Test did not exceed specified threshold, this message is diagnosis for
-["time\_atleast"](#time_atleast) and ["time\_nok"](#time_nok) tests, which do not exceed their specified
+[time\_atleast](#time_atleast) and [time\_nok](#time_nok) tests, which do not exceed their specified
 threshold.
 - Test exceeded specified threshold, this message is a diagnostic for
-["time\_atmost"](#time_atmost) and ["time\_ok"](#time_ok), if the specified threshold is surpassed.
+[time\_atmost](#time_atmost) and [time\_ok](#time_ok), if the specified threshold is surpassed.
 
     This is the key point of the module, either your code is too slow and you should
     address this or your threshold is too low, in which case you can set it a bit
     higher and run the test again.
 
 - Test did not execute within specified interval, this is the diagnostic
-from ["time\_between"](#time_between), it is the diagnosis if the execution of the code is
+from [time\_between](#time_between), it is the diagnosis if the execution of the code is
 not between the specified lower and upper thresholds.
 - Insufficient parameters, this is the message if a specified test is not
 provided with the sufficent number of parameters, consult this documentation
@@ -174,6 +173,9 @@ but can be set by the user or is equal to the uppertreshold + 2 seconds.
 # CONFIGURATION AND ENVIRONMENT
 
 This module requires no special configuration or environment.
+
+Tests are sensitive and be configured using environment and configuration files, please
+see the section on [test and quality](#test-and-quality).
 
 # DEPENDENCIES
 
@@ -215,13 +217,20 @@ test in `t/pod-coverage.t`.
 
 Set TEST\_CRITIC to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test in `t/critic.t`
 
+## CONTINUOUS INTEGRATION
+
+This distribution uses Travis and Jenkins for continuous integration testing, the
+Travis reports are public available.
+
+[![Build Status](https://travis-ci.org/jonasbn/testt.png?branch=master)](https://travis-ci.org/jonasbn/testt)
+
 # TODO
 
 - Implement higher resolution for thresholds
-- Factor out ["\_runtest\_atleast"](#_runtest_atleast)
+- Factor out [\_runtest\_atleast](#_runtest_atleast)
 - Add more tests to get a better feeling for the use and border cases
 requiring alarm etc.
-- Rewrite POD to emphasize ["time\_atleast"](#time_atleast) over ["time\_ok"](#time_ok)
+- Rewrite POD to emphasize [time\_atleast](#time_atleast) over [time\_ok](#time_ok)
 
 # SEE ALSO
 
@@ -251,13 +260,6 @@ You can also look for information at:
 - [MetaCPAN](https://metacpan.org/pod/Test-Timer)
 - [Search CPAN](http://search.cpan.org/dist/Test-Timer)
 
-# ACKNOWLEDGEMENTS
-
-- Gabor Szabo (GZABO), suggestion for specification of interval thresholds
-even though this was obsoleted by the later introduced time\_between
-- Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost and the handling of $SIG{ALRM}.
-- brian d foy (BDFOY), for patch to ["\_run\_test"](#_run_test)
-
 # DEVELOPMENT
 
 This module is very much alpha stage, so pacthes and suggestions are more that
@@ -267,7 +269,14 @@ So feedback/patches is more than welcome.
 
 # AUTHOR
 
-- Jonas B. Nielsen (jonasbn) `<jonasbn@cpan.org>`
+- Jonas B. Nielsen (jonasbn) `<jonasbn at cpan.org>`
+
+# ACKNOWLEDGEMENTS
+
+- Gabor Szabo (GZABO), suggestion for specification of interval thresholds
+even though this was obsoleted by the later introduced time\_between
+- Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost and the handling of $SIG{ALRM}.
+- brian d foy (BDFOY), for patch to ["\_run\_test"](#_run_test)
 
 # LICENSE AND COPYRIGHT
 

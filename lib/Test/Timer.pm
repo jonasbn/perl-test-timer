@@ -237,8 +237,7 @@ The documentation in this module describes version 0.07 of Test::Timer
 =head1 DESCRIPTION
 
 Test::Timer implements a set of test primitives to test and assert test times
-from bodies of code. The code is currently at the alpha stage and might change
-in the future.
+from bodies of code.
 
 =head1 EXPORT
 
@@ -322,14 +321,14 @@ interval in order for the test to succeed
 
 =head2 _runtest
 
-This is a method to handle the result from L</_benchmark> is initiates the
+This is a method to handle the result from L<_benchmark|/_benchmark> is initiates the
 benchmark calling benchmark and based on whether it is within the provided
 interval true (1) is returned and if not false (0).
 
 =head2 _runtest_atleast
 
 This is a simpler variant of the method above, it is the author's hope that is
-can be refactored out at some point, due to the similarity with L</_runtest>.
+can be refactored out at some point, due to the similarity with L<_runtest|/_runtest>.
 
 =head2 _benchmark
 
@@ -356,7 +355,7 @@ alarm.
 This is the method extracts the seconds from benchmarks timestring and returns
 it and an integer.
 
-It takes the timestring from L</_benchmark>/L<Benchmark> and returns the seconds
+It takes the timestring from L<_benchmark|/_benchmark>/L<Benchmark> and returns the seconds
 part.
 
 =head2 import
@@ -372,18 +371,18 @@ are listed below.
 =over
 
 =item * Test did not exceed specified threshold, this message is diagnosis for
-L</time_atleast> and L</time_nok> tests, which do not exceed their specified
+L<time_atleast|/time_atleast> and L<time_nok|/time_nok> tests, which do not exceed their specified
 threshold.
 
 =item * Test exceeded specified threshold, this message is a diagnostic for
-L</time_atmost> and L</time_ok>, if the specified threshold is surpassed.
+L<time_atmost|/time_atmost> and L<time_ok|/time_ok>, if the specified threshold is surpassed.
 
 This is the key point of the module, either your code is too slow and you should
 address this or your threshold is too low, in which case you can set it a bit
 higher and run the test again.
 
 =item * Test did not execute within specified interval, this is the diagnostic
-from L</time_between>, it is the diagnosis if the execution of the code is
+from L<time_between|/time_between>, it is the diagnosis if the execution of the code is
 not between the specified lower and upper thresholds.
 
 =item * Insufficient parameters, this is the message if a specified test is not
@@ -404,6 +403,9 @@ the case adjust the alarm setting to suit your situation.
 =head1 CONFIGURATION AND ENVIRONMENT
 
 This module requires no special configuration or environment.
+
+Tests are sensitive and be configured using environment and configuration files, please
+see the section on L<test and quality|/TEST AND QUALITY>.
 
 =head1 DEPENDENCIES
 
@@ -453,18 +455,27 @@ test in F<t/pod-coverage.t>.
 
 Set TEST_CRITIC to enable L<Test::Perl::Critic> test in F<t/critic.t>
 
+=head2 CONTINUOUS INTEGRATION
+
+This distribution uses Travis and Jenkins for continuous integration testing, the
+Travis reports are public available.
+
+=for HTML <a href="https://travis-ci.org/jonasbn/testt"><img src="https://travis-ci.org/jonasbn/testt.png?branch=master"></a>
+
+=for markdown [![Build Status](https://travis-ci.org/jonasbn/testt.png?branch=master)](https://travis-ci.org/jonasbn/testt)
+
 =head1 TODO
 
 =over
 
 =item * Implement higher resolution for thresholds
 
-=item * Factor out L</_runtest_atleast>
+=item * Factor out L<_runtest_atleast|/_runtest_atleast>
 
 =item * Add more tests to get a better feeling for the use and border cases
 requiring alarm etc.
 
-=item * Rewrite POD to emphasize L</time_atleast> over L</time_ok>
+=item * Rewrite POD to emphasize L<time_atleast|/time_atleast> over L<time_ok|/time_ok>
 
 =back
 
@@ -513,19 +524,6 @@ You can also look for information at:
 
 =back
 
-=head1 ACKNOWLEDGEMENTS
-
-=over
-
-=item * Gabor Szabo (GZABO), suggestion for specification of interval thresholds
-even though this was obsoleted by the later introduced time_between
-
-=item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost and the handling of $SIG{ALRM}.
-
-=item * brian d foy (BDFOY), for patch to L</_run_test>
-
-=back
-
 =head1 DEVELOPMENT
 
 This module is very much alpha stage, so pacthes and suggestions are more that
@@ -537,7 +535,20 @@ So feedback/patches is more than welcome.
 
 =over
 
-=item * Jonas B. Nielsen (jonasbn) C<< <jonasbn@cpan.org> >>
+=item * Jonas B. Nielsen (jonasbn) C<< <jonasbn at cpan.org> >>
+
+=back
+
+=head1 ACKNOWLEDGEMENTS
+
+=over
+
+=item * Gabor Szabo (GZABO), suggestion for specification of interval thresholds
+even though this was obsoleted by the later introduced time_between
+
+=item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost and the handling of $SIG{ALRM}.
+
+=item * brian d foy (BDFOY), for patch to L</_run_test>
 
 =back
 
