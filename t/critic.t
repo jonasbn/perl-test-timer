@@ -6,9 +6,10 @@ use warnings;
 use File::Spec;
 use Test::More;
 use English qw(-no_match_vars);
+use Env qw($TEST_CRITIC);
 
-if ( not $ENV{TEST_AUTHOR} ) {
-    my $msg = 'Author test.  Set $ENV{TEST_AUTHOR} to a true value to run.';
+if ( not $TEST_CRITIC ) {
+    my $msg = 'set TEST_CRITIC to enable this test';
     plan( skip_all => $msg );
 }
 
