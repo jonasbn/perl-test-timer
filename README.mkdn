@@ -40,7 +40,11 @@ in the future.
 
 Test::Timer exports:
 
-[time\_ok](https://metacpan.org/pod/time_ok), [time\_nok](https://metacpan.org/pod/time_nok), [time\_atleast](https://metacpan.org/pod/time_atleast), [time\_atmost](https://metacpan.org/pod/time_atmost) and [time\_between](https://metacpan.org/pod/time_between)
+- [time\_ok](#time_ok)
+- [time\_nok](#time_nok)
+- [time\_atleast](#time_atleast)
+- [time\_atmost](#time_atmost)
+- [time\_between](#time_between)
 
 # SUBROUTINES/METHODS
 
@@ -60,7 +64,7 @@ If the execution of the code exceeds the threshold the test fails
 
 The is the inverted variant of ["time\_ok"](#time_ok), it passes if the threshold is
 exceeded and fails if the benchmark of the code is within the specified
-threshold.
+timing threshold.
 
 The API is the same as for ["time\_ok"](#time_ok).
 
@@ -68,7 +72,7 @@ The API is the same as for ["time\_ok"](#time_ok).
 
 ## time\_atmost
 
-This is syntactic sugar for ["time\_ok"](#time_ok)
+This is _syntactic sugar_ for ["time\_ok"](#time_ok)
 
     time_atmost( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
@@ -77,7 +81,7 @@ This is syntactic sugar for ["time\_ok"](#time_ok)
     time_atleast( sub { sleep(2); }, 1, 'threshold of one second');
 
 The test succeeds if the code takes at least the number of seconds specified by
-the threshold.
+the timing threshold.
 
 Please be aware that Test::Timer, breaks the execution with an alarm specified
 to trigger after the specified threshold + 2 seconds, so if you expect your
@@ -85,7 +89,7 @@ execution to run longer, set the alarm accordingly.
 
     $Test::Timer::alarm = $my_alarm_in_seconds;
 
-See also diagnostics.
+See also [diagnostics](#diagnostics).
 
 ## time\_between
 
@@ -116,7 +120,7 @@ this is the place to do the handy work.
 
 Currently [Benchmark](https://metacpan.org/pod/Benchmark) is used. An alternative could be [Devel::Timer](https://metacpan.org/pod/Devel::Timer), but I
 do not know this module very well and [Benchmark](https://metacpan.org/pod/Benchmark) is core, so this is used for
-know.
+now.
 
 The method takes two parameters:
 
@@ -134,7 +138,7 @@ part.
 
 ## import
 
-Test::Builder required import to do some import hokus-pokus for the test methods
+Test::Builder required import to do some import _hokus-pokus_ for the test methods
 exported from Test::Timer. Please refer to the documentation in [Test::Builder](https://metacpan.org/pod/Test::Builder)
 
 # DIAGNOSTICS
@@ -181,11 +185,11 @@ This module requires no special configuration or environment.
 
 # INCOMPATIBILITIES
 
-This class holds no known incompatibilities.
+This module holds no known incompatibilities.
 
 # BUGS AND LIMITATIONS
 
-This class holds no known bugs.
+This module holds no known bugs.
 
 As listed on the TODO, the current implementations only use seconds and
 resolutions should be higher, so the current implementation is limited to
@@ -206,10 +210,10 @@ The test suite currently covers 94.5% (release 0.02)
 The [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test runs with severity 5 (gentle) for now, please
 refer to t/critic.t and t/perlcriticrc
 
-Set TEST\_POD to enable [Test::Pod](https://metacpan.org/pod/Test::Pod) test in t/pod.t and [Test::Pod::Coverage](https://metacpan.org/pod/Test::Pod::Coverage)
-test in t/pod-coverage.t
+Set TEST\_POD to enable [Test::Pod](https://metacpan.org/pod/Test::Pod) test in `t/pod.t` and [Test::Pod::Coverage](https://metacpan.org/pod/Test::Pod::Coverage)
+test in `t/pod-coverage.t`.
 
-Set TEST\_AUTHOR to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test in t/critic.t
+Set TEST\_AUTHOR to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test in `t/critic.t`
 
 # TODO
 
@@ -225,43 +229,27 @@ requiring alarm etc.
 
 # BUGS
 
-Please report any bugs or feature requests to `bug-test-timer at rt.cpan.org`,
-or through the web interface at
-[http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer).
+Please report any bugs or feature requests either using rt.cpan.org or Github
+
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 
+- RT mail interface: `bug-test-timer at rt.cpan.org`
+- RT web interface: [http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer)
+- Github: [https://github.com/jonasbn/testt/issues](https://github.com/jonasbn/testt/issues)
+
 # SUPPORT
 
-You can find documentation for this module with the perldoc command.
+You can find (this) documentation for this module with the `perldoc` command.
 
     perldoc Test::Timer
 
 You can also look for information at:
 
-- AnnoCPAN: Annotated CPAN documentation
-
-    [http://annocpan.org/dist/Test-Timer](http://annocpan.org/dist/Test-Timer)
-
-- CPAN Ratings
-
-    [http://cpanratings.perl.org/d/Test-Timer](http://cpanratings.perl.org/d/Test-Timer)
-
-- RT: CPAN's request tracker
-
-    [http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-Timer](http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-Timer)
-
-- Github issues:
-
-    [https://github.com/jonasbn/testt/issues](https://github.com/jonasbn/testt/issues)
-
-- MetaCPAN
-
-    [https://metacpan.org/pod/Test-Timer](https://metacpan.org/pod/Test-Timer)
-
-- Search CPAN
-
-    [http://search.cpan.org/dist/Test-Timer](http://search.cpan.org/dist/Test-Timer)
+- [AnnoCPAN: Annotated CPAN documentation](http://annocpan.org/dist/Test-Timer)
+- [CPAN Ratings](http://cpanratings.perl.org/d/Test-Timer)
+- [MetaCPAN](https://metacpan.org/pod/Test-Timer)
+- [Search CPAN](http://search.cpan.org/dist/Test-Timer)
 
 # ACKNOWLEDGEMENTS
 

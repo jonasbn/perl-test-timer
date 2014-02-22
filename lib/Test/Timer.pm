@@ -244,7 +244,19 @@ in the future.
 
 Test::Timer exports:
 
-L<time_ok>, L<time_nok>, L<time_atleast>, L<time_atmost> and L<time_between>
+=over
+
+=item * L<time_ok|/time_ok>
+
+=item * L<time_nok|/time_nok>
+
+=item * L<time_atleast|/time_atleast>
+
+=item * L<time_atmost|/time_atmost>
+
+=item * L<time_between|/time_between>
+
+=back
 
 =head1 SUBROUTINES/METHODS
 
@@ -270,7 +282,7 @@ If the execution of the code exceeds the threshold the test fails
 
 The is the inverted variant of L</time_ok>, it passes if the threshold is
 exceeded and fails if the benchmark of the code is within the specified
-threshold.
+timing threshold.
 
 The API is the same as for L</time_ok>.
 
@@ -278,7 +290,7 @@ The API is the same as for L</time_ok>.
 
 =head2 time_atmost
 
-This is syntactic sugar for L</time_ok>
+This is I<syntactic sugar> for L</time_ok>
 
     time_atmost( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
@@ -287,7 +299,7 @@ This is syntactic sugar for L</time_ok>
     time_atleast( sub { sleep(2); }, 1, 'threshold of one second');
 
 The test succeeds if the code takes at least the number of seconds specified by
-the threshold.
+the timing threshold.
 
 Please be aware that Test::Timer, breaks the execution with an alarm specified
 to trigger after the specified threshold + 2 seconds, so if you expect your
@@ -295,7 +307,7 @@ execution to run longer, set the alarm accordingly.
 
     $Test::Timer::alarm = $my_alarm_in_seconds;
 
-See also diagnostics.
+See also L<diagnostics|/DIAGNOSTICS>.
 
 =head2 time_between
 
@@ -326,7 +338,7 @@ this is the place to do the handy work.
 
 Currently L<Benchmark> is used. An alternative could be L<Devel::Timer>, but I
 do not know this module very well and L<Benchmark> is core, so this is used for
-know.
+now.
 
 The method takes two parameters:
 
@@ -349,7 +361,7 @@ part.
 
 =head2 import
 
-Test::Builder required import to do some import hokus-pokus for the test methods
+Test::Builder required import to do some import I<hokus-pokus> for the test methods
 exported from Test::Timer. Please refer to the documentation in L<Test::Builder>
 
 =head1 DIAGNOSTICS
@@ -411,11 +423,11 @@ This module requires no special configuration or environment.
 
 =head1 INCOMPATIBILITIES
 
-This class holds no known incompatibilities.
+This module holds no known incompatibilities.
 
 =head1 BUGS AND LIMITATIONS
 
-This class holds no known bugs.
+This module holds no known bugs.
 
 As listed on the TODO, the current implementations only use seconds and
 resolutions should be higher, so the current implementation is limited to
@@ -436,10 +448,10 @@ The test suite currently covers 94.5% (release 0.02)
 The L<Test::Perl::Critic> test runs with severity 5 (gentle) for now, please
 refer to t/critic.t and t/perlcriticrc
 
-Set TEST_POD to enable L<Test::Pod> test in t/pod.t and L<Test::Pod::Coverage>
-test in t/pod-coverage.t
+Set TEST_POD to enable L<Test::Pod> test in F<t/pod.t> and L<Test::Pod::Coverage>
+test in F<t/pod-coverage.t>.
 
-Set TEST_AUTHOR to enable L<Test::Perl::Critic> test in t/critic.t
+Set TEST_AUTHOR to enable L<Test::Perl::Critic> test in F<t/critic.t>
 
 =head1 TODO
 
@@ -466,15 +478,24 @@ requiring alarm etc.
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-test-timer at rt.cpan.org>,
-or through the web interface at
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer>.
+Please report any bugs or feature requests either using rt.cpan.org or Github
+
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 
+=over
+
+=item * RT mail interface: C<bug-test-timer at rt.cpan.org>
+
+=item * RT web interface: L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer>
+
+=item * Github: L<https://github.com/jonasbn/testt/issues>
+
+=back
+
 =head1 SUPPORT
 
-You can find documentation for this module with the perldoc command.
+You can find (this) documentation for this module with the C<perldoc> command.
 
     perldoc Test::Timer
 
@@ -482,29 +503,13 @@ You can also look for information at:
 
 =over
 
-=item * AnnoCPAN: Annotated CPAN documentation
+=item * L<AnnoCPAN: Annotated CPAN documentation|http://annocpan.org/dist/Test-Timer>
 
-L<http://annocpan.org/dist/Test-Timer>
+=item * L<CPAN Ratings|http://cpanratings.perl.org/d/Test-Timer>
 
-=item * CPAN Ratings
+=item * L<MetaCPAN|https://metacpan.org/pod/Test-Timer>
 
-L<http://cpanratings.perl.org/d/Test-Timer>
-
-=item * RT: CPAN's request tracker
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-Timer>
-
-=item * Github issues:
-
-L<https://github.com/jonasbn/testt/issues>
-
-=item * MetaCPAN
-
-L<https://metacpan.org/pod/Test-Timer>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/Test-Timer>
+=item * L<Search CPAN|http://search.cpan.org/dist/Test-Timer>
 
 =back
 
