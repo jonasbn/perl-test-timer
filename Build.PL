@@ -15,6 +15,7 @@ my $builder = Module::Build->new(
         'Carp'          => 0, #core
         'Error'         => 0, #core
         'Test::Tester'  => 0,
+        'perl'          => '5.10.0',
     },
     build_requires => {
         'Test::More'          => 0, #core
