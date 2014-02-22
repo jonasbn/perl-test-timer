@@ -9,4 +9,4 @@ BEGIN { use_ok('Test::Timer'); }
 
 time_ok( sub { sleep(1); }, 2, 'Passing test' );
 
-dies_ok { time_ok(sub { sleep(1); } ); } 'Dying test';
+dies_ok { time_ok(sub { sleep(1); } ); } 'Dying test, missing parameters';

@@ -11,4 +11,4 @@ time_nok( sub { sleep(2); }, 1, 'Failing test' );
 
 $Test::Timer::alert = 6;
 
-dies_ok { time_nok(sub { sleep(1); } ); } 'Dying test';
+dies_ok { time_nok(sub { sleep(1); } ); } 'Dying test, missing parameters';
