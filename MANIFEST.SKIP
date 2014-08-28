@@ -53,3 +53,5 @@
 
 # Travis github integration file
 \.travis\.yml
+README.mkdn
+
