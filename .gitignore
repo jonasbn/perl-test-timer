@@ -23,3 +23,5 @@ Makefile.PL
 README
 *.kpf
 *.komodoproject
+*.sublime-project
+*.sublime-workspace

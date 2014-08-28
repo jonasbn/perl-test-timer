@@ -47,5 +47,9 @@
 \.komodoproject
 \.kpf
 
+# SublimeText project files
+\.sublime-project
+\.sublime-workspace
+
 # Travis github integration file
 \.travis\.yml
