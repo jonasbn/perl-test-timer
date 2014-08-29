@@ -1,10 +1,14 @@
+[![CPAN version](https://badge.fury.io/pl/Test-Timer.svg)](http://badge.fury.io/pl/Test-Timer)
+[![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/testt/badge.png)](https://coveralls.io/r/jonasbn/testt)
+
 # NAME
 
 Test::Timer - a test module to test/assert response times
 
 # VERSION
 
-The documentation in this module describes version 0.08 of Test::Timer
+The documentation in this module describes version 0.09 of Test::Timer
 
 # SYNOPSIS
 
