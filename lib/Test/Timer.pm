@@ -583,11 +583,7 @@ even though this was obsoleted by the later introduced time_between
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
 (jonasbn) 2007-2014
 
-Test::Timer and related modules are released under the artistic
-license
-
-The distribution is licensed under the Artistic License, as specified
-by the Artistic file in the standard perl distribution
-(http://www.perl.com/language/misc/Artistic.html).
+Test::Timer and related modules are released under the Artistic
+License 2.0
 
 =cut
