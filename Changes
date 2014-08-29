@@ -5,6 +5,12 @@ Revision history for Test-Timer
 Project change log:
 http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
+0.09 2014.08.29
+
+- Addressing issue #1, the occassional report on failing the rigid test of
+  test_between
+
+
 0.08 2014.02.22
 
 - Update not required
