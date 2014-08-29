@@ -201,6 +201,16 @@ sub _timestring2time {
 
 __END__
 
+=pod
+
+=begin markdown
+
+[![CPAN version](https://badge.fury.io/pl/Test-Timer.svg)](http://badge.fury.io/pl/Test-Timer)
+[![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/testt/badge.png)](https://coveralls.io/r/jonasbn/testt)
+
+=end markdown
+
 =head1 NAME
 
 Test::Timer - a test module to test/assert response times
