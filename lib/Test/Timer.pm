@@ -572,7 +572,10 @@ You can also look for information at:
 =item * Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time_between
 
-=item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost and the handling of $SIG{ALRM}.
+=item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost 
+and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian 
+packagin resulting in release 0.10
+
 
 =item * brian d foy (BDFOY), for patch to L<_run_test|/_run_test>
 
