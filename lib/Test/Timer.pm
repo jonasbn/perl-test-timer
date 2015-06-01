@@ -17,7 +17,7 @@ use Test::Timer::TimeoutException;
 
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
-$VERSION = '0.09';
+$VERSION = '0.10';
 
 my $test  = Test::Builder->new;
 our $alarm = 2; #default alarm
