@@ -584,7 +584,7 @@ packagin resulting in release 0.10
 =head1 LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007-2014
+(jonasbn) 2007-2015
 
 Test::Timer and related modules are released under the Artistic
 License 2.0
