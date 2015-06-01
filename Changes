@@ -7,6 +7,8 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
 
 0.10 2015-06-01
 
+- Update not required
+
 - Test::Tester is marked as a normal runtime dependency [issue #2] (RT:1047699)
 
   https://github.com/jonasbn/testt/issues/2
@@ -17,6 +19,8 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
 
 
 0.09 2014-08-29
+
+- Update not required
 
 - Addressing [issue #1], the occassional report on failing the rigid test of
   test_between
@@ -40,7 +44,7 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
 
 0.07 2013-07-31
 
-- Update not requires
+- Update not required
 
 - Corrected minor issue in this file, had forgotten to run in through the
   validator http://changes.cpanhq.org/validate [TESTT-4]
