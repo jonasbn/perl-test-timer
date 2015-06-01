@@ -5,7 +5,7 @@ Revision history for Test-Timer
 Project change log:
 http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-0.10 2015.06.01
+0.10 2015-06-01
 
 - Test::Tester is marked as a normal runtime dependency [issue #2] (RT:1047699)
 
@@ -16,7 +16,7 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
 - Migrated build system from Module::Build to Dist::Zilla
 
 
-0.09 2014.08.29
+0.09 2014-08-29
 
 - Addressing [issue #1], the occassional report on failing the rigid test of
   test_between
@@ -24,7 +24,7 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
   https://github.com/jonasbn/testt/issues/1
 
 
-0.08 2014.02.22
+0.08 2014-02-22
 
 - Update not required
 
@@ -38,7 +38,7 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
   https://logiclab.jira.com/browse/TESTT-6
 
 
-0.07 2013.07.31
+0.07 2013-07-31
 
 - Update not requires
 
@@ -48,7 +48,7 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
   https://logiclab.jira.com/browse/TESTT-4
 
 
-0.06 2013.07.26
+0.06 2013-07-26
 
 - Update not required
 
@@ -61,7 +61,7 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
   https://logiclab.jira.com/browse/TESTT-3
 
 
-0.05 2008.11.16
+0.05 2008-11-16
 
 - Update not required
 
@@ -70,7 +70,7 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
 - Added patch from brian d foy, bug in _run_test
 
 
-0.04 2007.03.18
+0.04 2007-03-18
 
 - Update not required
 
@@ -79,7 +79,7 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
 - Added Makefile.PL to MANIFEST
 
 
-0.03 2007.03.11
+0.03 2007-03-11
 
 - Update not required
 
@@ -94,7 +94,7 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
 - Minor changes to POD
 
 
-0.02 2007.03.10
+0.02 2007-03-10
 
 - Update recommended
 
@@ -116,6 +116,6 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
 - Ran all code through perltidy
 
 
-0.01 2007.03.01
+0.01 2007-03-01
 
 - First version, released on an unsuspecting world.
