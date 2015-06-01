@@ -284,17 +284,15 @@ You can also look for information at:
 
 - Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time\_between
-- Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost and the handling of $SIG{ALRM}.
+- Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost 
+and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian 
+packagin resulting in release 0.10
 - brian d foy (BDFOY), for patch to [\_run\_test](#_run_test)
 
 # LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007-2014
+(jonasbn) 2007-2015
 
-Test::Timer and related modules are released under the artistic
-license
-
-The distribution is licensed under the Artistic License, as specified
-by the Artistic file in the standard perl distribution
-(http://www.perl.com/language/misc/Artistic.html).
+Test::Timer and related modules are released under the Artistic
+License 2.0
