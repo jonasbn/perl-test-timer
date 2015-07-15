@@ -8,7 +8,7 @@ Test::Timer - a test module to test/assert response times
 
 # VERSION
 
-The documentation in this module describes version 0.09 of Test::Timer
+The documentation in this module describes version 0.11 of Test::Timer
 
 # SYNOPSIS
 
@@ -282,11 +282,12 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
+- Bartosz Jakubski, reporting issue #3
 - Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time\_between
 - Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost 
 and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian 
-packagin resulting in release 0.10
+packaging resulting in release 0.10
 - brian d foy (BDFOY), for patch to [\_run\_test](#_run_test)
 
 # LICENSE AND COPYRIGHT
