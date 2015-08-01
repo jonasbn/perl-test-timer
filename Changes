@@ -9,6 +9,9 @@ http://logicLAB.jira.com/browse/TESTT#selectedTab=com.atlassian.jira.plugin.syst
 
 0.12 2015-08-02
 
+- Added MetaProvides to Dist::Zilla build, this should assist in addressing the
+  issue listed on CPANTS, see also below
+
 - Addressing issue with inconsistent version
 
   Ref: http://cpants.cpanauthors.org/dist/Test-Timer-0.11
