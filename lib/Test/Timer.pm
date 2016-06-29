@@ -165,7 +165,7 @@ sub _benchmark {
     my ( $code, $threshold ) = @_;
 
     my $timestring;
-    my $alarm = $alarm + $threshold;
+    my $alarm = $alarm + ($threshold || 0);
 
     try {
         local $SIG{ALRM} = sub {
