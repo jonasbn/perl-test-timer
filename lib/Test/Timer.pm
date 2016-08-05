@@ -549,10 +549,6 @@ You can also look for information at:
 
 =over
 
-=item * L<Distribution homepage and Wiki (Confluence)|http://logiclab.jira.com/wiki/display/TESTT/Home>
-
-=item * L<Project Site (Jira)|http://logicLAB.jira.com/browse/TESTT>
-
 =item * L<Github Repository|https://github.com/jonasbn/testt>
 
 =back
