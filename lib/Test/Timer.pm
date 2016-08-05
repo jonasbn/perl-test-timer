@@ -478,7 +478,7 @@ Set TEST_CRITIC to enable L<Test::Perl::Critic> test in F<t/critic.t>
 
 =head2 CONTINUOUS INTEGRATION
 
-This distribution uses Travis and Jenkins for continuous integration testing, the
+This distribution uses Travis for continuous integration testing, the
 Travis reports are public available.
 
 =for HTML <a href="https://travis-ci.org/jonasbn/testt"><img src="https://travis-ci.org/jonasbn/testt.png?branch=master"></a>
