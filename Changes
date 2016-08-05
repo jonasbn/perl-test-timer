@@ -1,6 +1,10 @@
 Revision history for Test-Timer
 
 --
+0.13 2016-08-05 Maintenance release
+
+- Corrections to the POD, feedback from Nick Morrott
+
 
 0.12 2015-08-02
 
