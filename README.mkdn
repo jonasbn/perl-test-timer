@@ -8,7 +8,7 @@ Test::Timer - test module to test/assert response times
 
 # VERSION
 
-The documentation in this module describes version 0.12 of Test::Timer
+The documentation in this module describes version 0.13 of Test::Timer
 
 # SYNOPSIS
 
@@ -272,8 +272,6 @@ You can also look for information at:
 
 # DEVELOPMENT
 
-- [Distribution homepage and Wiki (Confluence)](http://logiclab.jira.com/wiki/display/TESTT/Home)
-- [Project Site (Jira)](http://logicLAB.jira.com/browse/TESTT)
 - [Github Repository](https://github.com/jonasbn/testt)
 
 # AUTHOR
