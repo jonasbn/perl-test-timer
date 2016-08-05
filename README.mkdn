@@ -4,7 +4,7 @@
 
 # NAME
 
-Test::Timer - a test module to test/assert response times
+Test::Timer - test module to test/assert response times
 
 # VERSION
 
@@ -229,7 +229,7 @@ Set TEST\_CRITIC to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::P
 
 ## CONTINUOUS INTEGRATION
 
-This distribution uses Travis and Jenkins for continuous integration testing, the
+This distribution uses Travis for continuous integration testing, the
 Travis reports are public available.
 
 [![Build Status](https://travis-ci.org/jonasbn/testt.png?branch=master)](https://travis-ci.org/jonasbn/testt)
@@ -282,6 +282,7 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
+- Nick Morrott, PR #5
 - Bartosz Jakubski, reporting issue #3
 - Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time\_between
@@ -293,7 +294,7 @@ packaging resulting in release 0.10
 # LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007-2015
+(jonasbn) 2007-2016
 
 Test::Timer and related modules are released under the Artistic
 License 2.0
