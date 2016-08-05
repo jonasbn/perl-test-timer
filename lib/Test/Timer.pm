@@ -213,7 +213,7 @@ __END__
 
 =head1 NAME
 
-Test::Timer - a test module to test/assert response times
+Test::Timer - test module to test/assert response times
 
 =head1 VERSION
 
