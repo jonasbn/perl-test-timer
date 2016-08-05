@@ -569,6 +569,8 @@ You can also look for information at:
 
 =over
 
+=item * Nick Morrott, PR #5
+
 =item * Bartosz Jakubski, reporting issue #3
 
 =item * Gabor Szabo (GZABO), suggestion for specification of interval thresholds
