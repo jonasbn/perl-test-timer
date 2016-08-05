@@ -255,7 +255,7 @@ The key features are subroutines to assert or test the following:
 
 =item * that a given piece of code does not exceed a specified time limit
 
-=item * that a given piece of code takes longer than a specifed time limit 
+=item * that a given piece of code takes longer than a specified time limit 
 and does not exceed another
 
 =back
@@ -407,7 +407,7 @@ from L<time_between|/time_between>, it is the diagnosis if the execution of the 
 not between the specified lower and upper thresholds.
 
 =item * Insufficient parameters, this is the message if a specified test is not
-provided with the sufficent number of parameters, consult this documentation
+provided with the sufficient number of parameters, consult this documentation
 and correct accordingly.
 
 =item * Execution exceeded threshold and timed out, the exception is thrown if
