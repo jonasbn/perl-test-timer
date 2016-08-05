@@ -1,7 +1,5 @@
 package Test::Timer;
 
-# $Id: Timer.pm,v 1.15 2008-09-09 19:19:03 jonasbn Exp $
-
 use warnings;
 use strict;
 
