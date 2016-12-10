@@ -280,7 +280,8 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
-- Nick Morrott, PR #5
+- Kent Fredric, PR #7 addressing file permissions
+- Nick Morrott, PR #5 corrections to POD
 - Bartosz Jakubski, reporting issue #3
 - Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time\_between
