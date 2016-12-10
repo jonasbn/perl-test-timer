@@ -15,7 +15,7 @@ use Test::Timer::TimeoutException;
 
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
-$VERSION = '0.13';
+$VERSION = '0.14';
 
 my $test  = Test::Builder->new;
 our $alarm = 2; #default alarm
@@ -563,7 +563,9 @@ You can also look for information at:
 
 =over
 
-=item * Nick Morrott, PR #5
+=item * Kent Fredric, PR #7 addressing file permissions
+
+=item * Nick Morrott, PR #5 corrections to POD
 
 =item * Bartosz Jakubski, reporting issue #3
 

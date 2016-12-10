@@ -1,6 +1,11 @@
 Revision history for Test-Timer
 
 --
+0.13 2016-12-10 Maintenance release
+
+- Corrections to file permissions, PR from Kent Fredric
+
+
 0.13 2016-08-05 Maintenance release
 
 - Corrections to the POD, feedback from Nick Morrott
