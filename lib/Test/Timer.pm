@@ -515,10 +515,6 @@ your bug as I make changes.
 
 =over
 
-=item * RT mail interface: C<bug-test-timer at rt.cpan.org>
-
-=item * RT web interface: L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer>
-
 =item * Github: L<https://github.com/jonasbn/testt/issues>
 
 =back
@@ -538,8 +534,6 @@ You can also look for information at:
 =item * L<CPAN Ratings|http://cpanratings.perl.org/d/Test-Timer>
 
 =item * L<MetaCPAN|https://metacpan.org/pod/Test-Timer>
-
-=item * L<Search CPAN|http://search.cpan.org/dist/Test-Timer>
 
 =back
 
