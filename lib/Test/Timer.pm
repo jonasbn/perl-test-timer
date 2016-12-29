@@ -372,7 +372,7 @@ alarm.
 =head2 _timestring2time
 
 This is the method extracts the seconds from benchmarks timestring and returns
-it and an integer.
+it as an integer.
 
 It takes the timestring from L<_benchmark|/_benchmark> (L<Benchmark>) and returns the seconds
 part.
