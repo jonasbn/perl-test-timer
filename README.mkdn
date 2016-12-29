@@ -8,7 +8,7 @@ Test::Timer - test module to test/assert response times
 
 # VERSION
 
-The documentation in this module describes version 0.15 of Test::Timer
+The documentation in this module describes version 0.16 of Test::Timer
 
 # SYNOPSIS
 
@@ -140,7 +140,7 @@ alarm.
 ## \_timestring2time
 
 This is the method extracts the seconds from benchmarks timestring and returns
-it and an integer.
+it as an integer.
 
 It takes the timestring from [\_benchmark](#_benchmark) ([Benchmark](https://metacpan.org/pod/Benchmark)) and returns the seconds
 part.
@@ -253,8 +253,6 @@ Please report any bugs or feature requests either using rt.cpan.org or Github
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 
-- RT mail interface: `bug-test-timer at rt.cpan.org`
-- RT web interface: [http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-Timer)
 - Github: [https://github.com/jonasbn/testt/issues](https://github.com/jonasbn/testt/issues)
 
 # SUPPORT
@@ -268,7 +266,6 @@ You can also look for information at:
 - [AnnoCPAN: Annotated CPAN documentation](http://annocpan.org/dist/Test-Timer)
 - [CPAN Ratings](http://cpanratings.perl.org/d/Test-Timer)
 - [MetaCPAN](https://metacpan.org/pod/Test-Timer)
-- [Search CPAN](http://search.cpan.org/dist/Test-Timer)
 
 # DEVELOPMENT
 
@@ -280,6 +277,7 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
+- p-alik, PR #4 eliminating warnings during test
 - Kent Fredric, PR #7 addressing file permissions
 - Nick Morrott, PR #5 corrections to POD
 - Bartosz Jakubski, reporting issue #3
