@@ -563,6 +563,8 @@ You can also look for information at:
 
 =over
 
+=item * p-alik, PR #4 eliminating warnings during test
+
 =item * Kent Fredric, PR #7 addressing file permissions
 
 =item * Nick Morrott, PR #5 corrections to POD
