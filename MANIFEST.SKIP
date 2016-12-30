@@ -55,3 +55,5 @@
 \.travis\.yml
 README.mkdn
 
+# Jekyll github pages files
+_config.yml
