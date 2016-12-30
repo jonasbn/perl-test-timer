@@ -1,5 +1,10 @@
 Revision history for Test-Timer
 
+0.18 2016-12-30 Maintenance release, update not required
+
+- Reenabled Github issues over RT, the Dist::Zilla plugins not completely compatible
+
+
 0.17 2016-12-30 Maintenance release, update not required
 
 - Exchanged use of Test::Exception for Test::Fatal
