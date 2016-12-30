@@ -1,5 +1,8 @@
 Revision history for Test-Timer
 
+- Exchanged use of Test::Exception for Test::Fatal
+
+
 0.16 2016-12-29 Maintenance release, update not required
 
 - Elimination of warnings in test suite
