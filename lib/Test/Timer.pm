@@ -209,7 +209,7 @@ __END__
 [![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
 [![Coverage Status](https://coveralls.io/repos/jonasbn/testt/badge.png)](https://coveralls.io/r/jonasbn/testt)
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC autoanchor=false -->
 
 
 <!-- /MarkdownTOC -->
