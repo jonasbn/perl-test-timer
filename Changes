@@ -1,5 +1,7 @@
 Revision history for Test-Timer
 
+0.17 2016-12-30 Maintenance release, update not required
+
 - Exchanged use of Test::Exception for Test::Fatal
 
 - Exchanged use of: Dist::Zilla::Plugin::GitHub::Meta for Dist::Zilla::Plugin::GithubMeta 

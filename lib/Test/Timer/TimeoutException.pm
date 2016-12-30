@@ -7,7 +7,7 @@ use vars qw($VERSION);
 use base 'Error';
 use overload ( '""' => 'stringify' );
 
-$VERSION = '0.16';
+$VERSION = '0.17';
 
 sub new {
     my $self = shift;
@@ -33,7 +33,7 @@ Test::Timer::TimeoutException - exception class for Test::Timer
 
 =head1 VERSION
 
-This documentation describes 0.16 of Test::Timer::TimeoutException
+This documentation describes 0.17 of Test::Timer::TimeoutException
 
 =head1 SYNOPSIS
 
