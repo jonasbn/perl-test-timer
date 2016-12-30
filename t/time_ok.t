@@ -1,4 +1,3 @@
-# $Id: time_ok.t,v 1.5 2007-03-10 19:29:39 jonasbn Exp $
 
 use strict;
 use Test::More tests => 3;

@@ -1,4 +1,3 @@
-# $Id: _benchmark.t,v 1.2 2007-03-08 19:40:24 jonasbn Exp $
 
 use strict;
 use Test::Exception;
