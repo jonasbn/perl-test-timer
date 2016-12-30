@@ -2,6 +2,11 @@ Revision history for Test-Timer
 
 - Exchanged use of Test::Exception for Test::Fatal
 
+- Exchanged use of: Dist::Zilla::Plugin::GitHub::Meta for Dist::Zilla::Plugin::GithubMeta 
+  to specify a proper homepage attribute
+  
+  Ref: https://metacpan.org/pod/Dist::Zilla::Plugin::GithubMeta 
+
 
 0.16 2016-12-29 Maintenance release, update not required
 
