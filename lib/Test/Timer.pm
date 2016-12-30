@@ -488,7 +488,7 @@ Travis reports are public available.
 
 =for HTML <a href="https://travis-ci.org/jonasbn/testt"><img src="https://travis-ci.org/jonasbn/testt.png?branch=master"></a>
 
-=for markdown [![Build Status](https://travis-ci.org/jonasbn/testt.png?branch=master)](https://travis-ci.org/jonasbn/testt)
+=for markdown [![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
 
 =head1 TODO
 

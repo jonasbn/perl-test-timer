@@ -6,39 +6,6 @@
 
 <!-- MarkdownTOC autoanchor=false -->
 
-- [NAME](#name)
-- [VERSION](#version)
-- [SYNOPSIS](#synopsis)
-- [DESCRIPTION](#description)
-- [EXPORT](#export)
-- [SUBROUTINES/METHODS](#subroutinesmethods)
-    - [time\_ok](#time\ok)
-    - [time\_nok](#time\nok)
-    - [time\_atmost](#time\atmost)
-    - [time\_atleast](#time\atleast)
-    - [time\_between](#time\between)
-- [PRIVATE FUNCTIONS](#private-functions)
-    - [\_runtest](#\runtest)
-    - [\_runtest\_atleast](#\runtest\atleast)
-    - [\_benchmark](#\benchmark)
-    - [\_timestring2time](#\timestring2time)
-    - [import](#import)
-- [DIAGNOSTICS](#diagnostics)
-- [CONFIGURATION AND ENVIRONMENT](#configuration-and-environment)
-- [DEPENDENCIES](#dependencies)
-- [INCOMPATIBILITIES](#incompatibilities)
-- [BUGS AND LIMITATIONS](#bugs-and-limitations)
-- [TEST AND QUALITY](#test-and-quality)
-    - [CONTINUOUS INTEGRATION](#continuous-integration)
-- [TODO](#todo)
-- [SEE ALSO](#see-also)
-- [BUGS](#bugs)
-- [SUPPORT](#support)
-- [DEVELOPMENT](#development)
-- [AUTHOR](#author)
-- [ACKNOWLEDGEMENTS](#acknowledgements)
-- [LICENSE AND COPYRIGHT](#license-and-copyright)
-
 <!-- /MarkdownTOC -->
 
 # NAME
@@ -271,7 +238,7 @@ Set TEST\_CRITIC to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::P
 This distribution uses Travis for continuous integration testing, the
 Travis reports are public available.
 
-[![Build Status](https://travis-ci.org/jonasbn/testt.png?branch=master)](https://travis-ci.org/jonasbn/testt)
+[![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
 
 # TODO
 
