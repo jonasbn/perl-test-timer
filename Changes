@@ -10,7 +10,7 @@ Revision history for Test-Timer
 
 0.16 2016-12-29 Maintenance release, update not required
 
-- Elimination of warnings in test suite
+- Elimination of warnings in test suite, PR from p-alik
 
 
 0.15 2016-12-11 Maintenance release, update not required
