@@ -1,0 +1,18 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.page-header {
+  color: #fff;
+  text-align: center;
+  background-color: #fff;
+  background-image: linear-gradient(to bottom, #1e6bb8, #fff);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    color: #222;
+}
