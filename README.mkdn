@@ -31,7 +31,7 @@
 - [TEST AND QUALITY](#test-and-quality)
     - [CONTINUOUS INTEGRATION](#continuous-integration)
 - [SEE ALSO](#see-also)
-- [BUGS](#bugs)
+- [ISSUE REPORTING](#issue-reporting)
 - [SUPPORT](#support)
 - [DEVELOPMENT](#development)
 - [AUTHOR](#author)
@@ -244,6 +244,11 @@ This module holds no known bugs.
 The current implementations only use seconds and resolutions should be higher, 
 so the current implementation is limited to seconds as the highest resolution.
 
+On occassion failing tests with CPAN-testers have been observed. This seem to be related to the test-suite
+being not taking into account that some smoke-testers dp not prioritize resources for the test run and that 
+addional processes/jobs are running. The test-suite have been adjusted to accomodate this but these issues 
+might reoccur.
+
 # TEST AND QUALITY
 
 Coverage report for the release described in this documentation (see [VERSION](#version)).
@@ -275,14 +280,11 @@ Travis reports are public available.
 
 - [Test::Benchmark](https://metacpan.org/pod/Test::Benchmark)
 
-# BUGS
+# ISSUE REPORTING
 
-Please report any bugs or feature requests either using rt.cpan.org or Github
+Please report any bugs or feature requests either using Github
 
-I will be notified, and then you'll automatically be notified of progress on
-your bug as I make changes.
-
-- Github: [https://github.com/jonasbn/testt/issues](https://github.com/jonasbn/testt/issues)
+- [Github Issues](https://github.com/jonasbn/perl-test-timer/issues)
 
 # SUPPORT
 
@@ -292,9 +294,10 @@ You can find (this) documentation for this module with the `perldoc` command.
 
 You can also look for information at:
 
+- [Homepage](https://jonasbn.github.io/perl-test-timer/)
+- [MetaCPAN](https://metacpan.org/pod/Test-Timer)
 - [AnnoCPAN: Annotated CPAN documentation](http://annocpan.org/dist/Test-Timer)
 - [CPAN Ratings](http://cpanratings.perl.org/d/Test-Timer)
-- [MetaCPAN](https://metacpan.org/pod/Test-Timer)
 
 # DEVELOPMENT
 
