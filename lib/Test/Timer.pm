@@ -532,7 +532,9 @@ You can also look for information at:
 
 =over
 
-=item * L<Github Repository|https://github.com/jonasbn/testt>
+=item * L<Github Repository|https://github.com/jonasbn/perl-test-timer>, please see L<the guidelines for contributing|https://github.com/jonasbn/perl-test-timer/blob/master/CONTRIBUTING.md>.
+
+
 
 =back
 
