@@ -499,16 +499,13 @@ Travis reports are public available.
 
 =head1 BUGS
 
-Please report any bugs or feature requests either using rt.cpan.org or Github
-
-I will be notified, and then you'll automatically be notified of progress on
-your bug as I make changes.
+Please report any bugs or feature requests either using Github
 
 =over
 
-=item * Github: L<https://github.com/jonasbn/testt/issues>
+=item * L<Github Issues|https://github.com/jonasbn/perl-test-timer/issues>
 
-=back
+=back 
 
 =head1 SUPPORT
 
@@ -520,11 +517,13 @@ You can also look for information at:
 
 =over
 
+=item * L<Homepage|https://jonasbn.github.io/perl-test-timer/>
+
+=item * L<MetaCPAN|https://metacpan.org/pod/Test-Timer>
+
 =item * L<AnnoCPAN: Annotated CPAN documentation|http://annocpan.org/dist/Test-Timer>
 
 =item * L<CPAN Ratings|http://cpanratings.perl.org/d/Test-Timer>
-
-=item * L<MetaCPAN|https://metacpan.org/pod/Test-Timer>
 
 =back
 
