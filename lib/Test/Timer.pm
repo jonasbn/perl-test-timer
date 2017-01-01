@@ -457,9 +457,8 @@ This module holds no known incompatibilities.
 
 This module holds no known bugs.
 
-As listed on the TODO, the current implementations only use seconds and
-resolutions should be higher, so the current implementation is limited to
-seconds as the highest resolution.
+The current implementations only use seconds and resolutions should be higher, 
+so the current implementation is limited to seconds as the highest resolution.
 
 =head1 TEST AND QUALITY
 
@@ -489,21 +488,6 @@ Travis reports are public available.
 =for HTML <a href="https://travis-ci.org/jonasbn/testt"><img src="https://travis-ci.org/jonasbn/testt.png?branch=master"></a>
 
 =for markdown [![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
-
-=head1 TODO
-
-=over
-
-=item * Implement higher resolution for thresholds
-
-=item * Factor out L<_runtest_atleast|/_runtest_atleast>
-
-=item * Add more tests to get a better feeling for the use and border cases
-requiring alarm etc.
-
-=item * Rewrite POD to emphasize L<time_atleast|/time_atleast> over L<time_ok|/time_ok>
-
-=back
 
 =head1 SEE ALSO
 
