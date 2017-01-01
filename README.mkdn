@@ -30,7 +30,6 @@
 - [BUGS AND LIMITATIONS](#bugs-and-limitations)
 - [TEST AND QUALITY](#test-and-quality)
     - [CONTINUOUS INTEGRATION](#continuous-integration)
-- [TODO](#todo)
 - [SEE ALSO](#see-also)
 - [BUGS](#bugs)
 - [SUPPORT](#support)
@@ -242,9 +241,8 @@ This module holds no known incompatibilities.
 
 This module holds no known bugs.
 
-As listed on the TODO, the current implementations only use seconds and
-resolutions should be higher, so the current implementation is limited to
-seconds as the highest resolution.
+The current implementations only use seconds and resolutions should be higher, 
+so the current implementation is limited to seconds as the highest resolution.
 
 # TEST AND QUALITY
 
@@ -272,14 +270,6 @@ This distribution uses Travis for continuous integration testing, the
 Travis reports are public available.
 
 [![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
-
-# TODO
-
-- Implement higher resolution for thresholds
-- Factor out [\_runtest\_atleast](#_runtest_atleast)
-- Add more tests to get a better feeling for the use and border cases
-requiring alarm etc.
-- Rewrite POD to emphasize [time\_atleast](#time_atleast) over [time\_ok](#time_ok)
 
 # SEE ALSO
 
