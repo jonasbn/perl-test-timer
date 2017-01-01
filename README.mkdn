@@ -298,7 +298,7 @@ You can also look for information at:
 
 # DEVELOPMENT
 
-- [Github Repository](https://github.com/jonasbn/testt)
+- [Github Repository](https://github.com/jonasbn/perl-test-timer), please see [the guidelines for contributing](https://github.com/jonasbn/perl-test-timer/blob/master/CONTRIBUTING.md).
 
 # AUTHOR
 
