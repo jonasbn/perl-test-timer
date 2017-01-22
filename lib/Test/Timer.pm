@@ -206,7 +206,7 @@ __END__
 # Test::Timer
 
 [![CPAN version](https://badge.fury.io/pl/Test-Timer.svg)](http://badge.fury.io/pl/Test-Timer)
-[![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
+[![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
 [![Coverage Status](https://coveralls.io/repos/jonasbn/testt/badge.png)](https://coveralls.io/r/jonasbn/testt)
 
 <!-- MarkdownTOC autoanchor=false -->
@@ -490,9 +490,9 @@ Set TEST_CRITIC to enable L<Test::Perl::Critic> test in F<t/critic.t>
 This distribution uses Travis for continuous integration testing, the
 Travis reports are public available.
 
-=for HTML <a href="https://travis-ci.org/jonasbn/testt"><img src="https://travis-ci.org/jonasbn/testt.png?branch=master"></a>
+=for HTML <a href="https://travis-ci.org/jonasbn/perl-test-timer"><img src="https://travis-ci.org/jonasbn/perl-test-timer.png?branch=master"></a>
 
-=for markdown [![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
+=for markdown [![Build Status](https://travis-ci.org/jonasbn/perl-test-timersvg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
 
 =head1 SEE ALSO
 
