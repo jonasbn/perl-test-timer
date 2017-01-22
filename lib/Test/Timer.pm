@@ -461,7 +461,7 @@ The current implementations only use seconds and resolutions should be higher,
 so the current implementation is limited to seconds as the highest resolution.
 
 On occassion failing tests with CPAN-testers have been observed. This seem to be related to the test-suite
-being not taking into account that some smoke-testers dp not prioritize resources for the test run and that 
+being not taking into account that some smoke-testers do not prioritize resources for the test run and that 
 addional processes/jobs are running. The test-suite have been adjusted to accomodate this but these issues 
 might reoccur.
 
