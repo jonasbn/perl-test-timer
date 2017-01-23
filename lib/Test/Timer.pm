@@ -206,7 +206,7 @@ __END__
 # Test::Timer
 
 [![CPAN version](https://badge.fury.io/pl/Test-Timer.svg)](http://badge.fury.io/pl/Test-Timer)
-[![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
+[![Build Status](https://travis-ci.org/jonasbn/perl-test-timer.svg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
 [![Coverage Status](https://coveralls.io/repos/github/jonasbn/perl-test-timer/badge.svg?branch=master)](https://coveralls.io/github/jonasbn/perl-test-timer?branch=master)
 
 <!-- MarkdownTOC autoanchor=false -->
