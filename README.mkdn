@@ -1,42 +1,10 @@
 # Test::Timer
 
 [![CPAN version](https://badge.fury.io/pl/Test-Timer.svg)](http://badge.fury.io/pl/Test-Timer)
-[![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
-[![Coverage Status](https://coveralls.io/repos/jonasbn/testt/badge.png)](https://coveralls.io/r/jonasbn/testt)
+[![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
+[![Coverage Status](https://coveralls.io/repos/github/jonasbn/perl-test-timer/badge.svg?branch=master)](https://coveralls.io/github/jonasbn/perl-test-timer?branch=master)
 
 <!-- MarkdownTOC autoanchor=false -->
-
-- [NAME](#name)
-- [VERSION](#version)
-- [SYNOPSIS](#synopsis)
-- [DESCRIPTION](#description)
-- [EXPORT](#export)
-- [SUBROUTINES/METHODS](#subroutinesmethods)
-    - [time\_ok](#time\ok)
-    - [time\_nok](#time\nok)
-    - [time\_atmost](#time\atmost)
-    - [time\_atleast](#time\atleast)
-    - [time\_between](#time\between)
-- [PRIVATE FUNCTIONS](#private-functions)
-    - [\_runtest](#\runtest)
-    - [\_runtest\_atleast](#\runtest\atleast)
-    - [\_benchmark](#\benchmark)
-    - [\_timestring2time](#\timestring2time)
-    - [import](#import)
-- [DIAGNOSTICS](#diagnostics)
-- [CONFIGURATION AND ENVIRONMENT](#configuration-and-environment)
-- [DEPENDENCIES](#dependencies)
-- [INCOMPATIBILITIES](#incompatibilities)
-- [BUGS AND LIMITATIONS](#bugs-and-limitations)
-- [TEST AND QUALITY](#test-and-quality)
-    - [CONTINUOUS INTEGRATION](#continuous-integration)
-- [SEE ALSO](#see-also)
-- [ISSUE REPORTING](#issue-reporting)
-- [SUPPORT](#support)
-- [DEVELOPMENT](#development)
-- [AUTHOR](#author)
-- [ACKNOWLEDGEMENTS](#acknowledgements)
-- [LICENSE AND COPYRIGHT](#license-and-copyright)
 
 <!-- /MarkdownTOC -->
 
@@ -245,7 +213,7 @@ The current implementations only use seconds and resolutions should be higher,
 so the current implementation is limited to seconds as the highest resolution.
 
 On occassion failing tests with CPAN-testers have been observed. This seem to be related to the test-suite
-being not taking into account that some smoke-testers dp not prioritize resources for the test run and that 
+being not taking into account that some smoke-testers do not prioritize resources for the test run and that 
 addional processes/jobs are running. The test-suite have been adjusted to accomodate this but these issues 
 might reoccur.
 
@@ -274,7 +242,7 @@ Set TEST\_CRITIC to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::P
 This distribution uses Travis for continuous integration testing, the
 Travis reports are public available.
 
-[![Build Status](https://travis-ci.org/jonasbn/testt.svg?branch=master)](https://travis-ci.org/jonasbn/testt)
+[![Build Status](https://travis-ci.org/jonasbn/perl-test-timersvg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
 
 # SEE ALSO
 
