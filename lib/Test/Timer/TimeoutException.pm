@@ -101,9 +101,13 @@ This class is tested as part of L<Test::Timer>
 =head1 LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007-2016
+(jonasbn) 2007-2017
 
 Test::Timer and related modules are released under the Artistic
 License 2.0
+
+Used distributions are under copyright of there respective authors and designated licenses
+
+Image used on L<website|https://jonasbn.github.io/perl-test-timer/> is under copyright by L<Veri Ivanova|https://unsplash.com/@veri_ivanova?photo=p3Pj7jOYvnM>
 
 =cut
