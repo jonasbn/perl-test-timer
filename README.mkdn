@@ -219,6 +219,8 @@ might reoccur.
 
 # TEST AND QUALITY
 
+[![Coverage Status](https://coveralls.io/repos/github/jonasbn/perl-test-timer/badge.svg?branch=master)](https://coveralls.io/github/jonasbn/perl-test-timer?branch=master)
+
 Coverage report for the release described in this documentation (see [VERSION](#version)).
 
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
@@ -242,7 +244,7 @@ Set TEST\_CRITIC to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::P
 This distribution uses Travis for continuous integration testing, the
 Travis reports are public available.
 
-[![Build Status](https://travis-ci.org/jonasbn/perl-test-timersvg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
+[![Build Status](https://travis-ci.org/jonasbn/perl-test-timer.svg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
 
 # SEE ALSO
 

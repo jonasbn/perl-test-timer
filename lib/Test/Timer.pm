@@ -467,6 +467,10 @@ might reoccur.
 
 =head1 TEST AND QUALITY
 
+=for HTML <a href='https://coveralls.io/github/jonasbn/perl-test-timer'><img src='https://coveralls.io/repos/github/jonasbn/perl-test-timer/badge.svg' alt='Coverage Status' /></a>
+
+=for markdown [![Coverage Status](https://coveralls.io/repos/github/jonasbn/perl-test-timer/badge.svg?branch=master)](https://coveralls.io/github/jonasbn/perl-test-timer?branch=master)
+
 Coverage report for the release described in this documentation (see L<VERSION|/VERSION>).
 
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
@@ -492,7 +496,7 @@ Travis reports are public available.
 
 =for HTML <a href="https://travis-ci.org/jonasbn/perl-test-timer"><img src="https://travis-ci.org/jonasbn/perl-test-timer.png?branch=master"></a>
 
-=for markdown [![Build Status](https://travis-ci.org/jonasbn/perl-test-timersvg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
+=for markdown [![Build Status](https://travis-ci.org/jonasbn/perl-test-timer.svg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
 
 =head1 SEE ALSO
 
