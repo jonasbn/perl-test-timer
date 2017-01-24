@@ -6,6 +6,38 @@
 
 <!-- MarkdownTOC autoanchor=false -->
 
+- [NAME](#name)
+- [VERSION](#version)
+- [SYNOPSIS](#synopsis)
+- [DESCRIPTION](#description)
+- [EXPORT](#export)
+- [SUBROUTINES/METHODS](#subroutinesmethods)
+    - [time\_ok](#time\ok)
+    - [time\_nok](#time\nok)
+    - [time\_atmost](#time\atmost)
+    - [time\_atleast](#time\atleast)
+    - [time\_between](#time\between)
+- [PRIVATE FUNCTIONS](#private-functions)
+    - [\_runtest](#\runtest)
+    - [\_runtest\_atleast](#\runtest\atleast)
+    - [\_benchmark](#\benchmark)
+    - [\_timestring2time](#\timestring2time)
+    - [import](#import)
+- [DIAGNOSTICS](#diagnostics)
+- [CONFIGURATION AND ENVIRONMENT](#configuration-and-environment)
+- [DEPENDENCIES](#dependencies)
+- [INCOMPATIBILITIES](#incompatibilities)
+- [BUGS AND LIMITATIONS](#bugs-and-limitations)
+- [TEST AND QUALITY](#test-and-quality)
+    - [CONTINUOUS INTEGRATION](#continuous-integration)
+- [SEE ALSO](#see-also)
+- [ISSUE REPORTING](#issue-reporting)
+- [SUPPORT](#support)
+- [DEVELOPMENT](#development)
+- [AUTHOR](#author)
+- [ACKNOWLEDGEMENTS](#acknowledgements)
+- [LICENSE AND COPYRIGHT](#license-and-copyright)
+
 <!-- /MarkdownTOC -->
 
 # NAME
@@ -70,6 +102,7 @@ Takes the following parameters:
 - a reference to a block of code (anonymous sub)
 - a threshold specified as a integer indicating a number of seconds
 - a string specifying a test name
+
 
     time_ok( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
