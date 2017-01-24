@@ -299,6 +299,7 @@ Takes the following parameters:
 
 =back
 
+
     time_ok( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
 If the execution of the code exceeds the threshold the test fails
