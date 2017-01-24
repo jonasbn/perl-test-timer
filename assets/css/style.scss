@@ -4,10 +4,12 @@
 @import "{{ site.theme }}";
 
 .page-header {
-  color: #fff;
-  text-align: center;
-  background-color: #fff;
-  background-image: linear-gradient(to bottom, #1e6bb8, #fff);
+    background-position: center center;
+    background-image: url("../images/timer-ivanova-blurred.jpg");
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #fff;
 }
 
 .main-content {
