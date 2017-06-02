@@ -1,6 +1,15 @@
 Revision history for Test-Timer
 
-HEAD
+1.00 2017-06-02 Feature release, update recommended
+
+- Implemented suggestion for improvement from Nigel Horne (#10)
+  https://github.com/jonasbn/perl-test-timer/issues/10
+
+  This change impacts all the diagnostics, so these now communicate
+  the relevant specified thresholds
+
+- Added Dist::Zilla plugins requirements causing issues to dist.ini, so these
+  are explicitly specified
 
 - Exchanged CJM´s:
   https://metacpan.org/pod/Dist::Zilla::Plugin::VersionFromModule
