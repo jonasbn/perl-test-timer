@@ -15,7 +15,7 @@ use Test::Timer::TimeoutException;
 
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
-$VERSION = '0.18';
+$VERSION = '1.00';
 
 my $test  = Test::Builder->new;
 our $alarm = 2; #default alarm
@@ -222,7 +222,7 @@ Test::Timer - test module to test/assert response times
 
 =head1 VERSION
 
-The documentation in this module describes version 0.18 of Test::Timer
+The documentation in this module describes version 1.00 of Test::Timer
 
 =head1 SYNOPSIS
 
@@ -558,6 +558,8 @@ You can also look for information at:
 =head1 ACKNOWLEDGEMENTS
 
 =over
+
+=item * Nigel Horne, issue #10 suggestion for improvement to diagnostics
 
 =item * p-alik, PR #4 eliminating warnings during test
 
