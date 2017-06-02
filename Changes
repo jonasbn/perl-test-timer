@@ -1,6 +1,6 @@
 Revision history for Test-Timer
 
-1.00 2017-06-02 Feature release, update recommended
+1.00 2017-06-03 Feature release, update recommended
 
 - Implemented suggestion for improvement from Nigel Horne (#10)
   https://github.com/jonasbn/perl-test-timer/issues/10
