@@ -9,7 +9,7 @@ $Test::Timer::alert = 1;
 
 like(
     exception { Test::Timer::_benchmark( sub { sleep(20); }, 1 ); },
-    qr/Execution exceeded threshold and timed out/,
+    qr/Execution exceeded threshold of \d+ seconds and timed out/,
     'Caught timeout exception'
 );
 
@@ -17,6 +17,6 @@ $Test::Timer::alert = 6;
 
 like(
     exception { Test::Timer::_benchmark( sub { sleep(20); }, 1 ); },
-    qr/Execution exceeded threshold and timed out/,
+    qr/Execution exceeded threshold of \d+ seconds and timed out/,
     'Caught timeout exception'
 );

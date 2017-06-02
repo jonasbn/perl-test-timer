@@ -32,7 +32,7 @@ sub time_nok {
     if ($ok == 1) {
         $ok = 0;
         $test->ok( $ok, $name );
-        $test->diag( 'Test did not exceed specified threshold' );
+        $test->diag( "Test did not exceed specified threshold of $upperthreshold seconds" );
     } else {
         $ok = 1;
         $test->ok( $ok, $name );
@@ -50,7 +50,7 @@ sub time_atmost {
         $test->ok( $ok, $name );
     } else {
         $test->ok( $ok, $name );
-        $test->diag( 'Test exceeded specified threshold' );
+        $test->diag( "Test exceeded specified threshold of $upperthreshold seconds" );
     }
 
     return $ok;
@@ -63,7 +63,7 @@ sub time_atleast {
 
     if ($ok == 0) {
         $test->ok( $ok, $name );
-        $test->diag( 'Test did not exceed specified threshold' );
+        $test->diag( "Test did not exceed specified threshold of $lowerthreshold seconds" );
     } else {
         $test->ok( $ok, $name );
     }
@@ -81,7 +81,7 @@ sub time_between {
     } else {
         $ok = 0;
         $test->ok( $ok, $name );
-        $test->diag( 'Test did not execute within specified interval' );
+        $test->diag( "Test did not execute within specified interval $lowerthreshold - $upperthreshold seconds" );
     }
 
     return $ok;
@@ -168,7 +168,7 @@ sub _benchmark {
     try {
         local $SIG{ALRM} = sub {
             throw Test::Timer::TimeoutException(
-                'Execution exceeded threshold and timed out');
+                "Execution exceeded threshold of $threshold seconds and timed out" );
         };
 
         alarm( $alarm );
@@ -260,7 +260,7 @@ The key features are subroutines to assert or test the following:
 
 =item * that a given piece of code does not exceed a specified time limit
 
-=item * that a given piece of code takes longer than a specified time limit 
+=item * that a given piece of code takes longer than a specified time limit
 and does not exceed another
 
 =back
@@ -458,12 +458,12 @@ This module holds no known incompatibilities.
 
 This module holds no known bugs.
 
-The current implementations only use seconds and resolutions should be higher, 
+The current implementations only use seconds and resolutions should be higher,
 so the current implementation is limited to seconds as the highest resolution.
 
 On occassion failing tests with CPAN-testers have been observed. This seem to be related to the test-suite
-being not taking into account that some smoke-testers do not prioritize resources for the test run and that 
-addional processes/jobs are running. The test-suite have been adjusted to accomodate this but these issues 
+being not taking into account that some smoke-testers do not prioritize resources for the test run and that
+addional processes/jobs are running. The test-suite have been adjusted to accomodate this but these issues
 might reoccur.
 
 =head1 TEST AND QUALITY
@@ -515,7 +515,7 @@ Please report any bugs or feature requests either using Github
 
 =item * L<Github Issues|https://github.com/jonasbn/perl-test-timer/issues>
 
-=back 
+=back
 
 =head1 SUPPORT
 
@@ -570,8 +570,8 @@ You can also look for information at:
 =item * Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time_between
 
-=item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost 
-and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian 
+=item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost
+and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian
 packaging resulting in release 0.10
 
 =item * brian d foy (BDFOY), for patch to L<_run_test|/_run_test>
