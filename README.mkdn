@@ -6,38 +6,6 @@
 
 <!-- MarkdownTOC autoanchor=false -->
 
-- [NAME](#name)
-- [VERSION](#version)
-- [SYNOPSIS](#synopsis)
-- [DESCRIPTION](#description)
-- [EXPORT](#export)
-- [SUBROUTINES/METHODS](#subroutinesmethods)
-    - [time\_ok](#time\ok)
-    - [time\_nok](#time\nok)
-    - [time\_atmost](#time\atmost)
-    - [time\_atleast](#time\atleast)
-    - [time\_between](#time\between)
-- [PRIVATE FUNCTIONS](#private-functions)
-    - [\_runtest](#\runtest)
-    - [\_runtest\_atleast](#\runtest\atleast)
-    - [\_benchmark](#\benchmark)
-    - [\_timestring2time](#\timestring2time)
-    - [import](#import)
-- [DIAGNOSTICS](#diagnostics)
-- [CONFIGURATION AND ENVIRONMENT](#configuration-and-environment)
-- [DEPENDENCIES](#dependencies)
-- [INCOMPATIBILITIES](#incompatibilities)
-- [BUGS AND LIMITATIONS](#bugs-and-limitations)
-- [TEST AND QUALITY](#test-and-quality)
-    - [CONTINUOUS INTEGRATION](#continuous-integration)
-- [SEE ALSO](#see-also)
-- [ISSUE REPORTING](#issue-reporting)
-- [SUPPORT](#support)
-- [DEVELOPMENT](#development)
-- [AUTHOR](#author)
-- [ACKNOWLEDGEMENTS](#acknowledgements)
-- [LICENSE AND COPYRIGHT](#license-and-copyright)
-
 <!-- /MarkdownTOC -->
 
 # NAME
@@ -46,7 +14,7 @@ Test::Timer - test module to test/assert response times
 
 # VERSION
 
-The documentation in this module describes version 0.18 of Test::Timer
+The documentation in this module describes version 1.00 of Test::Timer
 
 # SYNOPSIS
 
@@ -80,7 +48,7 @@ from bodies of code.
 The key features are subroutines to assert or test the following:
 
 - that a given piece of code does not exceed a specified time limit
-- that a given piece of code takes longer than a specified time limit 
+- that a given piece of code takes longer than a specified time limit
 and does not exceed another
 
 # EXPORT
@@ -241,12 +209,12 @@ This module holds no known incompatibilities.
 
 This module holds no known bugs.
 
-The current implementations only use seconds and resolutions should be higher, 
+The current implementations only use seconds and resolutions should be higher,
 so the current implementation is limited to seconds as the highest resolution.
 
 On occassion failing tests with CPAN-testers have been observed. This seem to be related to the test-suite
-being not taking into account that some smoke-testers do not prioritize resources for the test run and that 
-addional processes/jobs are running. The test-suite have been adjusted to accomodate this but these issues 
+being not taking into account that some smoke-testers do not prioritize resources for the test run and that
+addional processes/jobs are running. The test-suite have been adjusted to accomodate this but these issues
 might reoccur.
 
 # TEST AND QUALITY
@@ -311,14 +279,15 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
+- Nigel Horne, issue #10 suggestion for improvement to diagnostics
 - p-alik, PR #4 eliminating warnings during test
 - Kent Fredric, PR #7 addressing file permissions
 - Nick Morrott, PR #5 corrections to POD
 - Bartosz Jakubski, reporting issue #3
 - Gabor Szabo (GZABO), suggestion for specification of interval thresholds
 even though this was obsoleted by the later introduced time\_between
-- Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost 
-and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian 
+- Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost
+and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian
 packaging resulting in release 0.10
 - brian d foy (BDFOY), for patch to [\_run\_test](#_run_test)
 
