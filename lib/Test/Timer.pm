@@ -128,35 +128,21 @@ sub _runtest_atleast {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
     my $exceed = 0;
-    my $time = 0;
+    my $time   = 0;
 
-    try {
+    if ( defined $lowerthreshold ) {
 
-        if ( defined $lowerthreshold ) {
+        ($exceed, $time) = _runtest( $code, $lowerthreshold, $upperthreshold, $name );
 
-            my $timestring = _benchmark( $code, $lowerthreshold );
-            $time = _timestring2time($timestring);
-
-            if ( $time > $lowerthreshold ) {
-                $exceed = 1;
-            } else {
-                $exceed = 0;
-            }
-
+        if ( $time > $lowerthreshold ) {
+            $exceed = 1;
         } else {
-            croak 'Insufficient number of parameters';
+            $exceed = 0;
         }
-    }
-    catch Test::Timer::TimeoutException with {
-        my $E = shift;
 
-        $test->ok( 0, $name );
-        $test->diag( $E->{-text} );
+    } else {
+        croak 'Insufficient number of parameters';
     }
-    otherwise {
-        my $E = shift;
-        croak( $E->{-text} );
-    };
 
     return ($exceed, $time);
 }
