@@ -1,5 +1,10 @@
 Revision history for Test-Timer
 
+HEAD
+
+- private subroutine _runtest_atleast factored out (#9)
+
+
 1.00 2017-06-03 Feature release, update recommended
 
 - Implemented suggestion for improvement from Nigel Horne (#10)
