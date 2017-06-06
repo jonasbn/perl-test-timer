@@ -132,7 +132,8 @@ sub _runtest_atleast {
 
     if ( defined $lowerthreshold ) {
 
-        ($exceed, $time) = _runtest( $code, $lowerthreshold, $upperthreshold, $name );
+        my $timestring = _benchmark( $code, $lowerthreshold );
+        $time = _timestring2time($timestring);
 
         if ( $time > $lowerthreshold ) {
             $exceed = 1;
