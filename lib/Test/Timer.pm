@@ -331,11 +331,6 @@ This is a method to handle the result from L<_benchmark|/_benchmark> is initiate
 benchmark calling benchmark and based on whether it is within the provided
 interval true (1) is returned and if not false (0).
 
-=head2 _runtest_atleast
-
-This is a simpler variant of the method above, it is the author's hope that is
-can be refactored out at some point, due to the similarity with L<_runtest|/_runtest>.
-
 =head2 _benchmark
 
 This is the method doing the actual benchmark, if a better method is located
@@ -538,7 +533,7 @@ You can also look for information at:
 
 =over
 
-=item * Nigel Horne, issue #10 suggestion for improvement to diagnostics
+=item * Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
 
 =item * p-alik, PR #4 eliminating warnings during test
 
