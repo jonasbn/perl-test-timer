@@ -59,7 +59,7 @@ sub time_atmost {
 sub time_atleast {
     my ( $code, $lowerthreshold, $name ) = @_;
 
-    my ($ok, $time) = _runtest_atleast( $code, $lowerthreshold, undef, $name );
+    my ($ok, $time) = _runtest( $code, $lowerthreshold, undef, $name );
 
     if ($ok == 0) {
         $test->ok( $ok, $name );
@@ -90,17 +90,31 @@ sub time_between {
 sub _runtest {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
+    use Data::Dumper;
+    print STDERR Dumper \@_;
+
     my $within = 0;
     my $time = 0;
 
     try {
 
-        my $timestring = _benchmark( $code, $upperthreshold );
-        $time = _timestring2time($timestring);
+        if ( defined $lowerthreshold and defined $upperthreshold and $name) {
 
-        if ( defined $lowerthreshold && defined $upperthreshold ) {
+            my $timestring = _benchmark( $code, $upperthreshold );
+            $time = _timestring2time($timestring);
 
             if ( $time >= $lowerthreshold && $time <= $upperthreshold ) {
+                $within = 1;
+            } else {
+                $within = 0;
+            }
+
+        } elsif ( defined $lowerthreshold and $name ) {
+
+            my $timestring = _benchmark( $code, $lowerthreshold );
+            $time = _timestring2time($timestring);
+
+            if ( $time > $lowerthreshold ) {
                 $within = 1;
             } else {
                 $within = 0;
@@ -109,6 +123,7 @@ sub _runtest {
         } else {
             croak 'Insufficient number of parameters';
         }
+
     }
     catch Test::Timer::TimeoutException with {
         my $E = shift;
@@ -122,30 +137,6 @@ sub _runtest {
     };
 
     return ($within, $time);
-}
-
-sub _runtest_atleast {
-    my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
-
-    my $exceed = 0;
-    my $time   = 0;
-
-    if ( defined $lowerthreshold ) {
-
-        my $timestring = _benchmark( $code, $lowerthreshold );
-        $time = _timestring2time($timestring);
-
-        if ( $time > $lowerthreshold ) {
-            $exceed = 1;
-        } else {
-            $exceed = 0;
-        }
-
-    } else {
-        croak 'Insufficient number of parameters';
-    }
-
-    return ($exceed, $time);
 }
 
 sub _benchmark {
