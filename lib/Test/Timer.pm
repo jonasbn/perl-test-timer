@@ -90,9 +90,6 @@ sub time_between {
 sub _runtest {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
-    use Data::Dumper;
-    print STDERR Dumper \@_;
-
     my $within = 0;
     my $time = 0;
 
@@ -143,12 +140,13 @@ sub _benchmark {
     my ( $code, $threshold ) = @_;
 
     my $timestring;
+    my $time = 0;
     my $alarm = $alarm + ($threshold || 0);
 
     try {
         local $SIG{ALRM} = sub {
             throw Test::Timer::TimeoutException(
-                "Execution exceeded threshold of $threshold seconds and timed out" );
+                "Execution ran $time seconds and exceeded threshold of $threshold seconds and timed out" );
         };
 
         alarm( $alarm );
@@ -158,6 +156,7 @@ sub _benchmark {
         my $t1 = new Benchmark;
 
         $timestring = timestr( timediff( $t1, $t0 ) );
+        $time = _timestring2time($timestring);
     }
     otherwise {
         my $E = shift;
