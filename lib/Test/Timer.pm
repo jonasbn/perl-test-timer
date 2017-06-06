@@ -27,12 +27,12 @@ sub time_ok {
 sub time_nok {
     my ( $code, $upperthreshold, $name ) = @_;
 
-    my $ok = _runtest( $code, 0, $upperthreshold, $name );
+    my ($ok, $time) = _runtest( $code, 0, $upperthreshold, $name );
 
     if ($ok == 1) {
         $ok = 0;
         $test->ok( $ok, $name );
-        $test->diag( "Test did not exceed specified threshold of $upperthreshold seconds" );
+        $test->diag( "Test ran $time seconds and did not exceed specified threshold of $upperthreshold seconds" );
     } else {
         $ok = 1;
         $test->ok( $ok, $name );
@@ -44,13 +44,13 @@ sub time_nok {
 sub time_atmost {
     my ( $code, $upperthreshold, $name ) = @_;
 
-    my $ok = _runtest( $code, 0, $upperthreshold, $name );
+    my ($ok, $time) = _runtest( $code, 0, $upperthreshold, $name );
 
     if ($ok == 1) {
         $test->ok( $ok, $name );
     } else {
         $test->ok( $ok, $name );
-        $test->diag( "Test exceeded specified threshold of $upperthreshold seconds" );
+        $test->diag( "Test ran $time seconds and exceeded specified threshold of $upperthreshold seconds" );
     }
 
     return $ok;
@@ -59,11 +59,11 @@ sub time_atmost {
 sub time_atleast {
     my ( $code, $lowerthreshold, $name ) = @_;
 
-    my $ok = _runtest_atleast( $code, $lowerthreshold, undef, $name );
+    my ($ok, $time) = _runtest_atleast( $code, $lowerthreshold, undef, $name );
 
     if ($ok == 0) {
         $test->ok( $ok, $name );
-        $test->diag( "Test did not exceed specified threshold of $lowerthreshold seconds" );
+        $test->diag( "Test ran $time seconds and did not exceed specified threshold of $lowerthreshold seconds" );
     } else {
         $test->ok( $ok, $name );
     }
@@ -74,14 +74,14 @@ sub time_atleast {
 sub time_between {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
-    my $ok = _runtest( $code, $lowerthreshold, $upperthreshold, $name );
+    my ($ok, $time) = _runtest( $code, $lowerthreshold, $upperthreshold, $name );
 
     if ($ok == 1) {
         $test->ok( $ok, $name );
     } else {
         $ok = 0;
         $test->ok( $ok, $name );
-        $test->diag( "Test did not execute within specified interval $lowerthreshold - $upperthreshold seconds" );
+        $test->diag( "Test ran $time seconds and did not execute within specified interval $lowerthreshold - $upperthreshold seconds" );
     }
 
     return $ok;
@@ -91,11 +91,12 @@ sub _runtest {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
     my $within = 0;
+    my $time = 0;
 
     try {
 
         my $timestring = _benchmark( $code, $upperthreshold );
-        my $time = _timestring2time($timestring);
+        $time = _timestring2time($timestring);
 
         if ( defined $lowerthreshold && defined $upperthreshold ) {
 
@@ -120,20 +121,21 @@ sub _runtest {
         croak( $E->{-text} );
     };
 
-    return $within;
+    return ($within, $time);
 }
 
 sub _runtest_atleast {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
     my $exceed = 0;
+    my $time = 0;
 
     try {
 
         if ( defined $lowerthreshold ) {
 
             my $timestring = _benchmark( $code, $lowerthreshold );
-            my $time = _timestring2time($timestring);
+            $time = _timestring2time($timestring);
 
             if ( $time > $lowerthreshold ) {
                 $exceed = 1;
@@ -156,7 +158,7 @@ sub _runtest_atleast {
         croak( $E->{-text} );
     };
 
-    return $exceed;
+    return ($exceed, $time);
 }
 
 sub _benchmark {
