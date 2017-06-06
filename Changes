@@ -2,6 +2,9 @@ Revision history for Test-Timer
 
 HEAD
 
+- Improved diagnostics based on feedback for change introduced in 1.00
+  from Nigel Horne. The actual measured time used is now presented (#12)
+
 - private subroutine _runtest_atleast factored out (#9)
 
 
