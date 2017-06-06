@@ -14,7 +14,7 @@ Test::Timer - test module to test/assert response times
 
 # VERSION
 
-The documentation in this module describes version 1.00 of Test::Timer
+The documentation in this module describes version 2.00 of Test::Timer
 
 # SYNOPSIS
 
@@ -122,11 +122,6 @@ interval in order for the test to succeed
 This is a method to handle the result from [\_benchmark](#_benchmark) is initiates the
 benchmark calling benchmark and based on whether it is within the provided
 interval true (1) is returned and if not false (0).
-
-## \_runtest\_atleast
-
-This is a simpler variant of the method above, it is the author's hope that is
-can be refactored out at some point, due to the similarity with [\_runtest](#_runtest).
 
 ## \_benchmark
 
@@ -279,7 +274,7 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
-- Nigel Horne, issue #10 suggestion for improvement to diagnostics
+- Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
 - p-alik, PR #4 eliminating warnings during test
 - Kent Fredric, PR #7 addressing file permissions
 - Nick Morrott, PR #5 corrections to POD
