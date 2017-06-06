@@ -1,7 +1,7 @@
 
 use strict;
 use Test::Fatal; # like
-use Test::More tests => 3;
+use Test::More;
 
 BEGIN { use_ok('Test::Timer'); }
 
@@ -20,3 +20,5 @@ like(
     qr/Execution exceeded threshold of \d+ seconds and timed out/,
     'Caught timeout exception'
 );
+
+done_testing();
