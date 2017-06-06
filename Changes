@@ -1,6 +1,6 @@
 Revision history for Test-Timer
 
-HEAD
+2.00 2017-06-06 Feature release, update recommended
 
 - Improved diagnostics based on feedback for change introduced in 1.00
   from Nigel Horne. The actual measured time used is now presented (#12)
