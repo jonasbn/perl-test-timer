@@ -483,7 +483,7 @@ Travis reports are public available.
 
 =head1 ISSUE REPORTING
 
-Please report any bugs or feature requests either using Github
+Please report any bugs or feature requests using Github
 
 =over
 
