@@ -289,9 +289,11 @@ Takes the following parameters:
 =back
 
 
-    time_ok( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
+    time_nok( sub { sleep(2); }, 1, 'threshold of one second');
 
-If the execution of the code exceeds the threshold the test fails
+If the execution of the code exceeds the threshold specified the test fail with the following diagnostic message
+
+    Test ran 2 seconds and exceeded specified threshold of 1 seconds
 
 =head2 time_nok
 
@@ -301,7 +303,11 @@ timing threshold.
 
 The API is the same as for L<time_ok|/time_ok>.
 
-    time_nok( sub { sleep(2); }, 1, 'threshold of one second');
+    time_nok( sub { sleep(1); }, 2, 'threshold of two seconds');
+
+If the execution of the code executes below the threshold specified the test fail with the following diagnostic message
+
+    Test ran 1 seconds and did not exceed specified threshold of 2 seconds
 
 =head2 time_atmost
 
@@ -309,15 +315,25 @@ This is I<syntactic sugar> for L<time_ok|/time_ok>
 
     time_atmost( sub { doYourStuffButBeQuickAboutIt(); }, 1, 'threshold of one second');
 
+If the execution of the code exceeds the threshold specified the test fail with the following diagnostic message
+
+    Test ran N seconds and exceeded specified threshold of 1 seconds
+
+N will be the actual measured execution time of the specified code
+
 =head2 time_atleast
 
-    time_atleast( sub { sleep(2); }, 1, 'threshold of one second');
+    time_atleast( sub { doYourStuffAndTakeYourTimeAboutIt(); }, 1, 'threshold of 1 second');
 
 The test succeeds if the code takes at least the number of seconds specified by
 the timing threshold.
 
+If the code executes faster, the test fails with the following diagnosic message
+
+    Test ran 1 seconds and did not exceed specified threshold of 2 seconds
+
 Please be aware that Test::Timer, breaks the execution with an alarm specified
-to trigger after the specified threshold + 2 seconds, so if you expect your
+to trigger after the specified threshold + 1 seconds, so if you expect your
 execution to run longer, set the alarm accordingly.
 
     $Test::Timer::alarm = $my_alarm_in_seconds;
@@ -332,6 +348,14 @@ interval in order for the test to succeed
 
     time_between( sub { sleep(2); }, 5, 10,
         'lower threshold of 5 seconds and upper threshold of 10 seconds');
+
+If the code executes faster than the lower threshold or exceeds the upper threshold, the test fails with the following diagnosic message
+
+    Test ran 2 seconds and did not execute within specified interval 5 - 10 seconds
+
+Or
+
+    Test ran 12 seconds and did not execute within specified interval 5 - 10 seconds
 
 =head1 PRIVATE FUNCTIONS
 

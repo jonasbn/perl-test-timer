@@ -1,5 +1,11 @@
 Revision history for Test-Timer
 
+HEAD
+
+- Documentation updated with more information on the improved diagnostics introduced in the
+  feature releases 1.00 and 2.00
+
+
 2.01 2017-06-12 Bug fix release, update recommended
 
 - Fixed bug where execution/time would be reported as 0 (#13)
