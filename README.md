@@ -14,7 +14,7 @@ Test::Timer - test module to test/assert response times
 
 # VERSION
 
-The documentation in this module describes version 2.00 of Test::Timer
+The documentation in this module describes version 2.01 of Test::Timer
 
 # SYNOPSIS
 
