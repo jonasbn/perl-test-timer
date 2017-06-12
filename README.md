@@ -247,7 +247,7 @@ Travis reports are public available.
 
 # ISSUE REPORTING
 
-Please report any bugs or feature requests either using Github
+Please report any bugs or feature requests using Github
 
 - [Github Issues](https://github.com/jonasbn/perl-test-timer/issues)
 
