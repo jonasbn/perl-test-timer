@@ -213,6 +213,22 @@ Test::Timer - test module to test/assert response times
 
 The documentation describes version 2.01 of Test::Timer
 
+=head1 FEATURES
+
+=over
+
+=item * Test subroutines to implement unit-tests to time that your code executes before a specified threshold
+
+=item * Test subroutines to implement unit-tests to time that your code execution exceeds a specified threshold
+
+=item * Test subroutine to mplement unit-tests to time that your code executes within a specified time frame
+
+=item * Supports measurements in seconds
+
+=item * Implements configurable alarm signal handler to make sure that your tests do not execute forever
+
+=back
+
 =head1 SYNOPSIS
 
     use Test::Timer;
