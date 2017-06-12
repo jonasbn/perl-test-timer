@@ -127,6 +127,8 @@ sub _runtest {
 
         $test->ok( 0, $name );
         $test->diag( $E->{-text} );
+
+        return (0, $time);
     }
     otherwise {
         my $E = shift;
@@ -144,14 +146,22 @@ sub _benchmark {
     my $alarm = $alarm + ($threshold || 0);
 
     try {
+
+        my $t0 = new Benchmark;
+
         local $SIG{ALRM} = sub {
+
+            my $t1 = new Benchmark;
+
+            $timestring = timestr( timediff( $t1, $t0 ) );
+            $time = _timestring2time($timestring);
+
             throw Test::Timer::TimeoutException(
                 "Execution ran $time seconds and exceeded threshold of $threshold seconds and timed out" );
         };
 
         alarm( $alarm );
 
-        my $t0 = new Benchmark;
         &{$code};
         my $t1 = new Benchmark;
 
