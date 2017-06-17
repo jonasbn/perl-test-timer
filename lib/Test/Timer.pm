@@ -4,7 +4,7 @@ use warnings;
 use strict;
 
 use vars qw($VERSION @ISA @EXPORT);
-use Benchmark;
+use Benchmark; # timestr
 use Carp qw(croak);
 use Error qw(:try);
 use Test::Builder;
