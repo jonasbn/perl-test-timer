@@ -100,7 +100,7 @@ sub _runtest {
             my $timestring = _benchmark( $code, $upperthreshold );
             $time = _timestring2time($timestring);
 
-            if ( $time >= $lowerthreshold && $time <= $upperthreshold ) {
+            if ( $time > $lowerthreshold && $time < $upperthreshold ) {
                 $within = 1;
             } else {
                 $within = 0;
