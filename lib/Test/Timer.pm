@@ -523,9 +523,9 @@ Coverage report for the release described in this documentation (see L<VERSION|/
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    blib/lib/Test/Timer.pm         91.7   93.8   66.7   88.5  100.0   99.9   90.7
-    ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.1  100.0
-    Total                          93.1   93.8   66.7   90.6  100.0  100.0   92.1
+    blib/lib/Test/Timer.pm         96.1  100.0   64.2   95.4  100.0  100.0   93.8
+    ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
+    Total                          96.8  100.0   64.2   96.4  100.0  100.0   94.7
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 The L<Test::Perl::Critic> test runs with severity 5 (gentle) for now, please
