@@ -123,7 +123,7 @@ If the code executes faster, the test fails with the following diagnosic message
     Test ran 1 seconds and did not exceed specified threshold of 2 seconds
 
 Please be aware that Test::Timer, breaks the execution with an alarm specified
-to trigger after the specified threshold + 1 seconds, so if you expect your
+to trigger after the specified threshold + 2 seconds (default), so if you expect your
 execution to run longer, set the alarm accordingly.
 
     $Test::Timer::alarm = $my_alarm_in_seconds;
