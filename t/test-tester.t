@@ -87,11 +87,18 @@ check_test(
 );
 
 #TODO: Would love to get a diagnostic for the triggered timeout exception
-check_test(
-    sub {
-        time_atleast( sub { sleep(10); }, 1, 'time_atleast, passing test' );
-    },
-    { ok => 1, name => 'time_atleast, passing test', depth => 1, diag => '' }, 'passing test of time_atleast'
-);
+# check_test(
+#     sub {
+#         time_atleast( sub { sleep(10); }, 1, 'time_atleast, passing test' );
+#     },
+#     { ok => 1, name => 'time_atleast, passing test', depth => 1, diag => '' }, 'passing test of time_atleast'
+# );
+
+# check_test(
+#     sub {
+#         time_between( sub { sleep(10); }, 1, 5, 'time_between, passing test' );
+#     },
+#     { ok => 1, name => 'time_atleast, passing test', depth => 1, diag => '' }, 'passing test of time_atleast'
+# );
 
 done_testing();
