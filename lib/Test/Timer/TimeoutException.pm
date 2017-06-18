@@ -12,11 +12,12 @@ $VERSION = '2.01';
 sub new {
     my $self = shift;
     my $text = '' . shift;
+    my $time = shift;
     my @args = ();
 
     local $Error::Depth = $Error::Depth + 1;
 
-    $self = $self->SUPER::new( -text => $text, @args );
+    $self = $self->SUPER::new( -text => $text, -value => $time );
 
     return $self;
 }

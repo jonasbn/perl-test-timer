@@ -40,6 +40,8 @@ sub time_nok {
         $test->ok( $within, $name ); # no, we fail
         $test->diag( "Test ran $time seconds and did not exceed specified threshold of $upperthreshold seconds" );
     } else {
+
+        # we inverse the result, since we are the inverse of time_ok
         $within = 1;
         $test->ok( $within, $name ); # yes, we do not fail
     }
@@ -76,8 +78,11 @@ sub time_atleast {
     if ($above == 0) {
         $test->ok( $above, $name ); # no, we fail
         $test->diag( "Test ran $time seconds and did not exceed specified threshold of $lowerthreshold seconds" );
+    } elsif ($above == 1) {
+        $test->ok( $above, $name ); # yes, we do not fail
     } else {
         $test->ok( $above, $name ); # yes, we do not fail
+        $above = 1;
     }
 
     return $above;
@@ -93,10 +98,13 @@ sub time_between {
     # are we within the specified threshold
     if ($within == 1) {
         $test->ok( $within, $name ); # yes, we do not fail
+    } elsif ($within == 0) {
+        $test->ok( $within, $name ); # no, we fail
+        $test->diag( "Test ran $time seconds and did not execute within specified interval $lowerthreshold - $upperthreshold seconds" );
     } else {
         $within = 0;
         $test->ok( $within, $name ); # no, we fail
-        $test->diag( "Test ran $time seconds and did not execute within specified interval $lowerthreshold - $upperthreshold seconds" );
+
     }
 
     return $within;
@@ -139,16 +147,15 @@ sub _runtest {
         } else {
             croak 'Insufficient number of parameters';
         }
-
     }
     # catching a timeout so we do not run forever
     catch Test::Timer::TimeoutException with {
         my $E = shift;
 
-        $test->ok( 0, $name );
-        $test->diag( $E->{-text} );
+        $time = _timestring2time($E->{-value});
+        $test->diag($E->{-text});
 
-        return (0, $time);
+        return (undef, $time); # we return undef as result
     }
     otherwise {
         my $E = shift;
@@ -166,33 +173,33 @@ sub _benchmark {
     my $time = 0;
     my $alarm = $alarm + ($threshold || 0);
 
-    try {
+    # setting first benchmark
+    my $t0 = new Benchmark;
 
-        my $t0 = new Benchmark;
+    # defining alarm signal handler
+    local $SIG{ALRM} = sub {
 
-        local $SIG{ALRM} = sub {
-
-            my $t1 = new Benchmark;
-
-            $timestring = timestr( timediff( $t1, $t0 ) );
-            $time = _timestring2time($timestring);
-
-            throw Test::Timer::TimeoutException(
-                "Execution ran $time seconds and exceeded threshold of $threshold seconds and timed out" );
-        };
-
-        alarm( $alarm );
-
-        &{$code};
         my $t1 = new Benchmark;
 
         $timestring = timestr( timediff( $t1, $t0 ) );
         $time = _timestring2time($timestring);
-    }
-    otherwise {
-        my $E = shift;
-        croak( $E->{-text} );
+
+        throw Test::Timer::TimeoutException(
+            "Execution ran $time seconds and exceeded threshold of $threshold seconds and timed out", $timestring );
     };
+
+    # setting alarm
+    alarm( $alarm );
+
+    # running code
+    &{$code};
+
+    # setting second benchmark
+    my $t1 = new Benchmark;
+
+    # parsing benchmark output
+    $timestring = timestr( timediff( $t1, $t0 ) );
+    $time = _timestring2time($timestring);
 
     return $timestring;
 }
@@ -201,6 +208,8 @@ sub _benchmark {
 sub _timestring2time {
     my $timestring = shift;
 
+    # $timestring:
+    # 2 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
     my ($time) = $timestring =~ m/(\d+) /;
 
     return $time;
