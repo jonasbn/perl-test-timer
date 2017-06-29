@@ -4,7 +4,6 @@ use Test::Tester;
 use Test::More;
 
 use Test::Timer;
-$Test::Timer::alarm = 20;
 
 #test 1-6
 check_test(
