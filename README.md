@@ -206,7 +206,7 @@ provided with the sufficient number of parameters, consult this documentation
 and correct accordingly.
 - Execution exceeded threshold and timed out, the exception is thrown if
 the execution of tested code exceeds even the alarm, which is default 2 seconds,
-but can be set by the user or is equal to the uppertreshold + 2 seconds.
+but can be set by the user or is equal to the upperthreshold + 2 seconds.
 
     The exception results in a diagnostic for the failing test. This is a failsafe
     to avoid that code runs forever. If you get this diagnose either your code is

@@ -18,6 +18,8 @@ use Test::Timer::TimeoutException;
 $VERSION = '2.01';
 
 my $test  = Test::Builder->new;
+my $timeout = 0;
+
 our $alarm = 2; #default alarm
 
 # syntactic sugar for time_atmost
@@ -75,14 +77,12 @@ sub time_atleast {
     my ($above, $time) = _runtest( $code, $lowerthreshold, undef, $name );
 
     # are we above the specified threshold
-    if ($above == 0) {
+    if ($above == 1) {
+        $test->ok( $above, $name ); # yes, we do not fail
+
+    } else {
         $test->ok( $above, $name ); # no, we fail
         $test->diag( "Test ran $time seconds and did not exceed specified threshold of $lowerthreshold seconds" );
-    } elsif ($above == 1) {
-        $test->ok( $above, $name ); # yes, we do not fail
-    } else {
-        $test->ok( $above, $name ); # yes, we do not fail
-        $above = 1;
     }
 
     return $above;
@@ -100,11 +100,14 @@ sub time_between {
         $test->ok( $within, $name ); # yes, we do not fail
     } elsif ($within == 0) {
         $test->ok( $within, $name ); # no, we fail
-        $test->diag( "Test ran $time seconds and did not execute within specified interval $lowerthreshold - $upperthreshold seconds" );
+        if ($timeout) {
+            $test->diag( "Execution ran $timeout seconds and did not execute within specified interval $lowerthreshold - $upperthreshold seconds and timed out");
+        } else {
+            $test->diag( "Test ran $time seconds and did not execute within specified interval $lowerthreshold - $upperthreshold seconds" );
+        }
     } else {
         $within = 0;
         $test->ok( $within, $name ); # no, we fail
-
     }
 
     return $within;
@@ -115,33 +118,31 @@ sub time_between {
 sub _runtest {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
-    my $within = 0;
+    my $ok = 0;
     my $time = 0;
 
     try {
 
-        # we have both a lower and upper threshold (time_between, time_atleast, time_ok)
+        # we have both a lower and upper threshold (time_between, time_most, time_ok)
         if ( defined $lowerthreshold and defined $upperthreshold and $name) {
 
-            my $timestring = _benchmark( $code, $upperthreshold );
-            $time = _timestring2time($timestring);
+            $time = _benchmark( $code, $lowerthreshold, $upperthreshold );
 
-            if ( $time >= $lowerthreshold and $time < $upperthreshold ) {
-                $within = 1;
+            if ( $time >= $lowerthreshold and $time <= $upperthreshold ) {
+                $ok = 1;
             } else {
-                $within = 0;
+                $ok = 0;
             }
 
-        # we just have a lower threshold (time_atmost)
+        # we just have a lower threshold (time_atleast)
         } elsif ( defined $lowerthreshold and $name ) {
 
-            my $timestring = _benchmark( $code, $lowerthreshold );
-            $time = _timestring2time($timestring);
+            $time = _benchmark( $code, $lowerthreshold, $upperthreshold );
 
-            if ( $time > $lowerthreshold ) {
-                $within = 1;
+            if ( $time >= $lowerthreshold ) {
+                $ok = 1;
             } else {
-                $within = 0;
+                $ok = 0;
             }
 
         } else {
@@ -152,8 +153,7 @@ sub _runtest {
     catch Test::Timer::TimeoutException with {
         my $E = shift;
 
-        $time = _timestring2time($E->{-value});
-        $test->diag($E->{-text});
+        $timeout = $E->{-text};
 
         return (undef, $time); # we return undef as result
     }
@@ -162,34 +162,43 @@ sub _runtest {
         croak( $E->{-text} );
     };
 
-    return ($within, $time);
+    return ($ok, $time);
 }
 
 # actual timing using benchmark
 sub _benchmark {
-    my ( $code, $threshold ) = @_;
+    my ( $code, $lowerthreshold, $upperthreshold ) = @_;
 
-    my $timestring;
     my $time = 0;
-    my $alarm = $alarm + $threshold;
+
+    # We default to no alarm
+    my $local_alarm = 0;
+
+    # We only define an alarm if we have an upper threshold
+    # alarm is based on upper threshold + default alarm
+    # default alarm can be extended, see the docs
+    if (defined $upperthreshold) {
+        $local_alarm = $upperthreshold + $alarm;
+    }
 
     # setting first benchmark
     my $t0 = new Benchmark;
 
     # defining alarm signal handler
+    # the handler takes care of terminating the
+    # benchmarking
     local $SIG{ALRM} = sub {
 
         my $t1 = new Benchmark;
 
-        $timestring = timestr( timediff( $t1, $t0 ) );
-        $time = _timestring2time($timestring);
+        my $timestring = timestr( timediff( $t1, $t0 ) );
+        my $time = _timestring2time($timestring);
 
-        throw Test::Timer::TimeoutException(
-            "Execution ran $time seconds and exceeded threshold of $threshold seconds and timed out", $timestring );
+        throw Test::Timer::TimeoutException("$time");
     };
 
     # setting alarm
-    alarm( $alarm );
+    alarm( $local_alarm );
 
     # running code
     &{$code};
@@ -198,10 +207,10 @@ sub _benchmark {
     my $t1 = new Benchmark;
 
     # parsing benchmark output
-    $timestring = timestr( timediff( $t1, $t0 ) );
+    my $timestring = timestr( timediff( $t1, $t0 ) );
     $time = _timestring2time($timestring);
 
-    return $timestring;
+    return $time;
 }
 
 # helper method to change benchmmark's timestr to an integer
@@ -473,7 +482,7 @@ and correct accordingly.
 
 =item * Execution exceeded threshold and timed out, the exception is thrown if
 the execution of tested code exceeds even the alarm, which is default 2 seconds,
-but can be set by the user or is equal to the uppertreshold + 2 seconds.
+but can be set by the user or is equal to the upperthreshold + 2 seconds.
 
 The exception results in a diagnostic for the failing test. This is a failsafe
 to avoid that code runs forever. If you get this diagnose either your code is
