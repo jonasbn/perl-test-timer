@@ -14,7 +14,7 @@ Test::Timer - test module to test/assert response times
 
 # VERSION
 
-The documentation describes version 2.01 of Test::Timer
+The documentation describes version 2.02 of Test::Timer
 
 # FEATURES
 
@@ -306,6 +306,7 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
+- Nigel Horne, issue #15 suggestion for better assertion in [time\_atleast](#time_atleast)
 - Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
 - p-alik, PR #4 eliminating warnings during test
 - Kent Fredric, PR #7 addressing file permissions

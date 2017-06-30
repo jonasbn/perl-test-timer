@@ -15,7 +15,7 @@ use Test::Timer::TimeoutException;
 
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
-$VERSION = '2.01';
+$VERSION = '2.02';
 
 my $test  = Test::Builder->new;
 my $timeout = 0;
@@ -251,7 +251,7 @@ Test::Timer - test module to test/assert response times
 
 =head1 VERSION
 
-The documentation describes version 2.01 of Test::Timer
+The documentation describes version 2.02 of Test::Timer
 
 =head1 FEATURES
 
@@ -622,6 +622,8 @@ You can also look for information at:
 =head1 ACKNOWLEDGEMENTS
 
 =over
+
+=item * Nigel Horne, issue #15 suggestion for better assertion in L<time_atleast|/time_atleast>
 
 =item * Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
 
