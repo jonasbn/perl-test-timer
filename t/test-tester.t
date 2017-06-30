@@ -5,6 +5,8 @@ use Test::More;
 
 use Test::Timer;
 
+$Test::Timer::alarm = 5;
+
 #test 1-6
 check_test(
     sub {
