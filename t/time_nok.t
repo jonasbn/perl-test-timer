@@ -8,7 +8,7 @@ use_ok('Test::Timer');
 
 time_nok( sub { sleep(2); }, 1, 'Failing test' );
 
-$Test::Timer::alert = 6;
+$Test::Timer::alarm = 6;
 
 like(
     exception { time_nok(sub { sleep(1); } ); },
