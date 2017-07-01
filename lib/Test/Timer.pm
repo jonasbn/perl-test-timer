@@ -32,7 +32,7 @@ sub time_nok {
     my ( $code, $upperthreshold, $name ) = @_;
 
     # timing from zero to upper threshold
-    my ($within, $time) = _runtest( $code, 0, $upperthreshold, $name );
+    my ($within, $time) = _runtest( $code, 0, $upperthreshold );
 
     # are we within the specified threshold
     if ($within == 1) {
@@ -56,7 +56,7 @@ sub time_atmost {
     my ( $code, $upperthreshold, $name ) = @_;
 
     # timing from zero to upper threshold
-    my ($within, $time) = _runtest( $code, 0, $upperthreshold, $name );
+    my ($within, $time) = _runtest( $code, 0, $upperthreshold );
 
     # are we within the specified threshold
     if ($within == 1) {
@@ -74,7 +74,7 @@ sub time_atleast {
     my ( $code, $lowerthreshold, $name ) = @_;
 
     # timing from lowerthreshold to nothing
-    my ($above, $time) = _runtest( $code, $lowerthreshold, undef, $name );
+    my ($above, $time) = _runtest( $code, $lowerthreshold, undef );
 
     # are we above the specified threshold
     if ($above == 1) {
@@ -93,21 +93,18 @@ sub time_between {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
     # timing from lower to upper threshold
-    my ($within, $time) = _runtest( $code, $lowerthreshold, $upperthreshold, $name );
+    my ($within, $time) = _runtest( $code, $lowerthreshold, $upperthreshold );
 
     # are we within the specified threshold
     if ($within == 1) {
         $test->ok( $within, $name ); # yes, we do not fail
-    } elsif ($within == 0) {
+    } else {
         $test->ok( $within, $name ); # no, we fail
         if ($timeout) {
             $test->diag( "Execution ran $timeout seconds and did not execute within specified interval $lowerthreshold - $upperthreshold seconds and timed out");
         } else {
             $test->diag( "Test ran $time seconds and did not execute within specified interval $lowerthreshold - $upperthreshold seconds" );
         }
-    } else {
-        $within = 0;
-        $test->ok( $within, $name ); # no, we fail
     }
 
     return $within;
@@ -116,7 +113,7 @@ sub time_between {
 # helper routine to make initiate timing and make initial interpretation of results
 # test mehtods do the final interpretation
 sub _runtest {
-    my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
+    my ( $code, $lowerthreshold, $upperthreshold ) = @_;
 
     my $ok = 0;
     my $time = 0;
@@ -124,7 +121,7 @@ sub _runtest {
     try {
 
         # we have both a lower and upper threshold (time_between, time_most, time_ok)
-        if ( defined $lowerthreshold and defined $upperthreshold and $name) {
+        if ( defined $lowerthreshold and defined $upperthreshold ) {
 
             $time = _benchmark( $code, $lowerthreshold, $upperthreshold );
 
@@ -135,7 +132,7 @@ sub _runtest {
             }
 
         # we just have a lower threshold (time_atleast)
-        } elsif ( defined $lowerthreshold and $name ) {
+        } elsif ( defined $lowerthreshold ) {
 
             $time = _benchmark( $code, $lowerthreshold, $upperthreshold );
 
@@ -144,9 +141,6 @@ sub _runtest {
             } else {
                 $ok = 0;
             }
-
-        } else {
-            croak 'Insufficient number of parameters';
         }
     }
     # catching a timeout so we do not run forever
@@ -156,10 +150,6 @@ sub _runtest {
         $timeout = $E->{-text};
 
         return (undef, $time); # we return undef as result
-    }
-    otherwise {
-        my $E = shift;
-        croak( $E->{-text} );
     };
 
     return ($ok, $time);
