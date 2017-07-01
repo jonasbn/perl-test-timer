@@ -123,7 +123,7 @@ sub _runtest {
         # we have both a lower and upper threshold (time_between, time_most, time_ok)
         if ( defined $lowerthreshold and defined $upperthreshold ) {
 
-            $time = _benchmark( $code, $lowerthreshold, $upperthreshold );
+            $time = _benchmark( $code, $upperthreshold );
 
             if ( $time >= $lowerthreshold and $time <= $upperthreshold ) {
                 $ok = 1;
@@ -134,7 +134,7 @@ sub _runtest {
         # we just have a lower threshold (time_atleast)
         } elsif ( defined $lowerthreshold ) {
 
-            $time = _benchmark( $code, $lowerthreshold, $upperthreshold );
+            $time = _benchmark( $code );
 
             if ( $time >= $lowerthreshold ) {
                 $ok = 1;
@@ -157,7 +157,7 @@ sub _runtest {
 
 # actual timing using benchmark
 sub _benchmark {
-    my ( $code, $lowerthreshold, $upperthreshold ) = @_;
+    my ( $code, $threshold ) = @_;
 
     my $time = 0;
 
@@ -167,8 +167,8 @@ sub _benchmark {
     # We only define an alarm if we have an upper threshold
     # alarm is based on upper threshold + default alarm
     # default alarm can be extended, see the docs
-    if (defined $upperthreshold) {
-        $local_alarm = $upperthreshold + $alarm;
+    if (defined $threshold) {
+        $local_alarm = $threshold + $alarm;
     }
 
     # setting first benchmark
