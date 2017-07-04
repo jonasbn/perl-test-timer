@@ -26,3 +26,4 @@ README
 *.sublime-project
 *.sublime-workspace
 Test-Timer-*.*/
+local
