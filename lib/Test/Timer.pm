@@ -598,8 +598,6 @@ You can also look for information at:
 
 =item * L<Github Repository|https://github.com/jonasbn/perl-test-timer>, please see L<the guidelines for contributing|https://github.com/jonasbn/perl-test-timer/blob/master/CONTRIBUTING.md>.
 
-
-
 =back
 
 =head1 AUTHOR
@@ -613,6 +611,8 @@ You can also look for information at:
 =head1 ACKNOWLEDGEMENTS
 
 =over
+
+=item * Gregor Herrmann, PR #16 fixes to spelling mistakes
 
 =item * Nigel Horne, issue #15 suggestion for better assertion in L<time_atleast|/time_atleast>
 
