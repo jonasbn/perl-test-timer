@@ -10,6 +10,9 @@ use Error qw(:try);
 use Test::Builder;
 use base 'Test::Builder::Module';
 
+use constant TRUE => 1;
+use constant FALSE => 0;
+
 #own
 use Test::Timer::TimeoutException;
 
@@ -35,16 +38,16 @@ sub time_nok {
     my ($within, $time) = _runtest( $code, 0, $upperthreshold );
 
     # are we within the specified threshold
-    if ($within == 1) {
+    if ($within == TRUE) {
 
         # we inverse the result, since we are the inverse of time_ok
-        $within = 0;
+        $within = FALSE;
         $test->ok( $within, $name ); # no, we fail
         $test->diag( "Test ran $time seconds and did not exceed specified threshold of $upperthreshold seconds" );
     } else {
 
         # we inverse the result, since we are the inverse of time_ok
-        $within = 1;
+        $within = TRUE;
         $test->ok( $within, $name ); # yes, we do not fail
     }
 
@@ -59,7 +62,7 @@ sub time_atmost {
     my ($within, $time) = _runtest( $code, 0, $upperthreshold );
 
     # are we within the specified threshold
-    if ($within == 1) {
+    if ($within == TRUE) {
         $test->ok( $within, $name ); # yes, we do not fail
     } else {
         $test->ok( $within, $name ); # no, we fail
@@ -77,7 +80,7 @@ sub time_atleast {
     my ($above, $time) = _runtest( $code, $lowerthreshold, undef );
 
     # are we above the specified threshold
-    if ($above == 1) {
+    if ($above == TRUE) {
         $test->ok( $above, $name ); # yes, we do not fail
 
     } else {
@@ -96,7 +99,7 @@ sub time_between {
     my ($within, $time) = _runtest( $code, $lowerthreshold, $upperthreshold );
 
     # are we within the specified threshold
-    if ($within == 1) {
+    if ($within == TRUE) {
         $test->ok( $within, $name ); # yes, we do not fail
     } else {
         $test->ok( $within, $name ); # no, we fail
@@ -115,7 +118,7 @@ sub time_between {
 sub _runtest {
     my ( $code, $lowerthreshold, $upperthreshold ) = @_;
 
-    my $ok = 0;
+    my $ok = FALSE;
     my $time = 0;
 
     try {
@@ -126,9 +129,9 @@ sub _runtest {
             $time = _benchmark( $code, $upperthreshold );
 
             if ( $time >= $lowerthreshold and $time <= $upperthreshold ) {
-                $ok = 1;
+                $ok = TRUE;
             } else {
-                $ok = 0;
+                $ok = FALSE;
             }
 
         # we just have a lower threshold (time_atleast)
@@ -137,9 +140,9 @@ sub _runtest {
             $time = _benchmark( $code );
 
             if ( $time >= $lowerthreshold ) {
-                $ok = 1;
+                $ok = TRUE;
             } else {
-                $ok = 0;
+                $ok = FALSE;
             }
         }
     }
