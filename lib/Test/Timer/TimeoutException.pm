@@ -15,7 +15,7 @@ sub new {
 
     local $Error::Depth = $Error::Depth + 1;
 
-    $self = $self->SUPER::new( -text => $time -value => $time );
+    $self = $self->SUPER::new( -text => $time, -value => $time );
 
     return $self;
 }
