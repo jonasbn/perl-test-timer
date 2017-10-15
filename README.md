@@ -242,7 +242,7 @@ so the current implementation is limited to seconds as the highest resolution.
 
 On occassion failing tests with CPAN-testers have been observed. This seem to be related to the test-suite
 being not taking into account that some smoke-testers do not prioritize resources for the test run and that
-addional processes/jobs are running. The test-suite have been adjusted to accomodate this but these issues
+additional processes/jobs are running. The test-suite have been adjusted to accommodate this but these issues
 might reoccur.
 
 # TEST AND QUALITY
@@ -307,6 +307,7 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
+- Gregor Herrmann, PR #16 fixes to spelling mistakes
 - Nigel Horne, issue #15 suggestion for better assertion in [time\_atleast](#time_atleast)
 - Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
 - p-alik, PR #4 eliminating warnings during test

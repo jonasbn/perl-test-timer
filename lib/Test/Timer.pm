@@ -187,7 +187,7 @@ sub _benchmark {
         my $timestring = timestr( timediff( $t1, $t0 ) );
         my $time = _timestring2time($timestring);
 
-        throw Test::Timer::TimeoutException("$time");
+        throw Test::Timer::TimeoutException($time);
     };
 
     # setting alarm
