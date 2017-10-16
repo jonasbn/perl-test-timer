@@ -1,0 +1,7 @@
+local
+*.gz
+perl-test-timer.sublime-project
+perl-test-timer.sublime-workspace
+Test-Timer-*
+_config.yml
+assets
