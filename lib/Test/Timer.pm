@@ -256,7 +256,7 @@ The documentation describes version 2.04 of Test::Timer
 
 =item * Test subroutines to implement unit-tests to time that your code execution exceeds a specified threshold
 
-=item * Test subroutine to mplement unit-tests to time that your code executes within a specified time frame
+=item * Test subroutine to implement unit-tests to time that your code executes within a specified time frame
 
 =item * Supports measurements in seconds
 
@@ -275,19 +275,18 @@ The documentation describes version 2.04 of Test::Timer
     time_between( sub { doYourStuffYouHave5-10Seconds(); }, 5, 10,
         'lower threshold of 5 seconds and upper threshold of 10 seconds');
 
-    #Will succeed
+    # Will succeed
     time_nok( sub { sleep(2); }, 1, 'threshold of one second');
 
     time_atleast( sub { sleep(2); }, 2, 'threshold of one second');
 
-    #Will fail after 5 (threshold) + 2 seconds (default alarm)
+    # Will fail after 5 (threshold) + 2 seconds (default alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
 
     $test::Timer::alarm = 6 #default 2 seconds
 
-    #Will fail after 5 (threshold) + 6 seconds (specified alarm)
+    # Will fail after 5 (threshold) + 6 seconds (specified alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
-
 
 =head1 DESCRIPTION
 
@@ -338,7 +337,6 @@ Takes the following parameters:
 =item * a string specifying a test name
 
 =back
-
 
     time_nok( sub { sleep(2); }, 1, 'threshold of one second');
 
