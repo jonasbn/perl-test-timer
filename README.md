@@ -287,9 +287,9 @@ Coverage report for the release described in this documentation (see [VERSION](#
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    blib/lib/Test/Timer.pm         96.1  100.0   64.2   95.4  100.0  100.0   93.8
+    blib/lib/Test/Timer.pm        100.0   95.0   66.6  100.0  100.0   99.9   98.0
     ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
-    Total                          96.8  100.0   64.2   96.4  100.0  100.0   94.7
+    Total                         100.0   95.0   66.6  100.0  100.0  100.0   98.4
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 The [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test runs with severity 5 (gentle) for now, please
