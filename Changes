@@ -1,5 +1,10 @@
 Revision history for Test-Timer
 
+2.05 2017-11-12 Maintenance release, update not required
+
+- Addressed issue #11 adding experimental graphical support elements to the documentation
+
+
 2.04 2017-10-15 Maintenance release, update not required
 
 - Minor improvements to Test::Timer::TimeoutException, some obsoleted code could
