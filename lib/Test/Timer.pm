@@ -370,7 +370,7 @@ If the execution of the code exceeds the threshold specified the test fail with 
 
 N will be the actual measured execution time of the specified code
 
-begin text
+=begin text
 
 Graphical visualisation of the above example.
 
