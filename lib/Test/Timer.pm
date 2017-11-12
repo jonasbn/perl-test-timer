@@ -370,6 +370,21 @@ If the execution of the code exceeds the threshold specified the test fail with 
 
 N will be the actual measured execution time of the specified code
 
+begin text
+
+Graphical visualisation of the above example.
+
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    | Time in seconds: | 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    | Test outcome:    | S| S| F| F| F| F| F| F| F| F| F| F| F| F| F|
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+
+    F = failure
+    S = Success
+
+=end text
+
 =head2 time_atleast
 
     time_atleast( sub { doYourStuffAndTakeYourTimeAboutIt(); }, 1, 'threshold of 1 second');
@@ -389,6 +404,21 @@ execution to run longer, set the alarm accordingly.
 
 See also L<diagnostics|/DIAGNOSTICS>.
 
+=begin text
+
+Graphical visualisation of the above example.
+
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    | Time in seconds: | 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    | Test outcome:    | F| F| S| S| S| S| S| S| S| S| S| S| S| S| S|
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+
+    F = failure
+    S = Success
+
+=end text
+
 =head2 time_between
 
 This method is a more extensive variant of L<time_atmost|/time_atmost> and L<time_ok|/time_ok>, you
@@ -405,6 +435,21 @@ If the code executes faster than the lower threshold or exceeds the upper thresh
 Or
 
     Test ran 12 seconds and did not execute within specified interval 5 - 10 seconds
+
+=begin text
+
+Graphical visualisation of the above example.
+
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    | Time in seconds: | 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    | Test outcome:    | F| F| F| F| F| S| S| S| S| S| S| F| F| F| F|
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+
+    F = failure
+    S = Success
+
+=end text
 
 =head1 PRIVATE FUNCTIONS
 

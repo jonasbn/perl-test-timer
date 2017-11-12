@@ -113,6 +113,19 @@ If the execution of the code exceeds the threshold specified the test fail with 
 
 N will be the actual measured execution time of the specified code
 
+begin text
+
+Graphical visualisation of the above example.
+
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    | Time in seconds: | 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    | Test outcome:    | S| S| F| F| F| F| F| F| F| F| F| F| F| F| F|
+    +------------------+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+
+    F = failure
+    S = Success
+
 ## time\_atleast
 
     time_atleast( sub { doYourStuffAndTakeYourTimeAboutIt(); }, 1, 'threshold of 1 second');
@@ -333,3 +346,11 @@ License 2.0
 Used distributions are under copyright of there respective authors and designated licenses
 
 Image used on [website](https://jonasbn.github.io/perl-test-timer/) is under copyright by [Veri Ivanova](https://unsplash.com/@veri_ivanova?photo=p3Pj7jOYvnM)
+
+# POD ERRORS
+
+Hey! **The above document had some coding errors, which are explained below:**
+
+- Around line 386:
+
+    &#x3d;end text without matching =begin.  (Stack: \[empty\])
