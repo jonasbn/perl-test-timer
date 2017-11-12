@@ -145,6 +145,8 @@ If the execution of the code exceeds the threshold specified the test fail with 
 
 N will be the actual measured execution time of the specified code
 
+![time_atmost visualisation](https://jonasbn.github.io/perl-test-timer/assets/images/time_atmost.png)
+
 ## time\_atleast
 
     time_atleast( sub { doYourStuffAndTakeYourTimeAboutIt(); }, 1, 'threshold of 1 second');
@@ -164,6 +166,8 @@ execution to run longer, set the alarm accordingly.
 
 See also [diagnostics](#diagnostics).
 
+![time_atleast visualisation](https://jonasbn.github.io/perl-test-timer/assets/images/time_atleast.png)
+
 ## time\_between
 
 This method is a more extensive variant of [time\_atmost](#time_atmost) and [time\_ok](#time_ok), you
@@ -180,6 +184,8 @@ If the code executes faster than the lower threshold or exceeds the upper thresh
 Or
 
     Test ran 12 seconds and did not execute within specified interval 5 - 10 seconds
+
+![time_between visualisation](https://jonasbn.github.io/perl-test-timer/assets/images/time_between.png)
 
 # PRIVATE FUNCTIONS
 
