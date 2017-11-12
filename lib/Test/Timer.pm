@@ -370,6 +370,10 @@ If the execution of the code exceeds the threshold specified the test fail with 
 
 N will be the actual measured execution time of the specified code
 
+=for HTML <img src='https://jonasbn.github.io/perl-test-timer/assets/images/time_atmost.png' alt='time_atmost visualisation' /></a>
+
+=for markdown ![time_atmost visualisation](https://jonasbn.github.io/perl-test-timer/assets/images/time_atmost.png)
+
 =begin text
 
 Graphical visualisation of the above example.
@@ -404,6 +408,10 @@ execution to run longer, set the alarm accordingly.
 
 See also L<diagnostics|/DIAGNOSTICS>.
 
+=for HTML <img src='https://jonasbn.github.io/perl-test-timer/assets/images/time_atleast.png' alt='time_atleast visualisation' /></a>
+
+=for markdown ![time_atleast visualisation](https://jonasbn.github.io/perl-test-timer/assets/images/time_atleast.png)
+
 =begin text
 
 Graphical visualisation of the above example.
@@ -435,6 +443,10 @@ If the code executes faster than the lower threshold or exceeds the upper thresh
 Or
 
     Test ran 12 seconds and did not execute within specified interval 5 - 10 seconds
+
+=for HTML <img src='https://jonasbn.github.io/perl-test-timer/assets/images/time_between.png' alt='time_between visualisation' /></a>
+
+=for markdown ![time_between visualisation](https://jonasbn.github.io/perl-test-timer/assets/images/time_between.png)
 
 =begin text
 
