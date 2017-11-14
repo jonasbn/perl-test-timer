@@ -346,6 +346,7 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
+- Erik Johansen, suggestion for clearing alarm
 - Gregor Herrmann, PR #16 fixes to spelling mistakes
 - Nigel Horne, issue #15 suggestion for better assertion in [time\_atleast](#time_atleast)
 - Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
