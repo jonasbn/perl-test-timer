@@ -674,6 +674,8 @@ You can also look for information at:
 
 =over
 
+=item * Erik Johansen, suggestion for clearing alarm
+
 =item * Gregor Herrmann, PR #16 fixes to spelling mistakes
 
 =item * Nigel Horne, issue #15 suggestion for better assertion in L<time_atleast|/time_atleast>
