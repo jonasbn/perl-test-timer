@@ -1,5 +1,13 @@
 Revision history for Test-Timer
 
+2.06 2017-11-14 Maintenance release, update not required
+
+- Added cancellation of alarm, based on advice from Erik Johansen
+
+- Implemented own sleep, based on select, this might address possible issues with
+  sleep implementations
+
+
 2.05 2017-11-12 Maintenance release, update not required
 
 - Addressed issue #11 adding experimental graphical support elements to the documentation
