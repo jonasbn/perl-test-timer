@@ -196,6 +196,9 @@ sub _benchmark {
     # running code
     &{$code};
 
+    # clear alarm
+    alarm( 0 );
+
     # setting second benchmark
     my $t1 = new Benchmark;
 
