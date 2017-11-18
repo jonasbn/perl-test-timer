@@ -20,7 +20,7 @@ on 'test' => sub {
     requires 'Test::More'              => '0';
     requires 'Test::Pod'               => '1.41';
     requires 'Test::Pod::Coverage'     => '1.08';
-    requires 'Test::Tester'            => '1.302107';
+    requires 'Test::Tester'            => '1.302111';
 };
 
 on 'configure' => sub {
