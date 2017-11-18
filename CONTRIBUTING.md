@@ -24,8 +24,8 @@ Please use the [PR template](https://github.com/jonasbn/perl-test-timer/blob/mas
 
 Coding guidelines are basic, please use:
 
-- EditorConfig (configuration included in repository as `.editorconfig`)
-- PerlTidy (can be downloaded from [Gist](https://gist.github.com/jonasbn/d6c6f1fc5d075e2f9b27))
+- [EditorConfig](http://editorconfig.org/) (configuration included in repository as `.editorconfig`)
+- [PerlTidy](http://perltidy.sourceforge.net/) (can be downloaded from [Gist](https://gist.github.com/jonasbn/d6c6f1fc5d075e2f9b27))
 
 ```
 # REF: http://www.perlmonks.org/?node_id=485885
