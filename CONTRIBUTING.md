@@ -4,7 +4,7 @@ These are the guidelines for contributing to this repository.
 
 ## Issues
 
-File an issue if you think you've found a bug. Please describe
+File an issue if you think you've found a [bug](https://en.wikipedia.org/wiki/Software_bug). Please describe the following:
 
 1. What version of the involved component was used
 2. What environment was the component used in (OS, Perl version etc.)
@@ -54,6 +54,6 @@ And if you are really adventurous, you are most welcome to read [my general codi
 
 All contributions are welcome and most will be accepted.
 
-## Licensing and copyright
+## Licensing and Copyright
 
 Please note that accepted contributions are included in the repository and hence under the same license as the repository contributed to.
