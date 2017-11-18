@@ -20,7 +20,7 @@ Patches for fixes, features, and improvements are accepted via pull requests.
 
 Pull requests should be based on the **master** branch, unless you want to contribute to an active branch for a specific topic.
 
-Please check the [PR templates](https://github.com/jonasbn/perl-test-timer/blob/master/.github/PULL_REQUEST_TEMPLATE.md)
+Please check the [PR template](https://github.com/jonasbn/perl-test-timer/blob/master/.github/PULL_REQUEST_TEMPLATE.md)
 
 Coding guidelines are basic, please use:
 
