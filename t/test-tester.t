@@ -23,14 +23,14 @@ check_test(
     sub {
         time_ok( sub { _sleep(2); }, 1, 'time_ok, failing test' );
     },
-    { ok => 0, name => 'time_ok, failing test', depth => 2, diag => 'Test ran 2 seconds and exceeded specified threshold of 1 seconds' }, 'Failing test of time_ok'
+    { ok => 0, name => 'time_ok, failing test', depth => 2, diag => qr/Test ran \d+ seconds and exceeded specified threshold of 1 seconds/ }, 'Failing test of time_ok'
 );
 
 check_test(
     sub {
         time_nok( sub { _sleep(1); }, 3, 'time_nok, failing test' );
     },
-    { ok => 0, name => 'time_nok, failing test', depth => 1, diag => 'Test ran 1 seconds and did not exceed specified threshold of 3 seconds' }, 'Failing test of time_nok'
+    { ok => 0, name => 'time_nok, failing test', depth => 1, diag => qr/Test ran \d+ seconds and did not exceed specified threshold of 3 seconds/ }, 'Failing test of time_nok'
 );
 
 check_test(
@@ -51,7 +51,7 @@ check_test(
     sub {
         time_between( sub { _sleep(3); }, 1, 2, 'time_between, failing test' );
     },
-    { ok => 0, name => 'time_between, failing test', depth => 1, diag => 'Test ran 3 seconds and did not execute within specified interval 1 - 2 seconds' }, 'Failing test of time_between'
+    { ok => 0, name => 'time_between, failing test', depth => 1, diag => qr/Test ran \d+ seconds and did not execute within specified interval 1 - 2 seconds/ }, 'Failing test of time_between'
 );
 
 check_test(
@@ -65,14 +65,14 @@ check_test(
     sub {
         time_atmost( sub { _sleep(2); }, 1, 'time_atmost, failing test' );
     },
-    { ok => 0, name => 'time_atmost, failing test', depth => 1, diag => 'Test ran 2 seconds and exceeded specified threshold of 1 seconds' }, 'Failing test of time_atmost'
+    { ok => 0, name => 'time_atmost, failing test', depth => 1, diag => qr/Test ran \d+ seconds and exceeded specified threshold of 1 seconds/ }, 'Failing test of time_atmost'
 );
 
 check_test(
     sub {
         time_atleast( sub { _sleep(1); }, 3, 'time_atleast, failing test' );
     },
-    { ok => 0, name => 'time_atleast, failing test', depth => 1, diag => 'Test ran 1 seconds and did not exceed specified threshold of 3 seconds' }, 'Failing test of time_atleast'
+    { ok => 0, name => 'time_atleast, failing test', depth => 1, diag => qr/Test ran \d+ seconds and did not exceed specified threshold of 3 seconds/ }, 'Failing test of time_atleast'
 );
 
 check_test(
@@ -86,7 +86,7 @@ check_test(
     sub {
         time_between( sub { _sleep(10); }, 1, 5, 'time_between, long running test' );
     },
-    { ok => 0, name => 'time_between, long running test', depth => 1, diag => 'Execution ran 10 seconds and did not execute within specified interval 1 - 5 seconds and timed out' }, 'failing long running test of time_between'
+    { ok => 0, name => 'time_between, long running test', depth => 1, diag => qr/Execution ran \d+ seconds and did not execute within specified interval 1 - 5 seconds and timed out/ }, 'failing long running test of time_between'
 );
 
 done_testing();
