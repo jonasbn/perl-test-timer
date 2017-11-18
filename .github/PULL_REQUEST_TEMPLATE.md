@@ -15,7 +15,7 @@ Please delete options that are not relevant.
 
 # Checklist:
 
-- [ ] My code follows the style guidelines of this project
+- [ ] My code follows the style guidelines of this project, please see the [contribution guidelines](https://github.com/jonasbn/perl-test-timer/blob/master/CONTRIBUTING.md).
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
@@ -23,3 +23,5 @@ Please delete options that are not relevant.
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] New and existing unit tests pass locally with my changes
 - [ ] Any dependent changes have been merged and published in downstream modules
+
+You might think, that this is one crazy checklist, but it is just as much written for the maintainer of the involved software :-)
