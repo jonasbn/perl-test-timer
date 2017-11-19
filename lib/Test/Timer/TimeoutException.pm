@@ -40,8 +40,6 @@ This documentation describes 2.07 of Test::Timer::TimeoutException
 
     throw Test::Timer::TimeoutException($timeout);
 
-    throw Test::Timer::TimeoutException($timeout);
-
 =head1 DESCRIPTION
 
 This is an exception class for Test::Timer. It is used in conjunction with the
