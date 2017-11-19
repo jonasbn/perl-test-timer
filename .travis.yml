@@ -33,7 +33,8 @@ install:
 
    # Getting all the plugins used by Dist::Zilla in this particular setup
 
-   - dzil authordeps | grep -vP '[^\w:]' | xargs -n 5 -P 10 cpanm --quiet --notest --skip-satisfied
+   #- dzil authordeps | grep -vP '[^\w:]' | xargs -n 5 -P 10 cpanm --quiet --notest --skip-satisfied
+   - dzil listdeps --cpanm-versions | cpanm --quiet --skip-satisfied
 
    # Getting all the dependencies requested by author
 
