@@ -33,18 +33,15 @@ install:
 
    # Getting all the plugins used by Dist::Zilla in this particular setup
 
-   #- dzil authordeps | grep -vP '[^\w:]' | xargs -n 5 -P 10 cpanm --quiet --notest --skip-satisfied
    - dzil listdeps --cpanm-versions | cpanm --quiet --skip-satisfied
 
    # Getting all the dependencies requested by author
 
-   - dzil listdeps --author | cpanm --quiet --notest --skip-satisfied
+   - dzil listdeps --author --cpanm-versions | cpanm --quiet --notest --skip-satisfied
+
+   # Setting the environment variables for the actual test
 
    - export RELEASE_TESTING=1 AUTOMATED_TESTING=1 AUTHOR_TESTING=1 HARNESS_OPTIONS=j10:c HARNESS_TIMER=1
-
-   # Getting all the dependencies requested by distribution
-
-   - dzil listdeps | grep -vP '[^\w:]' | cpanm --quiet --notest --skip-satisfied
 
 script:
 
