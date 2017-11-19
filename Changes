@@ -1,5 +1,13 @@
 Revision history for Test-Timer
 
+2.07 2017-11-18 Maintenance release, update not required
+
+- Addressing issue #17, the tests are now more liberal, so when executed
+  on smokers, CI environments and similar, load will not influence the
+  test results. The requirement for Test::Tester has been updated and a patch
+  required by this distribution has been included
+
+
 2.06 2017-11-14 Maintenance release, update not required
 
 - Added cancellation of alarm, based on advice from Erik Johansen
