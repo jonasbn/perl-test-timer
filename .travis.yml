@@ -33,11 +33,11 @@ install:
 
   # Getting all the dependencies requested by author
 
-  - dzil authordeps --cpanm-versions | cpanm --quiet --notest --skip-satisfied
+  - dzil authordeps --cpanm-versions | perl -p -e 's/"//g' | cpanm --quiet --notest --skip-satisfied
 
   # Getting all the plugins used by Dist::Zilla in this particular setup
 
-  - dzil listdeps --cpanm-versions | cpanm --quiet --skip-satisfied
+  - dzil listdeps --cpanm-versions | perl -p -e 's/"//g' | cpanm --quiet --skip-satisfied
 
   # Setting the environment variables for the actual test
 
