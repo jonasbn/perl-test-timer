@@ -33,7 +33,7 @@ install:
 
   # Getting all the dependencies requested by author
 
-  - dzil listdeps --author --cpanm-versions | cpanm --quiet --notest --skip-satisfied
+  - dzil authordeps --cpanm-versions | cpanm --quiet --notest --skip-satisfied
 
   # Getting all the plugins used by Dist::Zilla in this particular setup
 
