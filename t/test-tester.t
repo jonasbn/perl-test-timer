@@ -86,7 +86,7 @@ check_test(
     sub {
         time_between( sub { _sleep(10); }, 1, 5, 'time_between, long running test' );
     },
-    { ok => 0, name => 'time_between, long running test', depth => 1, diag => qr/\w+ ran \d+ seconds and did not execute within specified interval 1 - 5 seconds and timed out/ }, 'failing long running test of time_between'
+    { ok => 0, name => 'time_between, long running test', depth => 1, diag => qr/\w+ ran \d+ seconds and did not execute within specified interval 1 - 5 seconds.*/ }, 'failing long running test of time_between'
 );
 
 done_testing();
