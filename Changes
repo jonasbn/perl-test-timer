@@ -1,5 +1,10 @@
 Revision history for Test-Timer
 
+2.08 2017-11-20 Maintenance release, update not required
+
+- Addressing reports on failing tests from CPAN testers
+
+
 2.07 2017-11-18 Maintenance release, update not required
 
 - Addressing issue #17, the tests are now more liberal, so when executed
