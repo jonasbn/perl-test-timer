@@ -37,7 +37,7 @@ install:
 
   # Getting all the plugins used by Dist::Zilla in this particular setup
 
-  - dzil listdeps --cpanm-versions | perl -p -e 's/"//g' | cpanm --quiet --skip-satisfied
+  - dzil listdeps --cpanm-versions | perl -p -e 's/"//g' | cpanm --quiet
 
   # Setting the environment variables for the actual test
 
