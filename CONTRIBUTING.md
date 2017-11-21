@@ -25,28 +25,7 @@ Please use the [PR template](https://github.com/jonasbn/perl-test-timer/blob/mas
 Coding guidelines are basic, please use:
 
 - [EditorConfig](http://editorconfig.org/) (configuration included in repository as `.editorconfig`)
-- [PerlTidy](http://perltidy.sourceforge.net/) (can be downloaded from [Gist](https://gist.github.com/jonasbn/d6c6f1fc5d075e2f9b27))
-
-```
-# REF: http://www.perlmonks.org/?node_id=485885
-# PBP .perltidyrc file
-
--l=78   # Max line width is 78 cols
--i=4    # Indent level is 4 cols
--ci=4   # Continuation indent is 4 cols
--st     # Output to STDOUT
--se     # Errors to STDERR
--vt=2   # Maximal vertical tightness
--cti=0  # No extra indentation for closing brackets
--pt=1   # Medium parenthesis tightness
--bt=1   # Medium brace tightness
--sbt=1  # Medium square bracket tightness
--bbt=1  # Medium block brace tightness
--nsfs   # No space before semicolons
--nolq   # Don't outdent long quoted strings
--wbb="% + - * / x != == >= <= =~ < > | & **= += *= &= <<= &&= -= /= |= >>= ||= .= %= ^= x="
-        # Break before all operators
-```
+- [PerlTidy](http://perltidy.sourceforge.net/) (configuration included in repository as `.perlcriticrc`)
 
 For other coding conventions please see the Perl::Critic configuration in: `t/perlcriticrc`.
 
