@@ -31,6 +31,15 @@ For other coding conventions please see the Perl::Critic configuration in: `t/pe
 
 And if you are really adventurous, you are most welcome to read [my general coding conventions](https://gist.github.com/jonasbn/c2f703c68340384cfc61bb9c38adb2ff) (WIP).
 
+Do note that the repository uses [propot](https://probot.github.io/), so if you write comments in formatted as:
+
+```perl
+# @todo You have an in issue in your heading
+# @body But a descriptive body 
+```
+
+The [`TODO bot`](https://probot.github.io/apps/todo/) will the create a GitHub issue automatically upon `push` to the repository.
+
 All contributions are welcome and most will be accepted.
 
 ## Licensing and Copyright
