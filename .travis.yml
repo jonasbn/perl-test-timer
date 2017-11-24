@@ -1,52 +1,26 @@
-sudo: false # Migrating from legacy to container-based infrastructure for Travis
-            # Ref: http://docs.travis-ci.com/user/migrating-from-legacy/
+sudo: false
 language: perl
 perl:
-  - "5.24"
-  - "5.22"
-  - "5.20"
-  - "5.10"
-
+- '5.24'
+- '5.22'
+- '5.20'
+- '5.10'
 before_install:
-
-  # Prevent "Please tell me who you are" errors for certain DZIL configs
-
-  - git config --global user.name "TravisCI"
-
+- git config --global user.name "TravisCI"
 install:
-
-  # Deal with all of the DZIL dependencies, quickly and quietly
-
-  - cpanm --quiet --notest --skip-satisfied Dist::Zilla
-
-  # Hack to getting the latest Test::Kwalitee
-
-  - cpanm --quiet --notest Test::Kwalitee
-
-  # Getting coveralls report
-
-  - cpanm --quiet --notest Devel::Cover::Report::Coveralls
-
-  # Getting cover command for Dist::Zilla
-
-  - cpanm --quiet --notest Dist::Zilla::App::Command::cover
-
-  # Getting all the dependencies requested by author
-
-  - dzil authordeps --cpanm-versions | perl -p -e 's/"//g' | cpanm --quiet --notest --skip-satisfied
-
-  # Getting all the plugins used by Dist::Zilla in this particular setup
-
-  - dzil listdeps --cpanm-versions | perl -p -e 's/"//g' | cpanm --quiet
-
-  # Setting the environment variables for the actual test
-
-  - export RELEASE_TESTING=1 AUTOMATED_TESTING=1 AUTHOR_TESTING=1 HARNESS_OPTIONS=j10:c HARNESS_TIMER=1
-
+- cpanm --quiet --notest --skip-satisfied Dist::Zilla
+- cpanm --quiet --notest Test::Kwalitee
+- cpanm --quiet --notest Devel::Cover::Report::Coveralls
+- cpanm --quiet --notest Dist::Zilla::App::Command::cover
+- dzil authordeps --cpanm-versions | perl -p -e 's/"//g' | cpanm --quiet --notest
+  --skip-satisfied
+- dzil listdeps --cpanm-versions | perl -p -e 's/"//g' | cpanm --quiet
+- export RELEASE_TESTING=1 AUTOMATED_TESTING=1 AUTHOR_TESTING=1 HARNESS_OPTIONS=j10:c
+  HARNESS_TIMER=1
 script:
-
-  - dzil smoke --release --author
-
+- dzil smoke --release --author
 after_success:
-
-  - dzil cover -outputdir cover_db -report coveralls
+- dzil cover -outputdir cover_db -report coveralls
+notifications:
+  slack:
+    secure: XcJLvDiuw5Kk8coWOoXA/37zPrURHi9GD64c3+AiBI0TccBtKakCNk4iKzxLjr656SrBsUeDn5RVmLEUYroVDnpjdZumv4OTc/TV+y8O6G1N1f1DAjFhgjKg3T2G09O/OROEMzsfCW+sON5L18Hi8C2YKBg0dKSClr7XERNIvsM=
