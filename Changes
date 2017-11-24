@@ -13,6 +13,8 @@ Revision history for Test-Timer
 
 - Removed loose match in regular, it should be possible to anticipate the timeout
 
+- Removed redundant tests, trying to cut down execution time for the test suite
+
 
 2.08 2017-11-20 Maintenance release, update not required
 
