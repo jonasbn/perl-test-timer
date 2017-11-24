@@ -8,6 +8,38 @@
 
 <!-- MarkdownTOC autoanchor=false -->
 
+- [NAME](#name)
+- [VERSION](#version)
+- [FEATURES](#features)
+- [SYNOPSIS](#synopsis)
+- [DESCRIPTION](#description)
+- [EXPORT](#export)
+- [SUBROUTINES/METHODS](#subroutinesmethods)
+    - [time\_ok](#time%5Cok)
+    - [time\_nok](#time%5Cnok)
+    - [time\_atmost](#time%5Catmost)
+    - [time\_atleast](#time%5Catleast)
+    - [time\_between](#time%5Cbetween)
+- [PRIVATE FUNCTIONS](#private-functions)
+    - [\_runtest](#%5Cruntest)
+    - [\_benchmark](#%5Cbenchmark)
+    - [\_timestring2time](#%5Ctimestring2time)
+    - [import](#import)
+- [DIAGNOSTICS](#diagnostics)
+- [CONFIGURATION AND ENVIRONMENT](#configuration-and-environment)
+- [DEPENDENCIES](#dependencies)
+- [INCOMPATIBILITIES](#incompatibilities)
+- [BUGS AND LIMITATIONS](#bugs-and-limitations)
+- [TEST AND QUALITY](#test-and-quality)
+    - [CONTINUOUS INTEGRATION](#continuous-integration)
+- [SEE ALSO](#see-also)
+- [ISSUE REPORTING](#issue-reporting)
+- [SUPPORT](#support)
+- [DEVELOPMENT](#development)
+- [AUTHOR](#author)
+- [ACKNOWLEDGEMENTS](#acknowledgements)
+- [LICENSE AND COPYRIGHT](#license-and-copyright)
+
 <!-- /MarkdownTOC -->
 
 # NAME
@@ -16,7 +48,7 @@ Test::Timer - test module to test/assert response times
 
 # VERSION
 
-The documentation describes version 2.08 of Test::Timer
+The documentation describes version 2.09 of Test::Timer
 
 # FEATURES
 
