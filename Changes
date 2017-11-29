@@ -66,7 +66,7 @@ Revision history for Test-Timer
 
 - Improvements to alarm signal handling and other internal parts
 
-- Addressed issue #15 meaning we thresholds are now included in the assertions
+- Addressed issue #15 meaning thresholds are now included in the assertions
 
 
 2.01 2017-06-12 Bug fix release, update recommended
