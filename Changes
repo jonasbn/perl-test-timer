@@ -52,7 +52,7 @@ Revision history for Test-Timer
 
   Example: http://www.cpantesters.org/cpan/report/2561e32c-9efa-11e7-bc90-bbe42ddde1fb
 
-- Correction of spelling mistake in PR #16 from Gregor Herrmann
+- Correction of spelling mistake in PR #16 from Gregor Herrmann of the Debian Perl Group
 
 
 2.03 2017-07-01 Maintenance release, update not required
