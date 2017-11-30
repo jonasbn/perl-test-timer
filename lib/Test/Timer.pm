@@ -676,7 +676,7 @@ You can also look for information at:
 
 =item * Erik Johansen, suggestion for clearing alarm
 
-=item * Gregor Herrmann, PR #16 fixes to spelling mistakes
+=item * Gregor Herrmann from the Debian Perl Group, PR #16 fixes to spelling mistakes
 
 =item * Nigel Horne, issue #15 suggestion for better assertion in L<time_atleast|/time_atleast>
 
