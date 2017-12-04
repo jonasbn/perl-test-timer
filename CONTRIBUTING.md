@@ -24,14 +24,14 @@ Please use the [PR template](https://github.com/jonasbn/perl-test-timer/blob/mas
 
 Coding guidelines are basic, please use:
 
-- [EditorConfig](http://editorconfig.org/) (configuration included in repository as `.editorconfig`)
-- [PerlTidy](http://perltidy.sourceforge.net/) (configuration included in repository as `.perlcriticrc`)
+- [EditorConfig](http://editorconfig.org/) configuration included in repository as `.editorconfig`
+- [PerlTidy](http://perltidy.sourceforge.net/) configuration included in repository as `.perlcriticrc`
 
 For other coding conventions please see the Perl::Critic configuration in: `t/perlcriticrc`.
 
 And if you are really adventurous, you are most welcome to read [my general coding conventions](https://gist.github.com/jonasbn/c2f703c68340384cfc61bb9c38adb2ff) (WIP).
 
-Do note that the repository uses [propot](https://probot.github.io/), so if you write comments in formatted as:
+Do note that the repository uses [propot](https://probot.github.io/), so if you write comments formatted as:
 
 ```perl
 # @todo You have an in issue in your heading
