@@ -235,6 +235,7 @@ __END__
 [![Build Status](https://travis-ci.org/jonasbn/perl-test-timer.svg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
 [![Coverage Status](https://coveralls.io/repos/github/jonasbn/perl-test-timer/badge.svg?branch=master)](https://coveralls.io/github/jonasbn/perl-test-timer?branch=master)
 [![License: Artistic-2.0](https://img.shields.io/badge/License-Artistic%202.0-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1391/badge)](https://bestpractices.coreinfrastructure.org/projects/1391)
 
 <!-- MarkdownTOC autoanchor=false -->
 
