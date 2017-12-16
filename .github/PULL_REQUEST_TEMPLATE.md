@@ -2,6 +2,8 @@
 
 Please include a summary of the proposed improvement or addressed issue.
 
+Please describe your proposed improvement in English, this makes in consumable by others than the author.
+
 Fixes/addresses (If applicable) # (issue)
 
 ## Type of change
