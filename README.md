@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/jonasbn/perl-test-timer.svg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
 [![Coverage Status](https://coveralls.io/repos/github/jonasbn/perl-test-timer/badge.svg?branch=master)](https://coveralls.io/github/jonasbn/perl-test-timer?branch=master)
 [![License: Artistic-2.0](https://img.shields.io/badge/License-Artistic%202.0-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1391/badge)](https://bestpractices.coreinfrastructure.org/projects/1391)
 
 <!-- MarkdownTOC autoanchor=false -->
 
@@ -347,7 +348,7 @@ You can also look for information at:
 # ACKNOWLEDGEMENTS
 
 - Erik Johansen, suggestion for clearing alarm
-- Gregor Herrmann, PR #16 fixes to spelling mistakes
+- Gregor Herrmann from the Debian Perl Group, PR #16 fixes to spelling mistakes
 - Nigel Horne, issue #15 suggestion for better assertion in [time\_atleast](#time_atleast)
 - Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
 - p-alik, PR #4 eliminating warnings during test
