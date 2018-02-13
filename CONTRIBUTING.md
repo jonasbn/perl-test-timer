@@ -12,7 +12,7 @@ File an issue if you think you've found a [bug](https://en.wikipedia.org/wiki/So
 4. What actually occurred
 5. What had to be done to reproduce the issue
 
-Please use the [issue template](https://github.com/jonasbn/perl-test-timer/blob/master/.github/ISSUE_TEMPLATE.md).
+Please use the [issue template](.github/ISSUE_TEMPLATE.md).
 
 ## Patches
 
@@ -20,7 +20,7 @@ Patches for fixes, features, and improvements are accepted via pull requests.
 
 Pull requests should be based on the **master** branch, unless you want to contribute to an active branch for a specific topic.
 
-Please use the [PR template](https://github.com/jonasbn/perl-test-timer/blob/master/.github/PULL_REQUEST_TEMPLATE.md).
+Please use the [PR template](.github/PULL_REQUEST_TEMPLATE.md).
 
 Coding guidelines are basic, please use:
 
