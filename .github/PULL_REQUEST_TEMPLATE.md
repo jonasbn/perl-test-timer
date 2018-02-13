@@ -17,7 +17,7 @@ Please delete options that are not relevant.
 
 # Checklist:
 
-- [ ] My code follows the style guidelines of this project, please see the [contribution guidelines](https://github.com/jonasbn/perl-test-timer/blob/master/CONTRIBUTING.md).
+- [ ] My code follows the style guidelines of this project, please see the [contribution guidelines](../CONTRIBUTING.md).
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
