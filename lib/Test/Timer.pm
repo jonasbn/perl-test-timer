@@ -712,6 +712,6 @@ License 2.0
 
 Used distributions are under copyright of there respective authors and designated licenses
 
-Image used on L<website|https://jonasbn.github.io/perl-test-timer/> is under copyright by L<Veri Ivanova|https://unsplash.com/@veri_ivanova?photo=p3Pj7jOYvnM>
+Image used on L<website|https://jonasbn.github.io/perl-test-timer/> is under copyright by L<Veri Ivanova|https://unsplash.com/photos/p3Pj7jOYvnM>
 
 =cut
