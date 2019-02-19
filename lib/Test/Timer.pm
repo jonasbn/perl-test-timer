@@ -241,7 +241,6 @@ __END__
 - [PRIVATE FUNCTIONS](#private-functions)
   - [\_runtest](#_runtest)
   - [\_benchmark](#_benchmark)
-  - [\_timestring2time](#_timestring2time)
   - [import](#import)
 - [DIAGNOSTICS](#diagnostics)
 - [CONFIGURATION AND ENVIRONMENT](#configuration-and-environment)
