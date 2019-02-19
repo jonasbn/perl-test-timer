@@ -24,7 +24,6 @@
 - [PRIVATE FUNCTIONS](#private-functions)
   - [\_runtest](#_runtest)
   - [\_benchmark](#_benchmark)
-  - [\_timestring2time](#_timestring2time)
   - [import](#import)
 - [DIAGNOSTICS](#diagnostics)
 - [CONFIGURATION AND ENVIRONMENT](#configuration-and-environment)
@@ -49,7 +48,7 @@ Test::Timer - test module to test/assert response times
 
 # VERSION
 
-The documentation describes version 2.09 of Test::Timer
+The documentation describes version 2.10 of Test::Timer
 
 # FEATURES
 
@@ -209,14 +208,6 @@ The method takes two parameters:
 - a code block via a code reference
 - a threshold (the upper threshold, since this is added to the default alarm
 
-## \_timestring2time
-
-This is the method extracts the seconds from benchmarks timestring and returns
-it as an integer.
-
-It takes the timestring from [\_benchmark](#_benchmark) ([Benchmark](https://metacpan.org/pod/Benchmark)) and returns the seconds
-part.
-
 ## import
 
 Test::Builder required import to do some import _hokus-pokus_ for the test methods
@@ -351,7 +342,7 @@ You can also look for information at:
 # LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007-2017
+(jonasbn) 2007-2019
 
 Test::Timer and related modules are released under the Artistic
 License 2.0
