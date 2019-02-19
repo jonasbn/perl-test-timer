@@ -175,19 +175,18 @@ sub _benchmark {
     }
 
     # setting first benchmark
-    my $t0 = new Benchmark;
+    my $t0 = Benchmark->new();
 
     # defining alarm signal handler
     # the handler takes care of terminating the
     # benchmarking
     local $SIG{ALRM} = sub {
 
-        my $t1 = new Benchmark;
+        my $t_alarm = Benchmark->new();
 
-        my $timestring = timestr( timediff( $t1, $t0 ) );
-        my $time = _timestring2time($timestring);
+        my $alarm_time_string = timediff( $t_alarm, $t0 )->real;
 
-        throw Test::Timer::TimeoutException($time);
+        throw Test::Timer::TimeoutException($alarm_time_string);
     };
 
     # setting alarm
@@ -200,24 +199,12 @@ sub _benchmark {
     alarm( 0 );
 
     # setting second benchmark
-    my $t1 = new Benchmark;
+    my $t1 = Benchmark->new();
 
     # parsing benchmark output
-    my $timestring = timestr( timediff( $t1, $t0 ) );
-    $time = _timestring2time($timestring);
+    my $timestring = timediff( $t1, $t0 )->real;
 
-    return $time;
-}
-
-# helper method to change benchmmark's timestr to an integer
-sub _timestring2time {
-    my $timestring = shift;
-
-    # $timestring:
-    # 2 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
-    my ($time) = $timestring =~ m/(\d+) /;
-
-    return $time;
+    return $timestring;
 }
 
 1;
