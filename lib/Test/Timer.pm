@@ -701,7 +701,7 @@ You can also look for information at:
 =head1 LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007-2017
+(jonasbn) 2007-2019
 
 Test::Timer and related modules are released under the Artistic
 License 2.0
