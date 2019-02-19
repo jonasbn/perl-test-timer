@@ -268,7 +268,7 @@ Test::Timer - test module to test/assert response times
 
 =head1 VERSION
 
-The documentation describes version 2.09 of Test::Timer
+The documentation describes version 2.10 of Test::Timer
 
 =head1 FEATURES
 
