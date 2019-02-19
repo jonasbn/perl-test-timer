@@ -18,7 +18,7 @@ use Test::Timer::TimeoutException;
 
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
-$VERSION = '2.09';
+$VERSION = '2.10';
 
 my $test  = Test::Builder->new;
 my $timeout = 0;
