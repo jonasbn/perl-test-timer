@@ -511,14 +511,6 @@ The method takes two parameters:
 
 =back
 
-=head2 _timestring2time
-
-This is the method extracts the seconds from benchmarks timestring and returns
-it as an integer.
-
-It takes the timestring from L<_benchmark|/_benchmark> (L<Benchmark>) and returns the seconds
-part.
-
 =head2 import
 
 Test::Builder required import to do some import I<hokus-pokus> for the test methods
