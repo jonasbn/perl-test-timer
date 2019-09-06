@@ -693,7 +693,7 @@ You can also look for information at:
 
 =item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian packaging resulting in release 0.10
 
-=item * brian d foy (BDFOY), for patch to L<_run_test|/_run_test>
+=item * brian d foy (BDFOY), for patch to L<_runtest|/_runtest>
 
 =back
 
