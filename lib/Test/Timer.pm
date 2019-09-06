@@ -18,7 +18,7 @@ use Test::Timer::TimeoutException;
 
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
-$VERSION = '2.10';
+$VERSION = '2.11';
 
 my $test  = Test::Builder->new;
 my $timeout = 0;
@@ -672,6 +672,8 @@ You can also look for information at:
 =head1 ACKNOWLEDGEMENTS
 
 =over
+
+=item * Mohammad S Anwar, POD corrections PRs #23
 
 =item * Erik Johansen, suggestion for clearing alarm
 
