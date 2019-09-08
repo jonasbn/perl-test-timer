@@ -31,6 +31,9 @@ install:
   # Getting all the dependencies requested by distribution
   - dzil listdeps --cpanm-versions | perl -p -e 's/"//g' | cpanm --quiet
 
+  # Setting environment variables
+  - export AUTOMATED_TESTING=1 HARNESS_OPTIONS=j10:c HARNESS_TIMER=1
+
 script:
 - dzil smoke --release --author
 
