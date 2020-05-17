@@ -25,7 +25,7 @@ Please use the [PR template](.github/PULL_REQUEST_TEMPLATE.md).
 Coding guidelines are basic, please use:
 
 - [EditorConfig](http://editorconfig.org/) configuration included in repository as `.editorconfig`
-- [PerlTidy](http://perltidy.sourceforge.net/) configuration included in repository as `.perlcriticrc`
+- [PerlTidy](http://perltidy.sourceforge.net/) configuration included in repository as `.perltidyrc`
 
 For other coding conventions please see the Perl::Critic configuration in: `t/perlcriticrc`.
 
@@ -35,7 +35,7 @@ Do note that the repository uses [probot](https://probot.github.io/), so if you 
 
 ```perl
 # @todo You have an in issue in your heading
-# @body But a descriptive body 
+# @body But a descriptive body
 ```
 
 The [`TODO bot`](https://probot.github.io/apps/todo/) will the create a GitHub issue automatically upon `push` to the repository.
