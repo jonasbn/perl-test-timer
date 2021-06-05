@@ -1,11 +1,44 @@
 # Test::Timer
 
 [![CPAN version](https://badge.fury.io/pl/Test-Timer.svg)](http://badge.fury.io/pl/Test-Timer)
+![stability-stable](https://img.shields.io/badge/stability-stable-green.svg)
 [![Build Status](https://travis-ci.org/jonasbn/perl-test-timer.svg?branch=master)](https://travis-ci.org/jonasbn/perl-test-timer)
 [![Coverage Status](https://coveralls.io/repos/github/jonasbn/perl-test-timer/badge.svg?branch=master)](https://coveralls.io/github/jonasbn/perl-test-timer?branch=master)
 [![License: Artistic-2.0](https://img.shields.io/badge/License-Artistic%202.0-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1391/badge)](https://bestpractices.coreinfrastructure.org/projects/1391)
 
-<!-- MarkdownTOC autoanchor=false -->
+<!-- MarkdownTOC bracket=round levels="1,2,3,4,5" indent="  " -->
+
+- [NAME](#name)
+- [VERSION](#version)
+- [FEATURES](#features)
+- [SYNOPSIS](#synopsis)
+- [DESCRIPTION](#description)
+- [EXPORT](#export)
+- [SUBROUTINES/METHODS](#subroutinesmethods)
+  - [time\_ok](#time_ok)
+  - [time\_nok](#time_nok)
+  - [time\_atmost](#time_atmost)
+  - [time\_atleast](#time_atleast)
+  - [time\_between](#time_between)
+- [PRIVATE FUNCTIONS](#private-functions)
+  - [\_runtest](#_runtest)
+  - [\_benchmark](#_benchmark)
+  - [import](#import)
+- [DIAGNOSTICS](#diagnostics)
+- [CONFIGURATION AND ENVIRONMENT](#configuration-and-environment)
+- [DEPENDENCIES](#dependencies)
+- [INCOMPATIBILITIES](#incompatibilities)
+- [BUGS AND LIMITATIONS](#bugs-and-limitations)
+- [TEST AND QUALITY](#test-and-quality)
+  - [CONTINUOUS INTEGRATION](#continuous-integration)
+- [SEE ALSO](#see-also)
+- [ISSUE REPORTING](#issue-reporting)
+- [SUPPORT](#support)
+- [DEVELOPMENT](#development)
+- [AUTHOR](#author)
+- [ACKNOWLEDGEMENTS](#acknowledgements)
+- [LICENSE AND COPYRIGHT](#license-and-copyright)
 
 <!-- /MarkdownTOC -->
 
@@ -15,13 +48,13 @@ Test::Timer - test module to test/assert response times
 
 # VERSION
 
-The documentation describes version 2.04 of Test::Timer
+The documentation describes version 2.10 of Test::Timer
 
 # FEATURES
 
 - Test subroutines to implement unit-tests to time that your code executes before a specified threshold
 - Test subroutines to implement unit-tests to time that your code execution exceeds a specified threshold
-- Test subroutine to mplement unit-tests to time that your code executes within a specified time frame
+- Test subroutine to implement unit-tests to time that your code executes within a specified time frame
 - Supports measurements in seconds
 - Implements configurable alarm signal handler to make sure that your tests do not execute forever
 
@@ -36,17 +69,17 @@ The documentation describes version 2.04 of Test::Timer
     time_between( sub { doYourStuffYouHave5-10Seconds(); }, 5, 10,
         'lower threshold of 5 seconds and upper threshold of 10 seconds');
 
-    #Will succeed
+    # Will succeed
     time_nok( sub { sleep(2); }, 1, 'threshold of one second');
 
     time_atleast( sub { sleep(2); }, 2, 'threshold of one second');
 
-    #Will fail after 5 (threshold) + 2 seconds (default alarm)
+    # Will fail after 5 (threshold) + 2 seconds (default alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
 
     $test::Timer::alarm = 6 #default 2 seconds
 
-    #Will fail after 5 (threshold) + 6 seconds (specified alarm)
+    # Will fail after 5 (threshold) + 6 seconds (specified alarm)
     time_ok( sub { while(1) { sleep(1); } }, 5, 'threshold of one second');
 
 # DESCRIPTION
@@ -57,8 +90,7 @@ from bodies of code.
 The key features are subroutines to assert or test the following:
 
 - that a given piece of code does not exceed a specified time limit
-- that a given piece of code takes longer than a specified time limit
-and does not exceed another
+- that a given piece of code takes longer than a specified time limit and does not exceed another
 
 # EXPORT
 
@@ -112,6 +144,8 @@ If the execution of the code exceeds the threshold specified the test fail with 
 
 N will be the actual measured execution time of the specified code
 
+![time_atmost visualization](https://jonasbn.github.io/perl-test-timer/assets/images/time_atmost.png)
+
 ## time\_atleast
 
     time_atleast( sub { doYourStuffAndTakeYourTimeAboutIt(); }, 1, 'threshold of 1 second');
@@ -119,7 +153,7 @@ N will be the actual measured execution time of the specified code
 The test succeeds if the code takes at least the number of seconds specified by
 the timing threshold.
 
-If the code executes faster, the test fails with the following diagnosic message
+If the code executes faster, the test fails with the following diagnostic message
 
     Test ran 1 seconds and did not exceed specified threshold of 2 seconds
 
@@ -131,6 +165,8 @@ execution to run longer, set the alarm accordingly.
 
 See also [diagnostics](#diagnostics).
 
+![time_atleast visualization](https://jonasbn.github.io/perl-test-timer/assets/images/time_atleast.png)
+
 ## time\_between
 
 This method is a more extensive variant of [time\_atmost](#time_atmost) and [time\_ok](#time_ok), you
@@ -140,13 +176,15 @@ interval in order for the test to succeed
     time_between( sub { sleep(2); }, 5, 10,
         'lower threshold of 5 seconds and upper threshold of 10 seconds');
 
-If the code executes faster than the lower threshold or exceeds the upper threshold, the test fails with the following diagnosic message
+If the code executes faster than the lower threshold or exceeds the upper threshold, the test fails with the following diagnostic message
 
     Test ran 2 seconds and did not execute within specified interval 5 - 10 seconds
 
 Or
 
     Test ran 12 seconds and did not execute within specified interval 5 - 10 seconds
+
+![time_between visualization](https://jonasbn.github.io/perl-test-timer/assets/images/time_between.png)
 
 # PRIVATE FUNCTIONS
 
@@ -168,16 +206,7 @@ now.
 The method takes two parameters:
 
 - a code block via a code reference
-- a threshold (the upper threshold, since this is added to the default
-alarm.
-
-## \_timestring2time
-
-This is the method extracts the seconds from benchmarks timestring and returns
-it as an integer.
-
-It takes the timestring from [\_benchmark](#_benchmark) ([Benchmark](https://metacpan.org/pod/Benchmark)) and returns the seconds
-part.
+- a threshold (the upper threshold, since this is added to the default alarm
 
 ## import
 
@@ -189,25 +218,16 @@ exported from Test::Timer. Please refer to the documentation in [Test::Builder](
 All tests either fail or succeed, but a few exceptions are implemented, these
 are listed below.
 
-- Test did not exceed specified threshold, this message is diagnosis for
-[time\_atleast](#time_atleast) and [time\_nok](#time_nok) tests, which do not exceed their specified
-threshold.
-- Test exceeded specified threshold, this message is a diagnostic for
-[time\_atmost](#time_atmost) and [time\_ok](#time_ok), if the specified threshold is surpassed.
+- Test did not exceed specified threshold, this message is diagnosis for [time\_atleast](#time_atleast) and [time\_nok](#time_nok) tests, which do not exceed their specified threshold
+- Test exceeded specified threshold, this message is a diagnostic for [time\_atmost](#time_atmost) and [time\_ok](#time_ok), if the specified threshold is surpassed.
 
     This is the key point of the module, either your code is too slow and you should
     address this or your threshold is too low, in which case you can set it a bit
     higher and run the test again.
 
-- Test did not execute within specified interval, this is the diagnostic
-from [time\_between](#time_between), it is the diagnosis if the execution of the code is
-not between the specified lower and upper thresholds.
-- Insufficient parameters, this is the message if a specified test is not
-provided with the sufficient number of parameters, consult this documentation
-and correct accordingly.
-- Execution exceeded threshold and timed out, the exception is thrown if
-the execution of tested code exceeds even the alarm, which is default 2 seconds,
-but can be set by the user or is equal to the upperthreshold + 2 seconds.
+- Test did not execute within specified interval, this is the diagnostic from [time\_between](#time_between), it is the diagnosis if the execution of the code is not between the specified lower and upper thresholds
+- Insufficient parameters, this is the message if a specified test is not provided with the sufficient number of parameters, consult this documentation and correct accordingly
+- Execution exceeded threshold and timed out, the exception is thrown if the execution of tested code exceeds even the alarm, which is default 2 seconds, but can be set by the user or is equal to the upper threshold + 2 seconds
 
     The exception results in a diagnostic for the failing test. This is a failsafe
     to avoid that code runs forever. If you get this diagnose either your code is
@@ -240,7 +260,7 @@ This module holds no known bugs.
 The current implementations only use seconds and resolutions should be higher,
 so the current implementation is limited to seconds as the highest resolution.
 
-On occassion failing tests with CPAN-testers have been observed. This seem to be related to the test-suite
+On occasion failing tests with CPAN-testers have been observed. This seem to be related to the test-suite
 being not taking into account that some smoke-testers do not prioritize resources for the test run and that
 additional processes/jobs are running. The test-suite have been adjusted to accommodate this but these issues
 might reoccur.
@@ -254,9 +274,9 @@ Coverage report for the release described in this documentation (see [VERSION](#
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    blib/lib/Test/Timer.pm         96.1  100.0   64.2   95.4  100.0  100.0   93.8
+    blib/lib/Test/Timer.pm        100.0   95.0   66.6  100.0  100.0   99.9   98.0
     ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
-    Total                          96.8  100.0   64.2   96.4  100.0  100.0   94.7
+    Total                         100.0   95.0   66.6  100.0  100.0  100.0   98.4
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 The [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test runs with severity 5 (gentle) for now, please
@@ -307,28 +327,27 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
-- Gregor Herrmann, PR #16 fixes to spelling mistakes
+- Mohammad S Anwar, POD corrections PRs #23
+- Erik Johansen, suggestion for clearing alarm
+- Gregor Herrmann from the Debian Perl Group, PR #16 fixes to spelling mistakes
 - Nigel Horne, issue #15 suggestion for better assertion in [time\_atleast](#time_atleast)
 - Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
 - p-alik, PR #4 eliminating warnings during test
 - Kent Fredric, PR #7 addressing file permissions
 - Nick Morrott, PR #5 corrections to POD
 - Bartosz Jakubski, reporting issue #3
-- Gabor Szabo (GZABO), suggestion for specification of interval thresholds
-even though this was obsoleted by the later introduced time\_between
-- Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost
-and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian
-packaging resulting in release 0.10
-- brian d foy (BDFOY), for patch to [\_run\_test](#_run_test)
+- Gabor Szabo (GZABO), suggestion for specification of interval thresholds even though this was obsoleted by the later introduced time\_between
+- Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian packaging resulting in release 0.10
+- brian d foy (BDFOY), for patch to [\_runtest](#_runtest)
 
 # LICENSE AND COPYRIGHT
 
 Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007-2017
+(jonasbn) 2007-2019
 
 Test::Timer and related modules are released under the Artistic
 License 2.0
 
 Used distributions are under copyright of there respective authors and designated licenses
 
-Image used on [website](https://jonasbn.github.io/perl-test-timer/) is under copyright by [Veri Ivanova](https://unsplash.com/@veri_ivanova?photo=p3Pj7jOYvnM)
+Image used on [website](https://jonasbn.github.io/perl-test-timer/) is under copyright by [Veri Ivanova](https://unsplash.com/photos/p3Pj7jOYvnM)
