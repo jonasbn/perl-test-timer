@@ -14,5 +14,5 @@ print STDERR '@list ', Dumper @rv;
 
 sub returner {
 
-    return (1, 'abc');
+    return ( 1, 'abc' );
 }

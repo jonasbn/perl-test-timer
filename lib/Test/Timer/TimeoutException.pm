@@ -11,7 +11,7 @@ use overload ( '""' => 'stringify' );
 $VERSION = '2.09';
 
 sub new {
-    my ($self, $time) = @_;
+    my ( $self, $time ) = @_;
 
     local $Error::Depth = $Error::Depth + 1;
 

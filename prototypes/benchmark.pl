@@ -11,7 +11,7 @@ sleep(1);
 
 my $t1 = Benchmark->new;
 
-print timediff($t1, $t0)->real;
+print timediff( $t1, $t0 )->real;
 
 print "\n";
 
