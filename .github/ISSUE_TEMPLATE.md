@@ -1,6 +1,6 @@
 # Issue Template
 
-### Description
+## Description
 
 _If you raise an issue on bug/issue please provide the requested information, if not, please just provide a description of you issue._
 
@@ -8,30 +8,30 @@ Please file your issue in English, this makes in consumable by others than the a
 
 # Bugs and Issues
 
-### Specify what version was used
+## Specify what version was used
 
 _Please provide some information on what version of the component used._
 
-```
+```bash
 $ perl -I lib -MTest::Timer -e 'print "$Test::Timer::VERSION\n"'
 ```
 
-### Supply some information on the environment
+## Supply some information on the environment
 
 _Please provide some information on your **Perl** interpreter._
 
-```
+```bash
 $ perl -V
 ```
 
-### Expected behaviour
+## Expected behaviour
 
 _What behaviour did you expect?_
 
-### Actual and observed behaviour
+## Actual and observed behaviour
 
 _What behaviour did you observe?_
 
-### Steps to reproduce the behaviour
+## Steps to reproduce the behaviour
 
 A test, script or one-liner is preferred, but anything that can help is good
