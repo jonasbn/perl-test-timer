@@ -20,8 +20,8 @@ like(
     'Caught timeout exception'
 );
 
-ok( Test::Timer::_benchmark( sub { _sleep(1); } ) );
+ok( Test::Timer::_benchmark( sub { _sleep(1); } ), 'testing without threshold' );
 
-ok( Test::Timer::_benchmark( sub { _sleep(2); }, 1 ) );
+ok( Test::Timer::_benchmark( sub { _sleep(2); }, 1 ), 'testing with threshold' );
 
 done_testing();
