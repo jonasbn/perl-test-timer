@@ -199,7 +199,7 @@ interval true (1) is returned and if not false (0).
 This is the method doing the actual benchmark, if a better method is located
 this is the place to do the handy work.
 
-Currently [Benchmark](https://metacpan.org/pod/Benchmark) is used. An alternative could be [Devel::Timer](https://metacpan.org/pod/Devel::Timer), but I
+Currently [Benchmark](https://metacpan.org/pod/Benchmark) is used. An alternative could be [Devel::Timer](https://metacpan.org/pod/Devel%3A%3ATimer), but I
 do not know this module very well and [Benchmark](https://metacpan.org/pod/Benchmark) is core, so this is used for
 now.
 
@@ -211,7 +211,7 @@ The method takes two parameters:
 ## import
 
 Test::Builder required import to do some import _hokus-pokus_ for the test methods
-exported from Test::Timer. Please refer to the documentation in [Test::Builder](https://metacpan.org/pod/Test::Builder)
+exported from Test::Timer. Please refer to the documentation in [Test::Builder](https://metacpan.org/pod/Test%3A%3ABuilder)
 
 # DIAGNOSTICS
 
@@ -246,8 +246,8 @@ see the section on [test and quality](#test-and-quality).
 - [Carp](https://metacpan.org/pod/Carp)
 - [Benchmark](https://metacpan.org/pod/Benchmark)
 - [Error](https://metacpan.org/pod/Error)
-- [Test::Builder](https://metacpan.org/pod/Test::Builder)
-- [Test::Builder::Module](https://metacpan.org/pod/Test::Builder::Module)
+- [Test::Builder](https://metacpan.org/pod/Test%3A%3ABuilder)
+- [Test::Builder::Module](https://metacpan.org/pod/Test%3A%3ABuilder%3A%3AModule)
 
 # INCOMPATIBILITIES
 
@@ -279,13 +279,13 @@ Coverage report for the release described in this documentation (see [VERSION](#
     Total                         100.0   95.0   66.6  100.0  100.0  100.0   98.4
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
-The [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test runs with severity 5 (gentle) for now, please
+The [Test::Perl::Critic](https://metacpan.org/pod/Test%3A%3APerl%3A%3ACritic) test runs with severity 5 (gentle) for now, please
 refer to `t/critic.t` and `t/perlcriticrc`.
 
-Set TEST\_POD to enable [Test::Pod](https://metacpan.org/pod/Test::Pod) test in `t/pod.t` and [Test::Pod::Coverage](https://metacpan.org/pod/Test::Pod::Coverage)
+Set TEST\_POD to enable [Test::Pod](https://metacpan.org/pod/Test%3A%3APod) test in `t/pod.t` and [Test::Pod::Coverage](https://metacpan.org/pod/Test%3A%3APod%3A%3ACoverage)
 test in `t/pod-coverage.t`.
 
-Set TEST\_CRITIC to enable [Test::Perl::Critic](https://metacpan.org/pod/Test::Perl::Critic) test in `t/critic.t`
+Set TEST\_CRITIC to enable [Test::Perl::Critic](https://metacpan.org/pod/Test%3A%3APerl%3A%3ACritic) test in `t/critic.t`
 
 ## CONTINUOUS INTEGRATION
 
@@ -296,7 +296,7 @@ Travis reports are public available.
 
 # SEE ALSO
 
-- [Test::Benchmark](https://metacpan.org/pod/Test::Benchmark)
+- [Test::Benchmark](https://metacpan.org/pod/Test%3A%3ABenchmark)
 
 # ISSUE REPORTING
 
