@@ -229,7 +229,7 @@ are listed below.
 - Insufficient parameters, this is the message if a specified test is not provided with the sufficient number of parameters, consult this documentation and correct accordingly
 - Execution exceeded threshold and timed out, the exception is thrown if the execution of tested code exceeds even the alarm, which is default 2 seconds, but can be set by the user or is equal to the upper threshold + 2 seconds
 
-    The exception results in a diagnostic for the failing test. This is a failsafe
+    The exception results in a diagnostic for the failing test. This is a fail-safe
     to avoid that code runs forever. If you get this diagnose either your code is
     too slow and you should address this or it might be error prone. If this is not
     the case adjust the alarm setting to suit your situation.
@@ -300,9 +300,9 @@ Travis reports are public available.
 
 # ISSUE REPORTING
 
-Please report any bugs or feature requests using Github
+Please report any bugs or feature requests using GitHub
 
-- [Github Issues](https://github.com/jonasbn/perl-test-timer/issues)
+- [GitHub Issues](https://github.com/jonasbn/perl-test-timer/issues)
 
 # SUPPORT
 
@@ -319,7 +319,7 @@ You can also look for information at:
 
 # DEVELOPMENT
 
-- [Github Repository](https://github.com/jonasbn/perl-test-timer), please see [the guidelines for contributing](https://github.com/jonasbn/perl-test-timer/blob/master/CONTRIBUTING.md).
+- [GitHub Repository](https://github.com/jonasbn/perl-test-timer), please see [the guidelines for contributing](https://github.com/jonasbn/perl-test-timer/blob/master/CONTRIBUTING.md).
 
 # AUTHOR
 

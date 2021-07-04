@@ -6,7 +6,7 @@ use vars qw($VERSION);
 use Data::Dumper;
 
 use base 'Error';
-use overload ( '""' => 'stringify' );
+use overload ( q{""} => 'stringify' );
 
 $VERSION = '2.09';
 
@@ -25,6 +25,13 @@ sub new {
 __END__
 
 =pod
+
+=begin stopwords
+
+Veri Ivanova jonasbn
+
+=end stopwords
+
 
 =head1 NAME
 

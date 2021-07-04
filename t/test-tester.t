@@ -1,5 +1,7 @@
-use strict;
+## no critic (RequireVersionVar RequireExplicitPackage RequireEndWithOne ProhibitEmptyQuotes)
+
 use warnings;
+use strict;
 use Test::Tester;
 use Test::More;
 
@@ -27,7 +29,7 @@ check_test(
     {   ok    => 0,
         name  => 'time_ok, failing test',
         depth => 2,
-        diag =>
+        diag  =>
             qr/Test ran \d+ seconds and exceeded specified threshold of 1 seconds/
     },
     'Failing test of time_ok'
@@ -40,7 +42,7 @@ check_test(
     {   ok    => 0,
         name  => 'time_nok, failing test',
         depth => 1,
-        diag =>
+        diag  =>
             qr/Test ran \d+ seconds and did not exceed specified threshold of 3 seconds/
     },
     'Failing test of time_nok'
@@ -71,7 +73,7 @@ check_test(
     {   ok    => 0,
         name  => 'time_between, failing test',
         depth => 1,
-        diag =>
+        diag  =>
             qr/Test ran \d+ seconds and did not execute within specified interval 1 - 2 seconds/
     },
     'Failing test of time_between'
@@ -92,7 +94,7 @@ check_test(
     {   ok    => 0,
         name  => 'time_atmost, failing test',
         depth => 1,
-        diag =>
+        diag  =>
             qr/Test ran \d+ seconds and exceeded specified threshold of 1 seconds/
     },
     'Failing test of time_atmost'
@@ -105,7 +107,7 @@ check_test(
     {   ok    => 0,
         name  => 'time_atleast, failing test',
         depth => 1,
-        diag =>
+        diag  =>
             qr/Test ran \d+ seconds and did not exceed specified threshold of 3 seconds/
     },
     'Failing test of time_atleast'
@@ -127,7 +129,7 @@ check_test(
     {   ok    => 0,
         name  => 'time_between, long running test, should time out',
         depth => 1,
-        diag =>
+        diag  =>
             qr/Execution ran \d+ seconds and did not execute within specified interval 1 - 3 seconds/
     },
     'failing long running test of time_between with timeout'

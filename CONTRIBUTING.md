@@ -2,6 +2,8 @@
 
 These are the guidelines for contributing to this repository.
 
+Please see the [Code of Conduct](https://github.com/jonasbn/perl-test-timer/CODE_OF_CONDUCT.md).
+
 ## Issues
 
 File an issue if you think you've found a [bug](https://en.wikipedia.org/wiki/Software_bug). Please describe the following:
@@ -10,9 +12,9 @@ File an issue if you think you've found a [bug](https://en.wikipedia.org/wiki/So
 2. What environment was the component used in (OS, Perl version etc.)
 3. What was expected
 4. What actually occurred
-5. What had to be done to reproduce the issue
+5. What can be done to reproduce the issue
 
-Please use the [issue template](.github/ISSUE_TEMPLATE.md).
+Please use the [issue template](https://github.com/jonasbn/perl-test-timer/.github/ISSUE_TEMPLATE.md).
 
 ## Patches
 
@@ -20,7 +22,7 @@ Patches for fixes, features, and improvements are accepted via pull requests.
 
 Pull requests should be based on the **master** branch, unless you want to contribute to an active branch for a specific topic.
 
-Please use the [PR template](.github/PULL_REQUEST_TEMPLATE.md).
+Please use the [PR template](https://github.com/jonasbn/perl-test-timer/.github/PULL_REQUEST_TEMPLATE.md).
 
 Coding guidelines are basic, please use:
 
@@ -29,9 +31,7 @@ Coding guidelines are basic, please use:
 
 For other coding conventions please see the Perl::Critic configuration in: `t/perlcriticrc`.
 
-And if you are really adventurous, you are most welcome to read [my general coding conventions](https://gist.github.com/jonasbn/c2f703c68340384cfc61bb9c38adb2ff) (WIP).
-
-Do note that the repository uses [probot](https://probot.github.io/), so if you write comments formatted as:
+Do note that the repository uses [Probot](https://probot.github.io/), so if you write comments formatted as:
 
 ```perl
 # @todo You have an in issue in your heading
@@ -50,4 +50,4 @@ Please note that accepted contributions are included in the repository and hence
 
 Please note that all contributions are acknowledged and contributors are mentioned by available identification, if you as a contributor would prefer not to be mentioned explicitly please indicate this, PR mechanics cannot be ignored.
 
-If you prefer to be mentioned in a specific manner other than by GitHub handle or similar please indicate this and accommodation will be attempted, limited only be the means available,
+If you prefer to be mentioned in a specific manner other than by GitHub handle or similar please indicate this and accommodation will be attempted, limited only be the means available.

@@ -23,7 +23,8 @@ $VERSION = '2.11';
 my $test    = Test::Builder->new;
 my $timeout = 0;
 
-our $alarm = 2;    #default alarm
+# TODO: this should be renamed to ALARM to adhere with Variables::ProhibitPackageVars
+our $alarm = 2;    # default alarm
 
 # syntactic sugar for time_atmost
 sub time_ok {
@@ -210,13 +211,13 @@ sub _benchmark {
     };
 
     # setting alarm
-    alarm($local_alarm);
+    alarm $local_alarm;
 
     # running code
     &{$code};
 
     # clear alarm
-    alarm(0);
+    alarm 0;
 
     # setting second benchmark
     my $t1 = Benchmark->new();
@@ -232,6 +233,14 @@ sub _benchmark {
 __END__
 
 =pod
+
+=begin stopwords
+
+hokus pokus CPAN GitHub MetaCPAN AnnoCPAN jonasbn ACKNOWLEDGEMENTS Anwar PRs Johansen
+Morrott Bartosz BDFOY Gabor Szabo GZABO Gregor Herrmann alik Jakubski Veri Ivanova
+Leonerd PEVANS brian foy
+
+=end stopwords
 
 =begin markdown
 
@@ -556,7 +565,7 @@ higher and run the test again.
 
 =item * Execution exceeded threshold and timed out, the exception is thrown if the execution of tested code exceeds even the alarm, which is default 2 seconds, but can be set by the user or is equal to the upper threshold + 2 seconds
 
-The exception results in a diagnostic for the failing test. This is a failsafe
+The exception results in a diagnostic for the failing test. This is a fail-safe
 to avoid that code runs forever. If you get this diagnose either your code is
 too slow and you should address this or it might be error prone. If this is not
 the case adjust the alarm setting to suit your situation.
@@ -645,11 +654,11 @@ Travis reports are public available.
 
 =head1 ISSUE REPORTING
 
-Please report any bugs or feature requests using Github
+Please report any bugs or feature requests using GitHub
 
 =over
 
-=item * L<Github Issues|https://github.com/jonasbn/perl-test-timer/issues>
+=item * L<GitHub Issues|https://github.com/jonasbn/perl-test-timer/issues>
 
 =back
 
@@ -677,7 +686,7 @@ You can also look for information at:
 
 =over
 
-=item * L<Github Repository|https://github.com/jonasbn/perl-test-timer>, please see L<the guidelines for contributing|https://github.com/jonasbn/perl-test-timer/blob/master/CONTRIBUTING.md>.
+=item * L<GitHub Repository|https://github.com/jonasbn/perl-test-timer>, please see L<the guidelines for contributing|https://github.com/jonasbn/perl-test-timer/blob/master/CONTRIBUTING.md>.
 
 =back
 
