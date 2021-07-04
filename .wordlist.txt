@@ -42,3 +42,4 @@ ok
 nok
 sexualized
 Devel
+Brømsø

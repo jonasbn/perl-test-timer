@@ -234,6 +234,8 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =begin stopwords
 
 hokus pokus CPAN GitHub MetaCPAN AnnoCPAN jonasbn ACKNOWLEDGEMENTS Anwar PRs Johansen
@@ -622,9 +624,9 @@ Coverage report for the release described in this documentation (see L<VERSION|/
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    blib/lib/Test/Timer.pm        100.0   95.0   66.6  100.0  100.0   99.9   98.0
+    blib/lib/Test/Timer.pm        100.0  100.0  100.0  100.0  100.0   99.9  100.0
     ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
-    Total                         100.0   95.0   66.6  100.0  100.0  100.0   98.4
+    Total                         100.0  100.0  100.0  100.0  100.0  100.0  100.0
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 The L<Test::Perl::Critic> test runs with severity 5 (gentle) for now, please
@@ -694,7 +696,7 @@ You can also look for information at:
 
 =over
 
-=item * Jonas B. Nielsen (jonasbn) C<< <jonasbn at cpan.org> >>
+=item * Jonas Brømsø (jonasbn) C<< <jonasbn at cpan.org> >>
 
 =back
 
@@ -730,8 +732,8 @@ You can also look for information at:
 
 =head1 LICENSE AND COPYRIGHT
 
-Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007-2019
+Test::Timer and related modules are (C) by Jonas Brømsø
+(jonasbn) 2007-2021
 
 Test::Timer and related modules are released under the Artistic
 License 2.0

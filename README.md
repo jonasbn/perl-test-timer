@@ -274,9 +274,9 @@ Coverage report for the release described in this documentation (see [VERSION](#
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    blib/lib/Test/Timer.pm        100.0   95.0   66.6  100.0  100.0   99.9   98.0
+    blib/lib/Test/Timer.pm        100.0  100.0  100.0  100.0  100.0   99.9  100.0
     ...Timer/TimeoutException.pm  100.0    n/a    n/a  100.0  100.0    0.0  100.0
-    Total                         100.0   95.0   66.6  100.0  100.0  100.0   98.4
+    Total                         100.0  100.0  100.0  100.0  100.0  100.0  100.0
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 The [Test::Perl::Critic](https://metacpan.org/pod/Test%3A%3APerl%3A%3ACritic) test runs with severity 5 (gentle) for now, please
@@ -323,7 +323,7 @@ You can also look for information at:
 
 # AUTHOR
 
-- Jonas B. Nielsen (jonasbn) `<jonasbn at cpan.org>`
+- Jonas Brømsø (jonasbn) `<jonasbn at cpan.org>`
 
 # ACKNOWLEDGEMENTS
 
@@ -342,8 +342,8 @@ You can also look for information at:
 
 # LICENSE AND COPYRIGHT
 
-Test::Timer and related modules are (C) by Jonas B. Nielsen,
-(jonasbn) 2007-2019
+Test::Timer and related modules are (C) by Jonas Brømsø
+(jonasbn) 2007-2021
 
 Test::Timer and related modules are released under the Artistic
 License 2.0
