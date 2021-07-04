@@ -20,7 +20,7 @@ Bartosz
 BDFOY
 Gabor
 Szabo
-GZABO
+SZABGAB
 Gregor
 Herrmann
 alik
@@ -43,3 +43,8 @@ nok
 sexualized
 Devel
 Brømsø
+KENTNL
+NHORNE
+GREGOA
+UNIEJO
+MANWAR

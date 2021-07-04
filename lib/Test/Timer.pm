@@ -704,25 +704,25 @@ You can also look for information at:
 
 =over
 
-=item * Mohammad S Anwar, POD corrections PRs #23
+=item * Mohammad S Anwar (MANWAR), POD corrections PRs #23
 
-=item * Erik Johansen, suggestion for clearing alarm
+=item * Erik Johansen (UNIEJO), suggestion for clearing alarm
 
-=item * Gregor Herrmann from the Debian Perl Group, PR #16 fixes to spelling mistakes
+=item * Gregor Herrmann (GREGOA) from the Debian Perl Group, PR #16 fixes to spelling mistakes
 
-=item * Nigel Horne, issue #15 suggestion for better assertion in L<time_atleast|/time_atleast>
+=item * Nigel Horne (NHORNE), issue #15 suggestion for better assertion in L<time_atleast|/time_atleast>
 
-=item * Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
+=item * Nigel Horne (NHORNE), issue #10/#12 suggestion for improvement to diagnostics
 
 =item * p-alik, PR #4 eliminating warnings during test
 
-=item * Kent Fredric, PR #7 addressing file permissions
+=item * Kent Fredric (KENTNL), PR #7 addressing file permissions
 
 =item * Nick Morrott, PR #5 corrections to POD
 
 =item * Bartosz Jakubski, reporting issue #3
 
-=item * Gabor Szabo (GZABO), suggestion for specification of interval thresholds even though this was obsoleted by the later introduced time_between
+=item * Gabor Szabo (SZABGAB), suggestion for specification of interval thresholds even though this was obsoleted by the later introduced time_between
 
 =item * Paul Leonerd Evans (PEVANS), suggestions for time_atleast and time_atmost and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian packaging resulting in release 0.10
 

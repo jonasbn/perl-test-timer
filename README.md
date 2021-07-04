@@ -327,16 +327,16 @@ You can also look for information at:
 
 # ACKNOWLEDGEMENTS
 
-- Mohammad S Anwar, POD corrections PRs #23
-- Erik Johansen, suggestion for clearing alarm
-- Gregor Herrmann from the Debian Perl Group, PR #16 fixes to spelling mistakes
-- Nigel Horne, issue #15 suggestion for better assertion in [time\_atleast](#time_atleast)
-- Nigel Horne, issue #10/#12 suggestion for improvement to diagnostics
+- Mohammad S Anwar (MANWAR), POD corrections PRs #23
+- Erik Johansen (UNIEJO), suggestion for clearing alarm
+- Gregor Herrmann (GREGOA) from the Debian Perl Group, PR #16 fixes to spelling mistakes
+- Nigel Horne (NHORNE), issue #15 suggestion for better assertion in [time\_atleast](#time_atleast)
+- Nigel Horne (NHORNE), issue #10/#12 suggestion for improvement to diagnostics
 - p-alik, PR #4 eliminating warnings during test
-- Kent Fredric, PR #7 addressing file permissions
+- Kent Fredric (KENTNL), PR #7 addressing file permissions
 - Nick Morrott, PR #5 corrections to POD
 - Bartosz Jakubski, reporting issue #3
-- Gabor Szabo (GZABO), suggestion for specification of interval thresholds even though this was obsoleted by the later introduced time\_between
+- Gabor Szabo (SZABGAB), suggestion for specification of interval thresholds even though this was obsoleted by the later introduced time\_between
 - Paul Leonerd Evans (PEVANS), suggestions for time\_atleast and time\_atmost and the handling of $SIG{ALRM}. Also bug report for addressing issue with Debian packaging resulting in release 0.10
 - brian d foy (BDFOY), for patch to [\_runtest](#_runtest)
 
