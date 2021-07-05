@@ -240,7 +240,7 @@ __END__
 
 hokus pokus CPAN GitHub MetaCPAN AnnoCPAN jonasbn ACKNOWLEDGEMENTS Anwar PRs Johansen
 Morrott Bartosz BDFOY Gabor Szabo GZABO Gregor Herrmann alik Jakubski Veri Ivanova
-Leonerd PEVANS brian foy
+Leonerd PEVANS brian foy Brømsø MANWAR UNIEJO GREGOA NHORNE KENTNL SZABGAB
 
 =end stopwords
 
