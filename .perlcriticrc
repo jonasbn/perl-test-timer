@@ -1473,3 +1473,11 @@ allowed_values = 0 1 2 3 5 10 20
 # add_themes                         =
 # severity                           = 4
 # maximum_violations_per_document    = no_limit
+
+[TooMuchCode::ProhibitDuplicateLiteral]
+[TooMuchCode::ProhibitDuplicateSub]
+[TooMuchCode::ProhibitExcessiveColons]
+[TooMuchCode::ProhibitExtraStricture]
+[TooMuchCode::ProhibitLargeBlock]
+
+[-logicLAB::RequireParamsValidate]

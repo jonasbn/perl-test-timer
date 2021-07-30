@@ -4,17 +4,16 @@ use warnings;
 use strict;
 
 use vars qw($VERSION @ISA @EXPORT);
-use Benchmark;    # timestr
-use Carp qw(croak);
+use Benchmark qw(timediff);    # timestr
 use Error qw(:try);
-use Test::Builder;
+use Test::Builder qw();
 use base 'Test::Builder::Module';
 
 use constant TRUE  => 1;
 use constant FALSE => 0;
 
 #own
-use Test::Timer::TimeoutException;
+use Test::Timer::TimeoutException qw();
 
 @EXPORT = qw(time_ok time_nok time_atleast time_atmost time_between);
 
@@ -106,8 +105,7 @@ sub time_between {
     my ( $code, $lowerthreshold, $upperthreshold, $name ) = @_;
 
     # timing from lower to upper threshold
-    my ( $within, $time ) =
-        _runtest( $code, $lowerthreshold, $upperthreshold );
+    my ( $within, $time ) = _runtest( $code, $lowerthreshold, $upperthreshold );
 
     # are we within the specified threshold
     if ( $within == TRUE ) {
@@ -140,7 +138,7 @@ sub _runtest {
 
     try {
 
- # we have both a lower and upper threshold (time_between, time_most, time_ok)
+   # we have both a lower and upper threshold (time_between, time_most, time_ok)
         if ( defined $lowerthreshold and defined $upperthreshold ) {
 
             $time = _benchmark( $code, $upperthreshold );
@@ -240,7 +238,7 @@ __END__
 
 hokus pokus CPAN GitHub MetaCPAN AnnoCPAN jonasbn ACKNOWLEDGEMENTS Anwar PRs Johansen
 Morrott Bartosz BDFOY Gabor Szabo GZABO Gregor Herrmann alik Jakubski Veri Ivanova
-Leonerd PEVANS brian foy Brømsø MANWAR UNIEJO GREGOA NHORNE KENTNL SZABGAB
+Leonerd PEVANS brian foy Brømsø MANWAR UNIEJO GREGOA NHORNE KENTNL SZABGAB prioritize
 
 =end stopwords
 
